@@ -14,7 +14,7 @@ function cls:onCreate()
 	local logo = GAME_CFG.game_init_logo
 	if logo and logo ~= "" then
 	else
-		logo = "login_start.png"
+		logo = "big_img_logo.png"
 	end
 	
 	if bgColor == nil then
@@ -43,7 +43,7 @@ function cls:onCreate()
 						:addTo(self)
 						:setPosition(display.cx, display.cy)
 
-	require("app.views.game.common.GuangDian").new():addTo(self)
+	-- require("app.views.game.common.GuangDian").new():addTo(self)
 end
 
 function cls:onEnter()
@@ -60,8 +60,9 @@ function cls:delayRhand()
 	app:initModule()
 
 	SDK:init(function()
-		URLConfig:retest()
-		URLConfig:checkGameUrl(handler(self, self.configRhand))
+		-- URLConfig:retest()
+		-- URLConfig:checkGameUrl(handler(self, self.configRhand))
+		self:enterGame()
 	end)
 end
 

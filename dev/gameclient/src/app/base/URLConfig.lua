@@ -78,6 +78,7 @@ end
 -- 检查游戏WEB哪个更快
 function cls:checkGameUrl(rhand)
 	if TEST_SERVER then
+		print("*******test server",TEST_SERVER)
 		cls.LOGIN_PORT = cls.TEST_LOGIN_PORT
 		cls.PAY_DIR    = cls.TEST_PAY_DIR
 		self:reset(TEST_SERVER)

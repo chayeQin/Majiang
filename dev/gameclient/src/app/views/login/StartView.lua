@@ -24,7 +24,6 @@ cls.RESOURCE_BINDING = {
 
 function cls:ctor()
 	cls.super.ctor(self)
-
 	-- 登录背景
 	local bg = nil
 	if GAME_CFG.game_logo_bg then
@@ -42,30 +41,44 @@ function cls:ctor()
 		end
 	end
 
-	self.startBtn = Util:button("button/btn_32", handler(self, self.gameStart), "进入游戏")
-		:addTo(self)
-		:pos(display.width/2,150)
-		:hide()
-
-	self.serverLabel = Util:systemLabel("",22)
-							:addTo(self)
-							:pos(display.width/2,250)
-
-	self.verLabel = Util:label("", 22)
-						:addTo(self)
-						:anchor(1, 0.5)
-						:pos(display.width-20, display.height-20)
 end
 
 function cls:onEnter()
-	self.serverListHandle = Util:addEvent(Event.loadServerFinish, handler(self, self.onLoadServerList))
-	self.updateStartHandle = Util:addEvent(Event.gameUpdateInfo, handler(self, self.onGameUpdate))
+	-- self.serverListHandle = Util:addEvent(Event.loadServerFinish, handler(self, self.onLoadServerList))
+	-- self.updateStartHandle = Util:addEvent(Event.gameUpdateInfo, handler(self, self.onGameUpdate))
+	-- 检测登陆
+	self:connectServer()
 end
 
 function cls:onExit()
-	Util:removeEvent(self.serverListHandle)
-	self.serverListHandle = nil
+	-- Util:removeEvent(self.serverListHandle)
+	-- self.serverListHandle = nil
 end
+
+function cls:connectServer()
+	Net:connect("", "", handler(self, self.connectRhand), handler(self, self.connectFHand))
+end
+
+function cls:connectRhand()
+	-- 检测用户登陆状态
+	local userName = Util:load("userName")
+	local password = Util:load("password")
+
+	if userName == "" then -- 弹出注册用户
+
+	else -- 自动登陆
+		Net:call("player", "login", userName, password, handler(self, self.enterMainScene))
+	end
+end
+
+function cls:connectFHand()
+	-- 提示连接服务器失败，是否重新连接
+end
+
+function cls:enterMainScene()
+end
+
+
 
 function cls:onLoadServerList()
 	if PlatformInfo:isWhiteUser() or 

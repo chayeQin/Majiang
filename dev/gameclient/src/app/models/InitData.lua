@@ -69,10 +69,10 @@ cc.exports.initData = function()
 		db[typeName] = load(typeName)
 	end
 	-- 初始化SOCKET 类型映射表
-	initProtoMap(load("keys"))
-	initTypeMap(load("map_string"))
-	init("TGameText") 			-- y_游戏文本文字.xlsx
-	init("TErrorCode")			-- Type_错误提示.xlsx
+	-- initProtoMap(load("keys"))
+	-- initTypeMap(load("map_string"))
+	-- init("TGameText") 			-- y_游戏文本文字.xlsx
+	-- init("TErrorCode")			-- Type_错误提示.xlsx
 
 	-- 初始化类型常量
 	initType()

@@ -6,6 +6,10 @@
 
 local cls = class("PlatformInfo")
 
+function cls:ctor()
+	self.platInfo = {}
+end
+
 function cls:init(platInfo)
 	self.isInited         = true
 	self.platInfo         = platInfo

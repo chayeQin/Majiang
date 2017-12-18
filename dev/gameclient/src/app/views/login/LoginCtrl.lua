@@ -22,19 +22,25 @@ function cls:clear()
 end
 
 function cls:loginStart()
-	URLConfig:checkGameUrl(function()
-		-- 第一次启动
-		if not Util:load(SAVE_NEW_PHONE) then
-			PostEvent:newPhone()
-			Util:save(SAVE_NEW_PHONE, true)
-		end
+	if TEST_GAME_SERVER or GAME_CFG.GAME_SERVER then -- 固定一个游戏服务器
+		self:loadServerRhand()
+	else
+		URLConfig:checkGameUrl(function()
+			-- 第一次启动
+			if not Util:load(SAVE_NEW_PHONE) then
+				PostEvent:newPhone()
+				Util:save(SAVE_NEW_PHONE, true)
+			end
 
-		if SDK.isWhiteUser then -- 启动白名单用户重新加载服务器列表
-			ServersUtil:loadServerInfo(handler(self, self.loadServerRhand))
-		else
-			self:loadServerRhand()
-		end
-	end)
+			if SDK.isWhiteUser then -- 启动白名单用户重新加载服务器列表
+				ServersUtil:loadServerInfo(handler(self, self.loadServerRhand))
+			else
+				self:loadServerRhand()
+			end
+		end)
+	end
+
+	
 end
 
 function cls:loadServerRhand()

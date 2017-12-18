@@ -6,11 +6,6 @@ local Lang = class("Lang")
 Lang.__index = Lang
 
 Lang.FONTS = {
-    cn = "cn/text/msyh.ttf",
-    tw = "cn/text/msyh.ttf",
-    en = "cn/text/msyh.ttf",
-    sp = "cn/text/msyh.ttf",
-    ar = "", --"ar/text/advertising.ttf",
 }
 
 Lang.RTL = { -- 向右对齐的语言
@@ -31,7 +26,7 @@ end
 
 function Lang:setLang(lang)
     self.lang_        = lang
-    self.langFont     = Lang.FONTS[lang]
+    self.langFont     = Lang.FONTS[lang] or ""
     self.isRTL        = Lang.RTL[lang]
     initData()
     self.map = {}

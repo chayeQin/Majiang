@@ -7,8 +7,8 @@ local cls = class("DebugScene", cc.load("mvc").ViewBase)
 
 local GAMES = {
     {
-        name = "银河霸主",
-        key = "yhbz",
+        name = "麻将",
+        key = "majiang",
     },
 }
 

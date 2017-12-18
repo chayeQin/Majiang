@@ -2,7 +2,7 @@
 <userDefaultRoot>
     <sound>true</sound>
     <music>true</music>
-    <game_lang>"cn"</game_lang>
+    <game_lang>"en"</game_lang>
     <SYSTEMSETTING_INIT>true</SYSTEMSETTING_INIT>
     <equip_show>false</equip_show>
     <dress_up>false</dress_up>
@@ -753,7 +753,7 @@
     <guide_qyp10002s554_554>2</guide_qyp10002s554_554>
     <WorldRules_qyp10002s554_554>true</WorldRules_qyp10002s554_554>
     <RecruitAward_qyp10002s554_554>"2017\/08\/21"</RecruitAward_qyp10002s554_554>
-    <last_check_game_url_key>"yhbz-web.my-seiya.com"</last_check_game_url_key>
+    <last_check_game_url_key>""</last_check_game_url_key>
     <TUTORIAL_VER_TAG_qyp10003s554_554>1</TUTORIAL_VER_TAG_qyp10003s554_554>
     <voice_qyp10003s554_554>true</voice_qyp10003s554_554>
     <notis_key_1_qyp10003s554_554>true</notis_key_1_qyp10003s554_554>
@@ -1623,7 +1623,7 @@
     <RecruitAward_qyp2001s554_554>"2017\/09\/11"</RecruitAward_qyp2001s554_554>
     <FUNC_OPEN_GUIDE_18_qyp2001s554_554>true</FUNC_OPEN_GUIDE_18_qyp2001s554_554>
     <WorldRules_qyp2001s554_554>true</WorldRules_qyp2001s554_554>
-    <debug_server>2</debug_server>
+    <debug_server>1</debug_server>
     <TUTORIAL_VER_TAG_qyp2001s1_1>1</TUTORIAL_VER_TAG_qyp2001s1_1>
     <voice_qyp2001s1_1>true</voice_qyp2001s1_1>
     <notis_key_1_qyp2001s1_1>true</notis_key_1_qyp2001s1_1>
