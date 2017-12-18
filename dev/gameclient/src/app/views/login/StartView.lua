@@ -5,6 +5,23 @@
 --
 local cls = class("StartView", cc.load("mvc").ViewBase)
 
+
+cls.RESOURCE_FILENAME = "csb/StartView.csb"
+
+cls.RESOURCE_BINDING = {
+	-- 当前用户: hello
+	["lab_userName"] = {
+		varname = "lab_userName",
+	},
+	["btn_start"] = {
+		varname = "btn_start",
+		method = "btn_startHandler",
+	},
+	["img_logo"] = {
+		varname = "img_logo",
+	},
+}
+
 function cls:ctor()
 	cls.super.ctor(self)
 

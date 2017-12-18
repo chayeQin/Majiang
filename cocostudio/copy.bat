@@ -2,7 +2,7 @@
 
 title android
 
-set game=yhbz
+set game=majiang
 set lang=cn
 
 set DIR=%~dp0
