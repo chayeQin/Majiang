@@ -1,0 +1,1 @@
+cocos new - com.game.test -l lua yinghe

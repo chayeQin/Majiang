@@ -1,0 +1,14 @@
+90*90
+props       -> d_道具不可使用表.xlsx
+props_u     -> d_道具可使用表数值.xlsx
+props_imm   -> d_道具立即使用类.xlsx
+props_logic	-> d_道具可使用逻辑性.xlsx
+props_time	-> d_道具可使用缩短时间表.xlsx
+
+
+40*40
+props40
+props_u40
+props_imm40
+props_logic40
+props_time40

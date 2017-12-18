@@ -1,0 +1,9 @@
+-- H_特殊常规活动类型文字表.xlsx
+-- id=活动ID,name=活动名称cn,desc=活动说明cn,
+local DSpecialActivity = {
+  [9] = {id=9,name="Premios por preguntas",desc="1. You have 5 chances of answering questions during the event. There will be a cool down time between two quizzes. \n2. You will get reward even if you fail to answer the quiz. The more scores the more valuable reward. \n3. You will get points if you answer questions correctly. Points will be taken as ranking standard. \n4. Rewards will be sent out by e-mail according to the rank after event."},
+  [10] = {id=10,name="Premios por misiones",desc="1. You will get items if you complete mission during the event. \n2. Rewards will be sent out by e-mail after completing mission. \n3. There will be different missions everyday. Please check it."},
+  [11] = {id=11,name="Vuelta de suerte",desc="1. There will be 3 free chances of flopping everyday during the event. You can spend diamonds to flop after free chances. \n2. If you are not satisfied with the reward. You can spend some diamonds refreshing rewards. \n3. Only one reward can be chosen once. The value of three rewards is higher than diamonds. \n4. Rewards will be divided into three levels. The higher the level, the higher the value. There will be different points for different levels. \n5. Rewards will be sent out by e-mail according to the rank after event."},
+  [12] = {id=12,name="Invasión",desc="1. There will be a large amount of Alien warships on galaxy map during the event. Attacking alien warships will get items. \n2. Alien warship will be divided into several levels. Degree of difficulty varies from different levels. \n3. Reward is related with HP of attacking alien warships. Killing will get extra rewards. \n4. Attacking and killing alien warships can get points. Rewards will be sent out according to the rank after event."}
+}
+return DSpecialActivity

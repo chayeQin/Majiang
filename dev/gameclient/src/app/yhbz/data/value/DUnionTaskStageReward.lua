@@ -1,0 +1,30 @@
+-- L_联盟任务阶段宝箱.xlsx
+-- id=ID,stage=阶段ID,dataType=要求数据类型,dataId=要求数据ID,value=要求数值,itemType=奖励类型,itemId=奖励ID,itemCount=奖励数量,
+local DUnionTaskStageReward = {
+  [1] = {id=1,stage=1,dataType=1,dataId=1,value=1,itemType=5,itemId=1,itemCount=10000},
+  [2] = {id=2,stage=1,dataType=1,dataId=1,value=1,itemType=5,itemId=2,itemCount=10000},
+  [3] = {id=3,stage=1,dataType=1,dataId=1,value=25,itemType=5,itemId=3,itemCount=1600},
+  [4] = {id=4,stage=1,dataType=1,dataId=1,value=41,itemType=5,itemId=4,itemCount=400},
+  [5] = {id=5,stage=1,dataType=1,dataId=1,value=1,itemType=7,itemId=801,itemCount=1},
+  [6] = {id=6,stage=2,dataType=1,dataId=1,value=1,itemType=5,itemId=1,itemCount=30000},
+  [7] = {id=7,stage=2,dataType=1,dataId=1,value=1,itemType=5,itemId=2,itemCount=30000},
+  [8] = {id=8,stage=2,dataType=1,dataId=1,value=25,itemType=5,itemId=3,itemCount=4800},
+  [9] = {id=9,stage=2,dataType=1,dataId=1,value=41,itemType=5,itemId=4,itemCount=1200},
+  [10] = {id=10,stage=2,dataType=1,dataId=1,value=1,itemType=7,itemId=302,itemCount=5},
+  [11] = {id=11,stage=3,dataType=1,dataId=1,value=1,itemType=5,itemId=1,itemCount=10000},
+  [12] = {id=12,stage=3,dataType=1,dataId=1,value=1,itemType=5,itemId=2,itemCount=10000},
+  [13] = {id=13,stage=3,dataType=1,dataId=1,value=25,itemType=5,itemId=3,itemCount=1600},
+  [14] = {id=14,stage=3,dataType=1,dataId=1,value=41,itemType=5,itemId=4,itemCount=400},
+  [15] = {id=15,stage=3,dataType=1,dataId=1,value=1,itemType=7,itemId=302,itemCount=5},
+  [16] = {id=16,stage=4,dataType=1,dataId=1,value=1,itemType=5,itemId=1,itemCount=30000},
+  [17] = {id=17,stage=4,dataType=1,dataId=1,value=1,itemType=5,itemId=2,itemCount=30000},
+  [18] = {id=18,stage=4,dataType=1,dataId=1,value=25,itemType=5,itemId=3,itemCount=4800},
+  [19] = {id=19,stage=4,dataType=1,dataId=1,value=41,itemType=5,itemId=4,itemCount=1200},
+  [20] = {id=20,stage=4,dataType=1,dataId=1,value=1,itemType=5,itemId=1000,itemCount=100},
+  [21] = {id=21,stage=5,dataType=1,dataId=1,value=1,itemType=5,itemId=1,itemCount=50000},
+  [22] = {id=22,stage=5,dataType=1,dataId=1,value=1,itemType=5,itemId=2,itemCount=50000},
+  [23] = {id=23,stage=5,dataType=1,dataId=1,value=25,itemType=5,itemId=3,itemCount=8000},
+  [24] = {id=24,stage=5,dataType=1,dataId=1,value=41,itemType=5,itemId=4,itemCount=2000},
+  [25] = {id=25,stage=5,dataType=1,dataId=1,value=1,itemType=8,itemId=15,itemCount=1}
+}
+return DUnionTaskStageReward

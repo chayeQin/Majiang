@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "446b1e90-5f22-4346-bce6-9db034a2cc53++6561",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++5714" : {
+
+    },
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++5714" : 9223372036854775807,
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B14D3D0D-45CA-47F2-829B-0C46194EAD4F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++5714" : "..\/cocos2d-x",
+    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : "..\/quick_libs"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "yinghe",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "yinghe.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.75:3610",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "446b1e90-5f22-4346-bce6-9db034a2cc53++5714"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.75:3610",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "446b1e90-5f22-4346-bce6-9db034a2cc53++6561"
+    }
+  ]
+}

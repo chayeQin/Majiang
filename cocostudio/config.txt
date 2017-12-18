@@ -1,0 +1,16 @@
+lab
+txt
+text
+lang
+btn
+img
+sp
+node
+table
+num
+chk
+panel
+prog
+list
+scroll
+page

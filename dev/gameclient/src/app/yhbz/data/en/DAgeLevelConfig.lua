@@ -1,0 +1,30 @@
+-- s_时代等级配置文字表.xlsx
+-- id=时代等级,name=时代名称,
+local DAgeLevelConfig = {
+  [1] = {id=1,name="Genesis Age Lv.1"},
+  [2] = {id=2,name="Genesis Age Lv.2"},
+  [3] = {id=3,name="Genesis Age Lv.3"},
+  [4] = {id=4,name="Genesis Age Lv.4"},
+  [5] = {id=5,name="Genesis Age Lv.5"},
+  [6] = {id=6,name="Star Age Lv.1"},
+  [7] = {id=7,name="Star Age Lv.2"},
+  [8] = {id=8,name="Star Age Lv.3"},
+  [9] = {id=9,name="Star Age Lv.4"},
+  [10] = {id=10,name="Star Age Lv.5"},
+  [11] = {id=11,name="Infinite Age Lv.1"},
+  [12] = {id=12,name="Infinite Age Lv.2"},
+  [13] = {id=13,name="Infinite Age Lv.3"},
+  [14] = {id=14,name="Infinite Age Lv.4"},
+  [15] = {id=15,name="Infinite Age Lv.5"},
+  [16] = {id=16,name="Empty Age Lv.1"},
+  [17] = {id=17,name="Empty Age Lv.2"},
+  [18] = {id=18,name="Empty Age Lv.3"},
+  [19] = {id=19,name="Empty Age Lv.4"},
+  [20] = {id=20,name="Empty Age Lv.5"},
+  [21] = {id=21,name="Welkin Age Lv.1"},
+  [22] = {id=22,name="Welkin Age Lv.2"},
+  [23] = {id=23,name="Welkin Age Lv.3"},
+  [24] = {id=24,name="Welkin Age Lv.4"},
+  [25] = {id=25,name="Welkin Age Lv.5"}
+}
+return DAgeLevelConfig

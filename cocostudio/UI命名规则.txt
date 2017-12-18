@@ -1,0 +1,16 @@
+﻿lab 	动态文本，一般读取表格里面的文字字段，玩家名字等等
+txt 	输入框，  让玩家输入文本
+text 	TextField
+lang 	静态文本, 读取语言包里对应字段
+btn 	按钮
+img 	图片
+node 	普通节点
+chk 	CheckBox
+panel 	容器
+sp
+table
+num
+prog 	进度条
+list 	ListView
+scroll 	ScrollView
+page 	PageView

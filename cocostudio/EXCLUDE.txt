@@ -1,0 +1,5 @@
+#¹ıÂËÎÄ¼ş
+.csd
+.udf
+\text\
+\ui view\

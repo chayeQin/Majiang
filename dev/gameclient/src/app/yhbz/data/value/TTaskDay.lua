@@ -1,0 +1,33 @@
+-- r_日常任务.xlsx
+-- id=id,key=key,data=data,
+local TTaskDay = {
+  [1] = {id=1,key="help",data="帮助他人"},
+  [2] = {id=2,key="online_reward",data="领取在线奖励"},
+  [3] = {id=3,key="train1",data="训练步兵"},
+  [4] = {id=4,key="train2",data="训练骑兵"},
+  [5] = {id=5,key="train3",data="训练弓兵"},
+  [6] = {id=6,key="train4",data="训练车兵"},
+  [7] = {id=7,key="made_trap",data="制造陷阱"},
+  [8] = {id=8,key="upgrade_build",data="升级建筑"},
+  [9] = {id=9,key="cure_wounded",data="治疗伤兵"},
+  [10] = {id=10,key="union_donate",data="联盟捐献"},
+  [11] = {id=11,key="study_science",data="研究科技"},
+  [12] = {id=12,key="kill_monster",data="世界消灭怪物"},
+  [13] = {id=13,key="compound_material",data="合成材料"},
+  [14] = {id=14,key="made_equip",data="制造装备"},
+  [15] = {id=15,key="vow",data="许愿"},
+  [16] = {id=16,key="union_deal",data="联盟交易"},
+  [17] = {id=17,key="force_reinforce",data="士兵增援"},
+  [18] = {id=18,key="merchant_buy",data="商人购买"},
+  [19] = {id=19,key="use_resource_item",data="使用资源道具"},
+  [20] = {id=20,key="sign",data="签到"},
+  [21] = {id=21,key="promote_yield1",data="提升农田产量"},
+  [22] = {id=22,key="promote_yield2",data="提升木材产量"},
+  [23] = {id=23,key="promote_yield3",data="提升铁矿产量"},
+  [24] = {id=24,key="promote_yield4",data="提升秘银产量"},
+  [25] = {id=25,key="world_collect1",data="世界采集木头"},
+  [26] = {id=26,key="world_collect2",data="世界采集粮食"},
+  [27] = {id=27,key="world_collect3",data="世界采集铁矿"},
+  [28] = {id=28,key="world_collect4",data="世界采集秘银"}
+}
+return TTaskDay

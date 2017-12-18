@@ -1,0 +1,30 @@
+-- 游戏资源表.xlsx
+-- id=id,key=key,data=data,
+local TData = {
+  [1] = {id=1,key="TBuild",data="1_建筑类型"},
+  [2] = {id=2,key="TForce",data="2_舰种类型"},
+  [3] = {id=3,key="TBuildData",data="3_建筑数据"},
+  [4] = {id=4,key="TForceData",data="4_舰种数据"},
+  [5] = {id=5,key="TPropCannot",data="5_不可使用道具"},
+  [6] = {id=6,key="TProp",data="6_可使用表数值道具"},
+  [7] = {id=7,key="TPropTime",data="7_可使用缩短时间道具"},
+  [8] = {id=8,key="TPropLogic",data="8_可使用逻辑性道具"},
+  [9] = {id=9,key="TInitiativeSkill",data="9_主动技能"},
+  [10] = {id=10,key="TPropLogicType",data="10_道具可使用逻辑性"},
+  [11] = {id=11,key="TPropTimeType",data="11_缩短时间逻辑类型"},
+  [12] = {id=12,key="TPropImmediately",data="12_立即使用道具ID"},
+  [13] = {id=13,key="TPropUnion",data="13_联盟积分"},
+  [14] = {id=14,key="TEquipMaterial",data="14_装备材料"},
+  [15] = {id=15,key="TEquip",data="15_装备"},
+  [16] = {id=16,key="TUnionBuild",data="16_联盟建筑"},
+  [17] = {id=17,key="TWorld",data="17_星系建筑"},
+  [19] = {id=19,key="TScience",data="19_科技类型"},
+  [20] = {id=20,key="TPropCommon",data="20_国家数据"},
+  [21] = {id=21,key="TMechaMaterial",data="21_机甲材料ID"},
+  [22] = {id=22,key="TEquipDrawing",data="22_装备图纸"},
+  [23] = {id=23,key="TLeader",data="23_领袖"},
+  [24] = {id=24,key="TLeaderDebris",data="24_领袖碎片"},
+  [25] = {id=25,key="TCannonArmour",data="25_巨炮装甲"},
+  [100] = {id=100,key="TForceType",data="100_兵种类型"}
+}
+return TData

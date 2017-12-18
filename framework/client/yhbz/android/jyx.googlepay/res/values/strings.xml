@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Star Clash</string>
+    <string name="facebook_app_id">1406688606069148</string>
+    <integer name="google_play_services_version">4323000</integer>
+</resources>

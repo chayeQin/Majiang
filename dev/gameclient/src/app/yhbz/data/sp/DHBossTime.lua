@@ -1,0 +1,30 @@
+-- s_时空大战怪物数据表文字表.xlsx
+-- id=自增ID,name=怪物名称,
+local DHBossTime = {
+  [1] = {id=1,name="Saqueado"},
+  [2] = {id=2,name="Saqueado"},
+  [3] = {id=3,name="Elite"},
+  [4] = {id=4,name="Saqueado"},
+  [5] = {id=5,name="Líder"},
+  [6] = {id=6,name="Saqueado"},
+  [7] = {id=7,name="Saqueado"},
+  [8] = {id=8,name="Elite"},
+  [9] = {id=9,name="Saqueado"},
+  [10] = {id=10,name="Líder"},
+  [11] = {id=11,name="Saqueado"},
+  [12] = {id=12,name="Elite"},
+  [13] = {id=13,name="Líder"},
+  [14] = {id=14,name="Saqueado"},
+  [15] = {id=15,name="Elite"},
+  [16] = {id=16,name="Líder"},
+  [17] = {id=17,name="Saqueado"},
+  [18] = {id=18,name="Elite"},
+  [19] = {id=19,name="Líder"},
+  [20] = {id=20,name="Saqueado"},
+  [21] = {id=21,name="Elite"},
+  [22] = {id=22,name="Líder"},
+  [23] = {id=23,name="Saqueado"},
+  [24] = {id=24,name="Elite"},
+  [25] = {id=25,name="Líder"}
+}
+return DHBossTime
