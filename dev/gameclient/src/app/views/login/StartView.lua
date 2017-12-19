@@ -56,7 +56,7 @@ function cls:onExit()
 end
 
 function cls:connectServer()
-	Net:connect("", "", handler(self, self.connectRhand), handler(self, self.connectFHand))
+	Net:connect("192.168.1.72", "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
 end
 
 function cls:connectRhand()
@@ -65,7 +65,7 @@ function cls:connectRhand()
 	local password = Util:load("password")
 
 	if userName == "" then -- 弹出注册用户
-
+		Net:call("player", "register", "12223", "1234");
 	else -- 自动登陆
 		Net:call("player", "login", userName, password, handler(self, self.enterMainScene))
 	end
