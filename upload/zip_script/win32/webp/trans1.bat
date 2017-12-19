@@ -1,0 +1,1 @@
+cwebp -q 50 1.jpg -o 1.webp

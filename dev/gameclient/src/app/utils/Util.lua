@@ -314,22 +314,6 @@ function cls:save(key,value,user)
     cc.UserDefault:getInstance():flush()
 end
 
-function cls:loadBool(key, user)
-	if user and user.info.uid then
-		key = key .. "_" .. user.info.uid .. "_" .. PlatformInfo:getServerId()
-	end
-	local value = cc.UserDefault:getInstance():getBoolForKey(key)
-	return value ~= false
-end
-
-function cls:saveBool(key, value, user)
-	if user and user.info.uid then
-		key = key .. "_" .. user.info.uid .. "_" .. PlatformInfo:getServerId()
-	end
-    cc.UserDefault:getInstance():setBoolForKey(key, value)
-    cc.UserDefault:getInstance():flush()
-end
-
 -- 下次循环再调用
 function cls:tick(func,delay)
 	if not func then return end

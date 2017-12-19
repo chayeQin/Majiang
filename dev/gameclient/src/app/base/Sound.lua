@@ -8,12 +8,12 @@ local cls = class("Sound")
 local audio = AudioEngine
 
 function cls:ctor()
-	if not Util:loadBool("SYSTEMSETTING_INIT") then
-		Util:saveBool("sound", true)
-		Util:saveBool("music", true)
+	if not Util:load("SYSTEMSETTING_INIT") then
+		Util:save("sound", true)
+		Util:save("music", true)
 	end
-	self.isEffect  = Util:loadBool("sound")
-	self.isMusic   = Util:loadBool("music")
+	self.isEffect  = Util:load("sound")
+	self.isMusic   = Util:load("music")
 	self.effectMap = {}
 end
 
