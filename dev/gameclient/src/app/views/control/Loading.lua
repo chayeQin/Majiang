@@ -49,6 +49,7 @@ function cls.count()
 end
 
 function cls:ctor()
+	if true then return end
 	self.sp = Util:createAniWithCsb("loading",3)
 		:addTo(self)
 		:pos(display.width/2, display.height/2)

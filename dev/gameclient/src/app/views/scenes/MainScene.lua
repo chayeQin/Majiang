@@ -34,8 +34,6 @@ function cls:onEnter()
     else
         Sound:music("sound/bg/1", SOUND_PZ)
     end
-    CityCtrl:showCityView(showAnimation)
-    
     Util:event(Event.unionUpdate)
 
     -- self.labMem = Util:labelOutLine(""):addTo(self,9999999)

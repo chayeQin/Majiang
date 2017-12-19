@@ -65,9 +65,11 @@ function cls:connectRhand()
 	local password = Util:load("password")
 
 	if userName == "" then -- 弹出注册用户
-		Net:call("player", "register", "12223", "1234");
+		self.userName = "123123"
+		self.password = "1234"
+		Net:call("player", "register", self.userName, self.password, handler(self, self.onRegister))
 	else -- 自动登陆
-		Net:call("player", "login", userName, password, handler(self, self.enterMainScene))
+		Net:call("player", "login", userName, password, handler(self, self.onLogin))
 	end
 end
 
@@ -75,10 +77,18 @@ function cls:connectFHand()
 	-- 提示连接服务器失败，是否重新连接
 end
 
-function cls:enterMainScene()
+function cls:onRegister(v)
+	Util:save("userName", self.userName)
+	Util:save("password", self.password)
+end
+
+function cls:onLogin()
 end
 
 
+function cls:btn_startHandler()
+	app:enterScene("scene.MainScene")
+end
 
 function cls:onLoadServerList()
 	if PlatformInfo:isWhiteUser() or 
