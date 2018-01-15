@@ -166,15 +166,6 @@ end
 -- 'sign':'a6ad90e4c80104280574dac08c19a124',
 -- 'time':1385448054}
 function cls:send(bean,method,...)
-	if not self.isLogin and method ~= "login" and method ~= "exist" then
-		print("*** 没登陆不允许发送请求:", bean,method)
-
-		if TEST_DEV then
-			Msg.new("开发模式下提示,没登陆不允许发送请求:\n" .. bean .. ":" .. method)
-		end
-		return
-	end
-
 	if not self:isConnect() then
 		HeartBeatUtil:reconnect()
 		return
@@ -189,11 +180,8 @@ function cls:send(bean,method,...)
 	msg.b = bean
 	msg.m = method
 	msg.p = {...}
-	msg.t = Util:time()
-	msg.s= Crypto.md5(URLConfig.GAME_KEY .. bean .. method .. msg.t)
-	if type(msg.p[1]) == "string" and method ~= "exist" then 
-		msg.p[1] = ""
-	end
+	-- msg.t = Util:time()
+	-- msg.s= Crypto.md5(URLConfig.GAME_KEY .. bean .. method .. msg.t)
 
 	-- 缓存数据，等下次返回后才提交数据
 	table.insert(self.postList, msg)
@@ -244,18 +232,18 @@ end
 
 function cls:recv(v)
 	HeartBeatUtil:resetBeatSendTime()
+	v = json.decode(v)
 	self.lastReceivedMsg = v -- 最后接收到的消息
-	if v.type ~= 0 then -- 0：普通消息， !=0 推送消息
-		
+	if v.t ~= 0 then -- 0：普通消息， !=0 推送消息
 		local status, msg = xpcall(function()
 			NotifyHandler.handleEvent(v, msg)
 		end, __G__TRACKBACK__)
 		return
 	end
 
-	if v.error ~= 0 then -- 出错了
-		print("ERROR**** receive Msg Error", v.error)
-		Util:event(Event.netError, v)
+	-- if v.t == 100 then -- 出错了
+		-- print("ERROR**** receive Msg Error", v.msg)
+		-- Util:event(Event.netError, v)
 		-- local errorStr = db.TErrorCode[v.error].data
 		-- if TEST_DEV then
 		-- 	errorStr = "服务端错误提示: " .. errorStr
@@ -272,10 +260,10 @@ function cls:recv(v)
 		-- 	end
 		-- 	Tips.show(errorStr)
 		-- end
-	end
+	-- end
 	
 	-- 发送下一条消息
-	if self.postId == v.id then
+	if self.postId == v.i then
 		local time = socket.gettime() - self.lastSendTime
 		self.sendCount = self.sendCount + 1
 		self.sendTime  = self.sendTime + time
@@ -289,8 +277,8 @@ function cls:recv(v)
 	end
 
 	-- 这个请求是否有show loading
-	if self.backLoading[v.id] then
-		self.backLoading[v.id] = nil
+	if self.backLoading[v.i] then
+		self.backLoading[v.i] = nil
 		Loading.hide()
 		if TEST_DEV then
 			print(">>>>>loading count", Loading.count())
@@ -298,8 +286,8 @@ function cls:recv(v)
 	end
 
 	-- 正常 call,call_方法调用 
-	local func = self.back[v.id]
-	self.back[v.id] = nil
+	local func = self.back[v.i]
+	self.back[v.i] = nil
 	if func then -- 回调
 		 -- 防止在回调报错阻塞游戏网络模块
 		local status, msg = xpcall(function()

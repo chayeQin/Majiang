@@ -14,4 +14,13 @@ cls.SAVE_IP_KEY = "last_login_ip"
 -- 自动翻译
 cls.SAVE_AUTO_LANG = "save_auto_lang"
 
+-- 灰色颜色
+cls.COLOR_GRAY = cc.c3b(0xa5,0x2a,0x2a)
+
+-- 绿色颜色
+cls.COLOR_GREEN = cc.c3b(0x4c,0xa6,0x40)
+
+-- 遮罩颜色
+cls.LayerColor = cc.c4b(0,0,0,0.8)
+
 return cls

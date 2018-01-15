@@ -8,12 +8,12 @@ local cls = class("Sound")
 local audio = AudioEngine
 
 function cls:ctor()
-	if not Util:load("SYSTEMSETTING_INIT") then
-		Util:save("sound", true)
-		Util:save("music", true)
+	if not Util:loadBool("SYSTEMSETTING_INIT") then
+		Util:saveBool("sound", true)
+		Util:saveBool("music", true)
 	end
-	self.isEffect  = Util:load("sound")
-	self.isMusic   = Util:load("music")
+	self.isEffect  = Util:loadBool("sound")
+	self.isMusic   = Util:loadBool("music")
 	self.effectMap = {}
 end
 
@@ -104,6 +104,22 @@ function cls:pauseMusic()
 
 	self:enableMusic(false)
 	self:unloadSound()
+end
+
+function cls:getMusicVolume()
+	return audio.getMusicVolume()
+end
+
+function cls:setMusicVolume(volume)
+	audio.setMusicVolume(volume)
+end
+
+function cls:getEffectsVolume()
+	return audio.getEffectsVolume()
+end
+
+function cls:setEffectsVolume(volume)
+	audio.setEffectsVolume(volume)
 end
 
 return cls

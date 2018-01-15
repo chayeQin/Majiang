@@ -80,4 +80,6 @@ TEST_LANG_TRANS = "en" -- 测试翻译成该语言
 
 TEST_STRONG_TUTORIAL = -1
 
+TEST_CLIENT_PROXY = false
+
 

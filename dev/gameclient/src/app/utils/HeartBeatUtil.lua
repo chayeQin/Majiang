@@ -42,6 +42,7 @@ function cls:init()
 end
 
 function cls:start()
+	if true then return end
 	self:init()
 
 	if self.loop then
@@ -84,16 +85,16 @@ end
 function cls:showMsg(v)
 	Net:close()
 	PostEvent:netclose()
-	Msg.createSysMsg(Lang:find("sys_net_lose") .. v, function()
-		app:clearModule()
-		app:restart()
-	end)
+	-- Msg.createSysMsg(Lang:find("sys_net_lose") .. v, function()
+	-- 	app:clearModule()
+	-- 	app:restart()
+	-- end)
 end
 
 function cls:reconnect()
 	if TEST_DEV then
 		Net:close()
-		Msg.createSysMsg("测试模式断线!点击重连接!", handler(app, app.restart))
+		-- Msg.createSysMsg("测试模式断线!点击重连接!", handler(app, app.restart))
 		return
 	end
 

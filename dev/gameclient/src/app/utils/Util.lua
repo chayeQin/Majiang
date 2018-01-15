@@ -24,9 +24,15 @@ function cls:ctor()
 	}
 end
 
-function cls:sprite(v)
+function cls:sprite(v, resType)
 	v = self:path(v)
+
+	if ccui.TextureResType.plistType == resType then
+		return display.newSprite("#" .. v)
+	end
+
 	if not self:exists(v) then
+		print("**not exits", v)
 		return self:label(v,30, cc.convertColor(display.COLOR_RED, "4b"))
 	end
 	return display.newSprite(v)
@@ -43,8 +49,12 @@ function cls:sprite9(v,x,y,w,h,isJpg)
 	return display.newSprite(v, params)
 end
 
-function cls:jpg(v)
+function cls:jpg(v, resType)
 	v = self:path(v, ".jpg")
+	if ccui.TextureResType.plistType == resType then
+		return display.newSprite("#" .. v)
+	end
+	
 	if not self:exists(v) then
 		return self:label(v, 30, cc.convertColor(display.COLOR_RED, "4b"))
 	end
@@ -166,17 +176,28 @@ function cls:labelWithShadow(text,size,color4b,dimensions,align,valign, shadowCo
 	return label
 end
 
-function cls:button(v, func, label, labelSize, color3b)
-	local btn = nil
+function cls:button(v, func, label, labelSize, color3b, resType)
+	local res = {}
+	local resType = resType or ccui.TextureResType.localType -- ccui.TextureResType.plistType
 	if type(v) == "table"then
 		for i, _ in ipairs(v) do
-			v[i] = self:path(v[i])
+			if resType == ccui.TextureResType.plistType then
+				res[i] = self:path(v[i])
+			else
+				res[i] = self:path(v[i])
+			end
+			
 		end
-		btn = ccui.Button:create(unpack(v))
 	else
-		v = self:path(v)
-		btn = ccui.Button:create(v)
+		if resType == ccui.TextureResType.plistType then
+			res[1] = self:path(v)
+		else
+			res[1] = self:path(v)
+		end
 	end
+
+	local btn = ccui.Button:create(res[1], res[2], res[3], resType)
+
 	if label then
 		labelSize = labelSize or 30
 		color3b = color3b or display.COLOR_WHITE
@@ -201,7 +222,6 @@ function cls:button(v, func, label, labelSize, color3b)
 			func(target)
 		end
 
-		TaskTutorial:checkGuide(guideName)
 		--  TODO : play button click sound
 		Sound:play("sound/other/"..52)
 	end)
@@ -311,6 +331,22 @@ function cls:save(key,value,user)
 
 	local str = json.encode(value)
 	cc.UserDefault:getInstance():setStringForKey(key, str)
+    cc.UserDefault:getInstance():flush()
+end
+
+function cls:loadBool(key, user)
+	if user and user.info.uid then
+		key = key .. "_" .. user.info.uid .. "_" .. PlatformInfo:getServerId()
+	end
+	local value = cc.UserDefault:getInstance():getBoolForKey(key)
+	return value ~= false
+end
+
+function cls:saveBool(key, value, user)
+	if user and user.info.uid then
+		key = key .. "_" .. user.info.uid .. "_" .. PlatformInfo:getServerId()
+	end
+    cc.UserDefault:getInstance():setBoolForKey(key, value)
     cc.UserDefault:getInstance():flush()
 end
 

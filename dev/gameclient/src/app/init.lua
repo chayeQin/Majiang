@@ -21,6 +21,7 @@ local function init()
 	require "app.views.login.init"
 	-- 各个模块初始化
 	require "app.views.scenes.init"
+	require "app.proxy.init"
 
 	if DEBUG == 0 then
 		dump = function()end

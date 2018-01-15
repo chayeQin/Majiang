@@ -168,11 +168,7 @@ function cls:switch(event)
 	end
 
 	print("***************  Switch View ", name, isPushStack)
-	Util:event(Event.broadcast)
 	if name == "" then
-		if CityCtrl.cityView then
-			CityCtrl.cityView.ui:showMainTaskTips()
-		end
 		return
 	end
 
@@ -193,7 +189,6 @@ function cls:switch(event)
 		self.curr:updateUI()
 	end
 
-	TaskModel:clearTaskParam() -- 切换界面清除任务参数
 	self.curr:pos(0,0)
 	self.curr:show()
 

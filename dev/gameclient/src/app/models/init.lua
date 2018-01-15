@@ -15,3 +15,4 @@ cc.exports.Event = import(".Event")
 require ("app.".. GAME_NAME .. ".ServerConfig")
 
 cc.exports.User = import(".User").new()
+cc.exports.GameModel = import(".GameModel").new()

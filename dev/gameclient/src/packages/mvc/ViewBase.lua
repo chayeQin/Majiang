@@ -207,7 +207,6 @@ function ViewBase:findResouece(fullName,callback)
             Util:event(Event.assistantClick)
             local guideName = target.guideName
             func(self, target)
-            TaskTutorial:checkGuide(guideName)
         end)
     else
         parent:onTouch(handler(self, func))

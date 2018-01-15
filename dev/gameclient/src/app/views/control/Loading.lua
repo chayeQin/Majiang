@@ -50,9 +50,11 @@ end
 
 function cls:ctor()
 	if true then return end
-	self.sp = Util:createAniWithCsb("loading",3)
-		:addTo(self)
-		:pos(display.width/2, display.height/2)
+	local resourceFilename = "csb/Loading.csb"
+	if Util:exists(resourceFilename) then
+		-- self.sp = cc.CSLoader:createNode(resourceFilename)
+		-- 		:addTo(self)
+	end
 
 	self:showView()
 	self:addTo(appView,TAGS.Loading,TAGS.Loading)

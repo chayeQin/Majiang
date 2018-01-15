@@ -41,14 +41,20 @@ function cls:ctor()
 		end
 	end
 
+	local tmp = ActionTips.new({1,2,3,4})
+	tmp:addTo(self)
+	tmp:pos(1000, 300)
+	self:enableNodeEvents()
 end
 
 function cls:onEnter()
 	-- self.serverListHandle = Util:addEvent(Event.loadServerFinish, handler(self, self.onLoadServerList))
 	-- self.updateStartHandle = Util:addEvent(Event.gameUpdateInfo, handler(self, self.onGameUpdate))
 	-- 检测登陆
+	print("******onenter***********")
 	self:connectServer()
 end
+
 
 function cls:onExit()
 	-- Util:removeEvent(self.serverListHandle)
@@ -56,20 +62,23 @@ function cls:onExit()
 end
 
 function cls:connectServer()
-	Net:connect("192.168.1.72", "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
+	GameProxy:connectServer("192.168.1.72", "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
 end
 
 function cls:connectRhand()
 	-- 检测用户登陆状态
-	local userName = Util:load("userName")
-	local password = Util:load("password")
-
-	if userName == "" then -- 弹出注册用户
-		self.userName = "123123"
-		self.password = "1234"
-		Net:call("player", "register", self.userName, self.password, handler(self, self.onRegister))
-	else -- 自动登陆
-		Net:call("player", "login", userName, password, handler(self, self.onLogin))
+	local uid = Util:load("uid")
+	local nickName = Util:load("nickName")
+	local headUrl = ""
+	print("****connect", uid, nickName, headUrl)
+	if TEST_DEV and (not uid or uid == "") then 
+		local usr, pass = LoginCtrl:randUsr()
+		self.uid = usr
+		self.nickName = usr
+		print("****connect", self.uid, self.nickName, headUrl)
+		GameProxy:login(self.uid, self.nickName, headUrl, handler(self, self.onRegister))
+	else -- 从微信获取用户信息
+		GameProxy:login(uid, nickName, headUrl, handler(self, self.onLogin))
 	end
 end
 
@@ -78,16 +87,22 @@ function cls:connectFHand()
 end
 
 function cls:onRegister(v)
-	Util:save("userName", self.userName)
-	Util:save("password", self.password)
+	Util:save("uid", self.uid)
+	Util:save("nickName", self.nickName)
+	self:onLogin(v)
 end
 
-function cls:onLogin()
+function cls:onLogin(v)
+	dump(v)
+	User:setUserInfo(v.r)
+	GameProxy:getRoomStatus(function(v2)
+		local roomId = v2.r
+		User:setRoomId(roomId)
+		app:enterScene("scenes.MainScene")
+	end)
 end
-
 
 function cls:btn_startHandler()
-	app:enterScene("scene.MainScene")
 end
 
 function cls:onLoadServerList()
