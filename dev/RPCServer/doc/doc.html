@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<p>
+服务器：<br/>
+&emsp;192.168.1.72:10002
+</p>
+<p>
+协议定义：
+<br/>
+&emsp;消息头+消息体<br/>
+&emsp;PS: 假设消息体长度20,那么,消息头的内容为20,整个消息长度为24<br/>
+<br/>
+&emsp;接受：<br/>		
+&emsp;&emsp;消息体：{"i":id,"b":类名,"m":方法名,"p":参数}<br/>
+&emsp;返回：<br/>
+&emsp;&emsp;消息体：{"i":id,"e":错误编号,"t":消息类型,"r":内容}<br/>
+</p>
+<p>
+消息定义：<br/>
+<br/>
+&emsp;0.推送-错误提示<br/>
+&emsp;&emsp;消息类型t: 100<br/>
+&emsp;&emsp;内容: 	 错误内容<br/>
+<br/>
+&emsp;1.登录<br/>
+&emsp;&emsp;b: player<br/>
+&emsp;&emsp;m: login<br/>
+&emsp;&emsp;p: uid,nickname,headimgurl<br/>
+&emsp;&emsp;返回: [uid=uid;nickname=昵称;headimgurl=头像;num=当前房卡数]<br/>
+</p>
+<p>			
+&emsp;2.获取其他玩家的信息<br/>
+&emsp;&emsp;b: player<br/>
+&emsp;&emsp;m: getPlayerInfo<br/>
+&emsp;&emsp;p: uid,uuid<br/>
+&emsp;&emsp;返回: [uid=uid;nickname=昵称;headimgurl=头像;num=当前房卡数]<br/>
+</p>
+<p>		
+&emsp;10.获取房间状态(断线重连后)<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: getRoomStatus<br/>
+&emsp;&emsp;p: uid<br/>
+</p>
+<p>	
+&emsp;11.推送-房间信息更新<br/>
+&emsp;&emsp;消息类型t: 101<br/>
+&emsp;&emsp;内容:<br/>
+&emsp;&emsp;&emsp;roomId: 房间id<br/>
+&emsp;&emsp;&emsp;status: 房间状态<br/>
+&emsp;&emsp;&emsp;players: 房间内的玩家列表<br/>
+&emsp;&emsp;&emsp;&emsp;index: 玩家所在位置<br/>
+&emsp;&emsp;&emsp;&emsp;uid: 玩家uid<br/>
+&emsp;&emsp;&emsp;&emsp;state: 玩家的状态<br/>
+&emsp;&emsp;&emsp;&emsp;nickname: 玩家昵称<br/>
+&emsp;&emsp;&emsp;&emsp;headimgurl: 玩家的头像<br/>
+</p>
+<p>			
+&emsp;12.创建房间<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: create<br/>
+&emsp;&emsp;p: uid, count=场次, types=玩法字符串, size=人数<br/>
+&emsp;&emsp;返回推送: 10.房间信息更新<br/>
+</p>	
+<p>	
+&emsp;13.加入房间<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: join<br/>
+&emsp;&emsp;p: uid,房间id<br/>
+&emsp;&emsp;返回推送: 10.房间信息更新<br/>
+</p>
+<p>		
+&emsp;14.准备<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: prepare<br/>
+&emsp;&emsp;p: uid<br/>
+</p>
+<p>		
+&emsp;15.开始游戏(房主&所有人都准备了)<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: start<br/>
+&emsp;&emsp;p: uid<br/>
+</p>
+<p>	
+&emsp;16.推送-游戏信息更新<br/>
+&emsp;&emsp;消息类型t: 102<br/>
+&emsp;&emsp;内容:<br/>
+&emsp;&emsp;&emsp;roomId: 房间id<br/>
+&emsp;&emsp;&emsp;status: 房间状态<br/>
+&emsp;&emsp;&emsp;count: 当前场次<br/>
+&emsp;&emsp;&emsp;bankerIndex: 庄家下标<br/>
+&emsp;&emsp;&emsp;librarySize: 剩余的牌堆数量<br/>
+&emsp;&emsp;&emsp;players: 房间内的玩家列表<br/>
+&emsp;&emsp;&emsp;&emsp;index: 玩家所在位置<br/>
+&emsp;&emsp;&emsp;&emsp;uid: 玩家uid<br/>
+&emsp;&emsp;&emsp;&emsp;hand: 玩家手牌(list)<br/>
+&emsp;&emsp;&emsp;&emsp;lose: 玩家丢弃的牌(list)<br/>
+&emsp;&emsp;&emsp;&emsp;top: 头顶上特殊处理的牌 (list[])<br/>
+&emsp;&emsp;&emsp;&emsp;listen: 是否听牌了<br/>
+&emsp;&emsp;&emsp;&emsp;socre: 当前分数<br/>
+&emsp;&emsp;&emsp;&emsp;actions: 玩家可以有的操作[吃,碰,杠,胡,听]  <br/>
+&emsp;&emsp;&emsp;outIndex: 出牌的人<br/>
+&emsp;&emsp;&emsp;outCard: 出牌的牌<br/>
+</p>
+<p>		
+&emsp;17.获取游戏状态(断线重连后)<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: getGameStatus<br/>
+&emsp;&emsp;p: uid<br/>
+</p>
+<p>		
+&emsp;18.执行动作(有动作需要执行的时候)<br/>
+&emsp;&emsp;b: room<br/>
+&emsp;&emsp;m: doAction<br/>
+&emsp;&emsp;p: uid,type=对应操作类型,[需要操作的牌,可选]<br/>
+&emsp;&emsp;&emsp;吃牌的时候,需要2张操作的牌<br/>
+&emsp;&emsp;&emsp;暗杠的时候,需要3张操作的牌<br/>
+&emsp;&emsp;&emsp;明杠的时候,需要1张操作的牌<br/>
+&emsp;&emsp;&emsp;别人放杠的时候,不需要操作的牌<br/>
+&emsp;&emsp;&emsp;出牌的时候,需要操作的牌<br/>
+</p>
+<p>		
+&emsp;19.推送-执行动作<br/>
+&emsp;&emsp;消息类型t: 103<br/>
+&emsp;&emsp;内容: uid, type, [card,可能有]<br/>
+</p>
+</body>
+</html>
+	
