@@ -42,7 +42,7 @@ function cls:start(rhand)
 end
 
 function cls:doAction()
-
+	print("****")
 end
 
 
