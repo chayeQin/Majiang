@@ -11,9 +11,14 @@ local keys = {
 	netConnectFail = "netConnectFail",
 	gameSwitch = "gameSwitch", 						-- 界面切换
 	loadServerFinish = "loadServerFinish",     		-- 加载服务器列表成功
-	gameUpdateInfo = "gameUpdateInfo", 				-- 游戏更新进度
+	gameUpdateProgress = "gameUpdateProgress", 				-- 游戏更新进度
 	loadUserInfo = "loadUserInfo",					-- 加载用户数据进度
+
 	--------------基础模块事件------------------
+	roomInfoUpdate = "roomInfoUpdate",				-- 房间信息更新
+	gameInfoUpdate = "gameInfoUpdate",				-- 局内信息更新
+	
+
 }
 
 return keys

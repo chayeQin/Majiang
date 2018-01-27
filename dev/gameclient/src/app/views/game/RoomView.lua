@@ -62,18 +62,29 @@ cls.RESOURCE_BINDING = {
 
 function cls:ctor()
 	cls.super.ctor(self)
+	self.viewType = 0
+
+	-- Util:button(nil, function()
+
+	-- end"解散房间")
+	-- 	:addTo(self)
+	-- 	:pos(300, 300)
 end
 
 function cls:onEnter()
 	-- 监听对局开始的消息
+	self.roomInfoHandle = Util:addEvent(Event.roomInfoUpdate, handler(self, self.updateUI))
 
 	-- 获取玩家头像信息
 end
 
 function cls:onExit()
+	Util:removeEvent(self.roomInfoHandle)
 end
 
 function cls:updateUI()
+	self.lab_tableNum:setString("房间号:" .. User:getRoomId())
+
 	if User:isGameStart() then -- 如果对局已经开始
 		self:showPlayView()
 	else
@@ -82,26 +93,36 @@ function cls:updateUI()
 end
 
 function cls:showReadyView()
+	if self.viewType == 1 then
+		self.view:updateUI()
+		return
+	end
 	if self.view then
 		self.view:remove()
 		self.view = nil
 	end
 
+
+	self.viewType = 1
 	self.view = require("app.views.game.ReadyView").new()
 	self.view:updateUI()
 	self.view:addTo(self)
 end
 
 function cls:showPlayView()
+	if self.viewType == 2 then
+		self.view:updateUI()
+		return
+	end
 	if self.view then
 		self.view:remove()
 		self.view = nil
 	end
+
+	self.viewType = 2
 	self.view = require("app.views.game.PlayView").new()
 	self.view:updateUI()
 	self.view:addTo(self)
 end
-
-
 
 return cls

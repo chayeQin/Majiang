@@ -40,7 +40,7 @@ end
 -- 房间信息推送
 function cls:update_room(v)
 	dump(v)
-	User:setRoomInfo(v.r)
+	User:setRoomInfo(v.r[1])
 end
 
 function cls:update_game(v)

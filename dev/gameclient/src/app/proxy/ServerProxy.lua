@@ -4,10 +4,10 @@
 -- Brief: 
 --
 
-local cls = class("ServerProxy", require("app.proxy.GameProxy"))
+local cls = class("ServerProxy")
 
 function cls:connectServer(ip, port, rhand, fhand)
-	Net:connect("192.168.1.72", "10002", rhand, fhand)
+	Net:connect(ip, port, rhand, fhand)
 end
 
 function cls:login(uid, nickName, headUrl, rhand)
@@ -31,6 +31,14 @@ end
 
 function cls:joinRoom(rommId, rhand)
 	Net:call(rhand, "room", "join", User:getUid(), rommId)
+end
+
+function cls:ready(rhand)
+	Net:call(rhand, "room", "prepare", User:getUid())
+end
+
+function cls:start(rhand)
+	Net:call(rhand, "room", "start", User:getUid())
 end
 
 function cls:doAction()

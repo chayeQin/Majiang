@@ -188,6 +188,7 @@ function cls:btn_createHandler(target)
 	local playStr = table.concat(self.selectedPlayIds,",")
 	local count = roomConfig.count
 	GameProxy:createRoom(round,playStr,count)
+	self:remove()
 end
 
 function cls:btn_closeHandler(target)

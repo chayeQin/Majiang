@@ -1,0 +1,58 @@
+<Solution>
+  <PropertyGroup Name="PlayContent" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="bg">
+          <Image Name="big_img_createroombg.png" />
+        </Folder>
+        <Folder Name="csb">
+          <Project Name="PlayContent.csd" Type="Layer" />
+        </Folder>
+        <Folder Name="plist">
+          <PlistImageFolder Image="com.png" PListFile="com.plist" Name=".com_PList.Dir">
+            <PlistImageFile Name="com_btn_choose.png" Key="com_btn_choose.png" />
+            <PlistImageFile Name="com_btn_close.png" Key="com_btn_close.png" />
+            <PlistImageFile Name="com_btn_closelittle.png" Key="com_btn_closelittle.png" />
+            <PlistImageFile Name="com_btn_create.png" Key="com_btn_create.png" />
+            <PlistImageFile Name="com_btn_delete.png" Key="com_btn_delete.png" />
+            <PlistImageFile Name="com_btn_dismiss.png" Key="com_btn_dismiss.png" />
+            <PlistImageFile Name="com_btn_ensure.png" Key="com_btn_ensure.png" />
+            <PlistImageFile Name="com_btn_move.png" Key="com_btn_move.png" />
+            <PlistImageFile Name="com_btn_number0.png" Key="com_btn_number0.png" />
+            <PlistImageFile Name="com_btn_reset.png" Key="com_btn_reset.png" />
+            <PlistImageFile Name="com_btn_unchoose.png" Key="com_btn_unchoose.png" />
+            <PlistImageFile Name="com_icon_head.png" Key="com_icon_head.png" />
+            <PlistImageFile Name="com_img_checkbox.png" Key="com_img_checkbox.png" />
+            <PlistImageFile Name="com_img_checkbox2.png" Key="com_img_checkbox2.png" />
+            <PlistImageFile Name="com_img_checkboxbg.png" Key="com_img_checkboxbg.png" />
+            <PlistImageFile Name="com_img_checkboxbg2.png" Key="com_img_checkboxbg2.png" />
+            <PlistImageFile Name="com_img_iconframe.png" Key="com_img_iconframe.png" />
+            <PlistImageFile Name="com_img_kungbg.png" Key="com_img_kungbg.png" />
+            <PlistImageFile Name="com_img_panel_black.png" Key="com_img_panel_black.png" />
+            <PlistImageFile Name="com_img_panel_cellbg.png" Key="com_img_panel_cellbg.png" />
+            <PlistImageFile Name="com_img_panel_celltitle.png" Key="com_img_panel_celltitle.png" />
+            <PlistImageFile Name="com_img_panel_srk.png" Key="com_img_panel_srk.png" />
+            <PlistImageFile Name="com_img_panel2.png" Key="com_img_panel2.png" />
+            <PlistImageFile Name="com_img_panel3.png" Key="com_img_panel3.png" />
+            <PlistImageFile Name="com_img_panel4.png" Key="com_img_panel4.png" />
+            <PlistImageFile Name="com_img_panel5.png" Key="com_img_panel5.png" />
+            <PlistImageFile Name="com_img_transparent.png" Key="com_img_transparent.png" />
+            <PlistImageFile Name="com_txt_ccmj_choose.png" Key="com_txt_ccmj_choose.png" />
+            <PlistImageFile Name="com_txt_ccmj_unchoose.png" Key="com_txt_ccmj_unchoose.png" />
+            <PlistImageFile Name="com_txt_dp.png" Key="com_txt_dp.png" />
+            <PlistImageFile Name="com_txt_gsh.png" Key="com_txt_gsh.png" />
+            <PlistImageFile Name="com_txt_hdh.png" Key="com_txt_hdh.png" />
+            <PlistImageFile Name="com_txt_hp.png" Key="com_txt_hp.png" />
+            <PlistImageFile Name="com_txt_jlmj_choose.png" Key="com_txt_jlmj_choose.png" />
+            <PlistImageFile Name="com_txt_jlmj_unchoose.png" Key="com_txt_jlmj_unchoose.png" />
+            <PlistImageFile Name="com_txt_qd.png" Key="com_txt_qd.png" />
+            <PlistImageFile Name="com_txt_tp.png" Key="com_txt_tp.png" />
+            <PlistImageFile Name="com_txt_wtp.png" Key="com_txt_wtp.png" />
+            <PlistImageFile Name="com_txt_zm.png" Key="com_txt_zm.png" />
+          </PlistImageFolder>
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

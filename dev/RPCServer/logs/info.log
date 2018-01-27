@@ -1,0 +1,62 @@
+2018-01-25 19:57:35,581 ERROR - [Start]RPC Server Start...
+2018-01-25 19:57:35,583 ERROR - [StaticData] init...
+2018-01-25 19:57:35,583 ERROR - [StaticData] load E:\Majiang\dev\RPCServer\bin\..\config\config.properties
+2018-01-25 19:57:35,583 ERROR - [StaticData] {jdbc.initActive=2, server.id=1, redis.wait=10000, jdbc.password=123456, redis.ip=127.0.0.1, server.port=10002, redis.initActive=50, jdbc.maxActive=20, server.ip=127.0.0.1, redis.maxActive=100, jdbc.url=jdbc:mysql://127.0.0.1:3307/rpc?useUnicode=true&characterEncoding=utf-8, redis.db=2, jdbc.driver=com.mysql.jdbc.Driver, jdbc.username=root, redis.port=6379}
+2018-01-25 19:57:36,308 ERROR - [GameStart] bind port [10002]...
+2018-01-25 19:57:36,726 INFO - [id: 0xaaa25d5e] REGISTERED
+2018-01-25 19:57:36,727 INFO - [id: 0xaaa25d5e] BIND: 0.0.0.0/0.0.0.0:10002
+2018-01-25 19:57:36,727 ERROR - [Start]RPC Server Start ok
+2018-01-25 19:57:36,743 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] ACTIVE
+2018-01-25 19:57:41,777 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ: [id: 0xeb3aff3d, L:/127.0.0.1:10002 - R:/127.0.0.1:51653]
+2018-01-25 19:57:41,778 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ COMPLETE
+2018-01-25 19:57:41,785 INFO - [Active] eb3aff3d
+2018-01-25 19:57:42,921 INFO - [Read] [eb3aff3d] {"bean":"gameServer","id":-1,"method":"enter","params":[1],"time":1516881462910}
+2018-01-25 19:57:42,922 ERROR - [GameServerAction] server 1 enter...
+2018-01-25 19:57:50,434 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ: [id: 0x7626bdcc, L:/127.0.0.1:10002 - R:/127.0.0.1:51660]
+2018-01-25 19:57:50,434 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ COMPLETE
+2018-01-25 19:57:50,435 INFO - [Active] 7626bdcc
+2018-01-25 19:57:50,503 INFO - [Read] [7626bdcc] {"bean":"player","id":12,"method":"login","params":["ap4a4kh9jty","ap4a4kh9jty",""],"time":1516881470503}
+2018-01-25 19:57:50,517 INFO - [Write] [7626bdcc] {"error":0,"id":12,"result":{"headimgurl":"","nickname":"ap4a4kh9jty","num":4,"uid":"ap4a4kh9jty"},"type":0}
+2018-01-25 19:57:50,522 INFO - [Time] player.login 19 ms
+2018-01-25 19:57:50,547 INFO - [Read] [7626bdcc] {"bean":"room","id":13,"method":"getRoomStatus","params":["ap4a4kh9jty"],"time":1516881470547}
+2018-01-25 19:57:50,558 INFO - [Write] [7626bdcc] {"error":0,"id":13,"result":-1,"type":0}
+2018-01-25 19:57:50,559 INFO - [Time] room.getRoomStatus 12 ms
+2018-01-25 22:30:05,798 INFO - [Close] 7626bdcc
+2018-01-25 22:30:11,094 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ: [id: 0xedfcc7b0, L:/127.0.0.1:10002 - R:/127.0.0.1:62178]
+2018-01-25 22:30:11,095 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ COMPLETE
+2018-01-25 22:30:11,095 INFO - [Active] edfcc7b0
+2018-01-25 22:30:11,154 INFO - [Read] [edfcc7b0] {"bean":"player","id":12,"method":"login","params":["a0s9bylch2m","a0s9bylch2m",""],"time":1516890611154}
+2018-01-25 22:30:11,171 INFO - [Write] [edfcc7b0] {"error":0,"id":12,"result":{"headimgurl":"","nickname":"a0s9bylch2m","num":4,"uid":"a0s9bylch2m"},"type":0}
+2018-01-25 22:30:11,172 INFO - [Time] player.login 18 ms
+2018-01-25 22:30:11,195 INFO - [Read] [edfcc7b0] {"bean":"room","id":13,"method":"getRoomStatus","params":["a0s9bylch2m"],"time":1516890611195}
+2018-01-25 22:30:11,195 INFO - [Write] [edfcc7b0] {"error":0,"id":13,"result":-1,"type":0}
+2018-01-25 22:30:11,195 INFO - [Time] room.getRoomStatus 0 ms
+2018-01-25 22:30:13,628 INFO - [Read] [edfcc7b0] {"bean":"room","id":14,"method":"create","params":["a0s9bylch2m",6,"1,2,3,4",2],"time":1516890613625}
+2018-01-25 22:30:13,633 INFO - [Write] [edfcc7b0] {"error":0,"id":0,"result":[{"players":[{"headimgurl":"","index":0,"nickname":"a0s9bylch2m","num":4,"state":true,"uid":"a0s9bylch2m"}],"roomId":"418402","status":false}],"type":101}
+2018-01-25 22:30:13,633 INFO - [Time] room.create 8 ms
+2018-01-25 22:31:17,845 INFO - [Close] edfcc7b0
+2018-01-25 22:31:19,722 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ: [id: 0x458e0170, L:/127.0.0.1:10002 - R:/127.0.0.1:62322]
+2018-01-25 22:31:19,723 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ COMPLETE
+2018-01-25 22:31:19,724 INFO - [Active] 458e0170
+2018-01-25 22:31:19,790 INFO - [Read] [458e0170] {"bean":"player","id":12,"method":"login","params":["ae0rvu7w8n4","ae0rvu7w8n4",""],"time":1516890679790}
+2018-01-25 22:31:19,797 INFO - [Write] [458e0170] {"error":0,"id":12,"result":{"headimgurl":"","nickname":"ae0rvu7w8n4","num":4,"uid":"ae0rvu7w8n4"},"type":0}
+2018-01-25 22:31:19,797 INFO - [Time] player.login 7 ms
+2018-01-25 22:31:19,825 INFO - [Read] [458e0170] {"bean":"room","id":13,"method":"getRoomStatus","params":["ae0rvu7w8n4"],"time":1516890679825}
+2018-01-25 22:31:19,825 INFO - [Write] [458e0170] {"error":0,"id":13,"result":-1,"type":0}
+2018-01-25 22:31:19,826 INFO - [Time] room.getRoomStatus 1 ms
+2018-01-25 22:31:21,926 INFO - [Read] [458e0170] {"bean":"room","id":14,"method":"create","params":["ae0rvu7w8n4",6,"1,2,3,4",2],"time":1516890681926}
+2018-01-25 22:31:21,931 INFO - [Write] [458e0170] {"error":0,"id":0,"result":[{"players":[{"headimgurl":"","index":0,"nickname":"ae0rvu7w8n4","num":4,"state":true,"uid":"ae0rvu7w8n4"}],"roomId":"212014","status":false}],"type":101}
+2018-01-25 22:31:21,931 INFO - [Time] room.create 5 ms
+2018-01-25 22:31:53,835 INFO - [Close] 458e0170
+2018-01-25 22:31:56,190 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ: [id: 0x379bf16e, L:/127.0.0.1:10002 - R:/127.0.0.1:62336]
+2018-01-25 22:31:56,191 INFO - [id: 0xaaa25d5e, L:/0:0:0:0:0:0:0:0:10002] READ COMPLETE
+2018-01-25 22:31:56,191 INFO - [Active] 379bf16e
+2018-01-25 22:31:56,259 INFO - [Read] [379bf16e] {"bean":"player","id":12,"method":"login","params":["av62hh2l275","av62hh2l275",""],"time":1516890716259}
+2018-01-25 22:31:56,265 INFO - [Write] [379bf16e] {"error":0,"id":12,"result":{"headimgurl":"","nickname":"av62hh2l275","num":4,"uid":"av62hh2l275"},"type":0}
+2018-01-25 22:31:56,265 INFO - [Time] player.login 6 ms
+2018-01-25 22:31:56,294 INFO - [Read] [379bf16e] {"bean":"room","id":13,"method":"getRoomStatus","params":["av62hh2l275"],"time":1516890716294}
+2018-01-25 22:31:56,294 INFO - [Write] [379bf16e] {"error":0,"id":13,"result":-1,"type":0}
+2018-01-25 22:31:56,294 INFO - [Time] room.getRoomStatus 0 ms
+2018-01-25 22:31:58,130 INFO - [Read] [379bf16e] {"bean":"room","id":14,"method":"create","params":["av62hh2l275",6,"1,2,3,4",2],"time":1516890718129}
+2018-01-25 22:31:58,132 INFO - [Write] [379bf16e] {"error":0,"id":0,"result":[{"players":[{"headimgurl":"","index":0,"nickname":"av62hh2l275","num":4,"state":true,"uid":"av62hh2l275"}],"roomId":"223606","status":false}],"type":101}
+2018-01-25 22:31:58,132 INFO - [Time] room.create 3 ms

@@ -49,7 +49,7 @@ end
 
 function cls:onEnter()
 	-- self.serverListHandle = Util:addEvent(Event.loadServerFinish, handler(self, self.onLoadServerList))
-	-- self.updateStartHandle = Util:addEvent(Event.gameUpdateInfo, handler(self, self.onGameUpdate))
+	-- self.updateStartHandle = Util:addEvent(Event.gameUpdateProgress, handler(self, self.onGameUpdate))
 	-- 检测登陆
 	print("******onenter***********")
 	self:connectServer()
@@ -62,24 +62,11 @@ function cls:onExit()
 end
 
 function cls:connectServer()
-	GameProxy:connectServer("192.168.1.72", "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
+	GameProxy:connectServer(TEST_GAME_SERVER, "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
 end
 
 function cls:connectRhand()
-	-- 检测用户登陆状态
-	local uid = Util:load("uid")
-	local nickName = Util:load("nickName")
-	local headUrl = ""
-	print("****connect", uid, nickName, headUrl)
-	if TEST_DEV and (not uid or uid == "") then 
-		local usr, pass = LoginCtrl:randUsr()
-		self.uid = usr
-		self.nickName = usr
-		print("****connect", self.uid, self.nickName, headUrl)
-		GameProxy:login(self.uid, self.nickName, headUrl, handler(self, self.onRegister))
-	else -- 从微信获取用户信息
-		GameProxy:login(uid, nickName, headUrl, handler(self, self.onLogin))
-	end
+	self:btn_startHandler()
 end
 
 function cls:connectFHand()
@@ -93,16 +80,27 @@ function cls:onRegister(v)
 end
 
 function cls:onLogin(v)
-	dump(v)
 	User:setUserInfo(v.r)
 	GameProxy:getRoomStatus(function(v2)
-		local roomId = v2.r
+		local roomId = tostring(v2.r)
 		User:setRoomId(roomId)
 		app:enterScene("scenes.MainScene")
 	end)
 end
 
 function cls:btn_startHandler()
+	-- 检测用户登陆状态
+	-- local uid = Util:load("uid")
+	-- local nickName = Util:load("nickName")
+	local headUrl = ""
+	if TEST_DEV and (not uid or uid == "") then 
+		local usr, pass = LoginCtrl:randUsr()
+		self.uid = usr
+		self.nickName = usr
+		GameProxy:login(self.uid, self.nickName, headUrl, handler(self, self.onRegister))
+	else -- 从微信获取用户信息
+		GameProxy:login(uid, nickName, headUrl, handler(self, self.onLogin))
+	end
 end
 
 function cls:onLoadServerList()

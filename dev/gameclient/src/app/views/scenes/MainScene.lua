@@ -11,14 +11,17 @@ local HEART_BEAT_KEY = "HEART_BEAT"
 
 function cls:ctor(...)
 	cls.super.ctor(self, ...)
-    require("app.views.game.MainView").new()
-        :addTo(self)
 	self:enableNodeEvents()
 end
 
 function cls:onEnter()
 	cls.super.onEnter(self)
 
+	if User:isInRoom() then -- 如果玩家正在对局中，则进入对局
+		Util:event(Event.gameSwitch, "RoomView")
+	else
+		Util:event(Event.gameSwitch, "MainView")
+	end
 end
 
 function cls:onExit()

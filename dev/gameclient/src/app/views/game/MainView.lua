@@ -74,10 +74,17 @@ end
 
 function cls:onEnter()
 	-- 检测玩家游戏状态
+	self.roomInfoHandle = Util:addEvent(Event.roomInfoUpdate,handler(self, self.onRoomInfoUpdate))
+end
+
+function cls:onExit()
+	Util:removeEvent(self.roomInfoHandle)
+end
+
+function cls:onRoomInfoUpdate()
+	print("***check roo id")
 	if User:isInRoom() then -- 如果玩家正在对局中，则进入对局
-		Util:tick(function()
-			Util:event(Event.gameSwitch, "RoomView")	
-		end)
+		Util:event(Event.gameSwitch, "RoomView")	
 	end
 end
 

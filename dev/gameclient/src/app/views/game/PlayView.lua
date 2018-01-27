@@ -38,7 +38,6 @@ function cls:ctor()
 end
 
 function cls:updateUI()
-
 	self.clockBg = display.newSprite("#playscene_img_fx1.png")
 	self.clockBg:addTo(self)
 	self.clockBg:pos(display.width/2, display.height/2 + 30)
@@ -48,8 +47,6 @@ function cls:updateUI()
 	else -- 发牌阶段
 		self:initTable()
 	end
-
-	
 
 end
 

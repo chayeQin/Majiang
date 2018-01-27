@@ -97,7 +97,7 @@ function cls:startUpdate()
 	-- 重新加载服务器信息，检测检测服务器状态	
 	print("检测更新")
 	local function updateRhand(state, data)
-		Util:event(Event.gameUpdateInfo, {state = state, data = data})
+		Util:event(Event.gameUpdateProgress, {state = state, data = data})
 		if state == Updater.STATE_UPDATE_FINISH then
 			self:checkServerLogin(false)
 		end
