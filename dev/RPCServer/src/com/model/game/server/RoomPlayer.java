@@ -22,7 +22,7 @@ public class RoomPlayer {
 	private int socre;
 	
 	/** 玩家可以有的操作[吃,碰,杠,胡,听] **/
-	private int[] actions;
+	private List<Integer> actions;
 	public RoomPlayer() {
 	}
 	public RoomPlayer(int index,String uid) {
@@ -31,7 +31,7 @@ public class RoomPlayer {
 		this.hand = new ArrayList<Integer>();
 		this.lose = new ArrayList<Integer>();
 		this.top = new ArrayList<>();
-		this.actions = new int[4];
+		this.actions = new ArrayList<>();
 		this.listen = false;
 	}
 	/**
@@ -42,9 +42,7 @@ public class RoomPlayer {
 		this.hand.clear();
 		this.lose.clear();
 		this.top.clear();
-		for (int i = 0;i < this.actions.length; i++) {
-			this.actions[i] = 0;
-		}
+		this.actions.clear();
 	}
 
 	public int getIndex() {
@@ -85,11 +83,11 @@ public class RoomPlayer {
 		this.top = top;
 	}
 
-	public int[] getActions() {
+	public List<Integer> getActions() {
 		return actions;
 	}
 
-	public void setActions(int[] playerActions) {
+	public void setActions(List<Integer> playerActions) {
 		this.actions = playerActions;
 	}
 	@Override
@@ -99,18 +97,6 @@ public class RoomPlayer {
 			return this.uid.equals(((RoomPlayer) obj).getUid());
 		}
 		return false;
-	}
-	public void doActions(boolean chi, boolean peng, boolean gang, boolean hu) {
-		this.actions[0] = chi ? 1 : 0;
-		this.actions[1] = peng ? 1 : 0;
-		this.actions[2] = gang ? 1 : 0;
-		this.actions[3] = hu ? 1 : 0;
-	}
-	public void doActions(int chi, int peng, int gang, int hu) {
-		this.actions[0] = chi;
-		this.actions[1] = peng;
-		this.actions[2] = gang;
-		this.actions[3] = hu;
 	}
 	public boolean isListen() {
 		return listen;

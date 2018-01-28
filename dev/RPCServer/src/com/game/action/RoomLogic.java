@@ -12,8 +12,12 @@ import com.alibaba.fastjson.JSON;
 import com.game.Start;
 import com.game.netty.GameHandler;
 import com.model.game.server.RoomPlayer;
+import com.model.game.server.RoomSettlement;
 import com.model.game.server.RoomStatus;
 import com.statics.StaticData;
+import com.statics.TDoActType;
+import com.statics.TScore;
+
 import static com.statics.TDoActType.*;
 
 /**
@@ -21,6 +25,7 @@ import static com.statics.TDoActType.*;
  * @author JOY122468462
  */
 public class RoomLogic {
+	private static final Map<String, Integer> scoreMap = new HashMap<>();
 	/** 默认牌堆 **/
 	private List<Integer> library;
 	
@@ -37,7 +42,9 @@ public class RoomLogic {
 			int v1 = getV((int)o1[1]);
 			int v2 = getV((int)o2[1]);
 			if(v1 != v2){
-				return v1 - v2;//从小到大排序
+				//从小到大排序
+				if(v1 < v2)return -1;
+				return 1;
 			}else if(room != null){
 				int i1 = room.getPlayerIndexs().get(o1[0]);
 				int i2 = room.getPlayerIndexs().get(o2[0]);
@@ -53,7 +60,10 @@ public class RoomLogic {
 					}
 				}
 			}
-			return v1 - v2;
+			if(v1 == v2)return 0;
+			//从小到大排序
+			if(v1 < v2)return -1;
+			return 1;
 		}
 		protected int getV(int type) {
 			//胡 > 杠 > 碰 > 吃
@@ -67,7 +77,11 @@ public class RoomLogic {
 			return 999;
 		}
 	};
-		
+	private static final int getScoreValue(String key){
+		Integer integer = scoreMap.get(key);
+		if(null == integer)return 0;
+		return integer;
+	}
 	@SuppressWarnings("unused")
 	private void testDoAction() {
 		room = new RoomStatus("1", 1, 0, null, 4, new String[]{"u1","u2","u3","u4"});
@@ -92,16 +106,20 @@ public class RoomLogic {
 	/** 启动 **/
 	public void start() {
 		room.setStatus(true);
+		
 		restart();
 	}
 	/**  重新开始 **/
 	private void restart() {
 		room.setCount(room.getCount() + 1);
+		room.setSetts(null);
 		//初始化牌库
 		this.library.clear();
 		Collections.addAll(this.library, StaticData.library);
 		//打乱顺序
 		Collections.shuffle(this.library);
+		int baopai = this.library.get(new Random().nextInt(this.library.size()));
+		room.setBaopai(baopai);
 		//发牌
 		room.clear();
 		RoomPlayer[] players = room.getPlayers();
@@ -142,20 +160,25 @@ public class RoomLogic {
 			}
 			hand.add(card);
 			Collections.sort(hand);
+			room.setGetCard(card);
 		}
-		for(int i = 0;i < players.length;i++){
-			if(players[i].equals(doPlayer)){
-				//检测是否有暗杠|头顶杠|胡牌
-				boolean gang = isAngang(players[i]);
-				boolean hupai = false;
-				if(touchCard > 0){
-					if(gang == false)gang = isTopgang(players[i]);
-					hupai = isHupai(players[i], -1);
-				}
-				//吃,碰,杠,胡
-				players[i].doActions(0, 0, gang ? 1 : 0, hupai ? 1:0);
-			}
+		//检测是否有暗杠|头顶杠|胡牌
+		boolean gang = isAngang(doPlayer);
+		boolean hupai = false;
+		if(touchCard > 0){
+			if(gang == false)gang = isTopgang(doPlayer);
+			hupai = isHupai(doPlayer, -1);
 		}
+		doPlayer.getActions().clear();
+		//吃,碰,杠,胡
+		if(gang){
+			doPlayer.getActions().add(TDoActType.gang);
+		}
+		if(hupai){
+			doPlayer.getActions().add(TDoActType.hu);
+		}
+		room.getWaitPlayers().add(doPlayer.getUid());
+		doPlayer.getActions().add(TDoActType.chupai);
 		//同步数据
 		GameHandler.send("room", "gs_updateGame", room);
 	}
@@ -260,13 +283,19 @@ public class RoomLogic {
 		}
 		RoomPlayer doPlayer = room.getPlayer(uid);
 		if(type > 0){
-			int[] is = doPlayer.getActions();
-			if(null == is || type > is.length || is[type-1] == 0){
-				return;//没有这个动作
+			boolean bl = false;
+			for (int a : doPlayer.getActions()) {
+				if(a == type){
+					bl = true;
+					break;
+				}
 			}
+			if(bl == false)return;
+			doPlayer.getActions().clear();
 		}
 		//如果只有1个动作,那么直接执行,不用等待
 		if(room.getWaitPlayers().size() == 1 && doActionList.isEmpty()){
+			room.getWaitPlayers().clear();
 			doActionImpl(uid, type, cards);
 		}else{
 			//如果有多个动作，先储存起来，等所有动作都回来了，一次性执行
@@ -277,6 +306,7 @@ public class RoomLogic {
 				if(doActionList.size() > 1){
 					Collections.sort(doActionList, doActionAort);
 				}
+				room.getWaitPlayers().clear();
 				for (Object[] objs : doActionList) {
 					//执行动作
 					doActionImpl((String)objs[0], (int)objs[1], (int[])objs[2]);
@@ -294,7 +324,7 @@ public class RoomLogic {
 	 * @param cards
 	 */
 	private void doActionImpl(String uid, int type, int[] cards) {
-		GameHandler.send("room", "gs_doAction", uid, type);
+		GameHandler.send("room", "gs_doAction", room.getRoomId(), uid, type);
 		if(type == chi){
 			doActionChi(uid, cards[0], cards[1]);
 		}else if(type == peng){
@@ -317,6 +347,9 @@ public class RoomLogic {
 	 */
 	private void doActionQuxiao(String uid) {
 		// 什么都不干
+		RoomPlayer player = room.getPlayer(uid);
+		//下个人摸牌&轮到下一个人操作
+		doNext(1, player.getIndex()+1);
 	}
 
 	/**
@@ -335,8 +368,97 @@ public class RoomLogic {
 	private void doActionHu(String uid) {
 		//结算
 		room.setStatus(false);
+		
+		int hupaiIndex = room.getPlayerIndexs().get(uid);
+		RoomPlayer[] players = room.getPlayers();
+		RoomSettlement[] setts = new RoomSettlement[players.length];
+		for (int i = 0; i < setts.length; i++) {
+			RoomSettlement set = new RoomSettlement();
+			set.setUid(players[i].getUid());
+			//类型;1=自摸;2=胡牌;3=放炮
+			if(room.getOutIndex() == i && hupaiIndex == i){
+				//如果摸牌的人是自己,并且胡牌的人也是自己
+				set.setType(1);
+			}else if(hupaiIndex == i){
+				//如果胡牌的人是自己
+				set.setType(2);
+			}else if(room.getOutIndex() == i){
+				//如果出牌的人是自己
+				set.setType(3);
+			}
+			set.setScore(new int[3]);
+			setts[i] = set;
+		}
+		for (int i = 0; i < setts.length; i++) {
+			RoomSettlement set = setts[i];
+			RoomPlayer player = room.getPlayers()[i];
+			//（胡分、杠分、总计）
+			int[] score = set.getScore();
+			if(set.getType() == 1){
+				//自摸=除了自己,其他人全部扣分
+				for (int j = 0; j < setts.length; j++) {
+					if(room.getGetCard() == room.getBaopai()){
+						if(i == j){
+							score[0] += TScore.mobao.getNum() * (room.getMaxSize() - 1);
+						}else{
+							score[0] -= TScore.mobao.getNum();
+						}
+					}else{
+						if(i == j){
+							score[0] += TScore.zimo.getNum() * (room.getMaxSize() - 1);
+						}else{
+							score[0] -= TScore.zimo.getNum();
+						}
+					}
+				}
+			}else if(set.getType() == 3){
+				//点炮和点黑炮
+				for (int j = 0; j < setts.length; j++) {
+					if(player.isListen()){
+						//点炮=上听后点炮，胡牌的人加分，其他三家都扣分
+						if(j == hupaiIndex){
+							score[0] += TScore.dianpao.getNum() * (room.getMaxSize() - 1);
+						}else{
+							score[0] -= TScore.dianpao.getNum();
+						}
+					}else{
+						//点黑炮,自己扣分,胡牌加分,其他人不扣分
+						if(j == hupaiIndex){
+							score[0] += TScore.dianheipao.getNum();
+						}else{
+							score[0] -= TScore.dianheipao.getNum();
+						}
+					}
+				}
+				
+			}
+			score[1] = getGangfen(players[i]);
+			score[2] = score[0] + score[1];
+			set.setScore(score);
+		}
+		room.setSetts(setts);
 		//同步数据
 		GameHandler.send("room", "gs_updateGame", room);
+	}
+	/**
+	 * 获取杠分
+	 * @param player
+	 * @return
+	 */
+	private int getGangfen(RoomPlayer player) {
+		List<List<Integer>> top = player.getTop();
+		if(null == top || top.isEmpty())return 0;
+		int score = 0;
+		for (List<Integer> list : top) {
+			if(list.size()==4){
+				if(list.get(0) > 0){
+					score += getScoreValue("明杠");
+				}else{
+					score += getScoreValue("暗杠");
+				}
+			}
+		}
+		return score;
 	}
 
 	/**
@@ -383,6 +505,8 @@ public class RoomLogic {
 					&& room.getOutCard() > 0){
 				List<Integer> list = getCardsByCard(hand, room.getOutCard(), 3);
 				if(list.size() >= 3){
+					RoomPlayer p = room.getPlayers()[room.getOutIndex()];
+					list_remove(p.getLose(), room.getOutCard());
 					//手里3张扔掉
 					list_remove(hand, room.getOutCard());
 					list_remove(hand, room.getOutCard());
@@ -462,6 +586,9 @@ public class RoomLogic {
 	 * 执行动作-碰牌
 	 */
 	private void doActionPeng(String uid) {
+		RoomPlayer p = room.getPlayers()[room.getOutIndex()];
+		list_remove(p.getLose(), room.getOutCard());
+		
 		RoomPlayer player = room.getPlayer(uid);
 		List<Integer> hand = player.getHand();
 		list_remove(hand, room.getOutCard());
@@ -481,6 +608,9 @@ public class RoomLogic {
 	 * @param doCard2 牌2
 	 */
 	private void doActionChi(String uid, int doCard1, int doCard2) {
+		RoomPlayer p = room.getPlayers()[room.getOutIndex()];
+		list_remove(p.getLose(), room.getOutCard());
+		
 		RoomPlayer player = room.getPlayer(uid);
 		List<Integer> hand = player.getHand();
 		list_remove(hand, doCard1);
@@ -503,12 +633,17 @@ public class RoomLogic {
 		RoomPlayer player = room.getPlayer(doUid);
 		room.setOutCard(doCard);
 		room.setOutIndex(player.getIndex());
+		list_remove(player.getHand(), doCard);
+		player.getLose().add(doCard);
 		//检测玩家状态
 		checkPlayerStatus();
 		//如果没有玩家有意义
 		if(room.getWaitPlayers().isEmpty()){
 			//下个人摸牌&操作
 			doNext(1, player.getIndex()+1);
+		}else{
+			//否则更新服务器房间状态
+			GameHandler.send("room", "gs_updateGame", room);
 		}
 	}
 
@@ -531,9 +666,20 @@ public class RoomLogic {
 			boolean peng = isPengpai(player, outCard);
 			boolean gang = isGangpai(player, outCard);
 			boolean hu = isHupai(player, outCard);
-			if(chi || peng || gang || hu){
-				room.getWaitPlayers().add(player.getUid());				
-				player.doActions(chi, peng, gang, hu);
+			if(chi){
+				player.getActions().add(TDoActType.chi);
+			}
+			if(peng){
+				player.getActions().add(TDoActType.peng);
+			}
+			if(gang){
+				player.getActions().add(TDoActType.gang);
+			}
+			if(hu){
+				player.getActions().add(TDoActType.hu);
+			}
+			if(player.getActions().isEmpty() == false){
+				room.getWaitPlayers().add(player.getUid());	
 			}
 		}
 	}
@@ -592,12 +738,16 @@ public class RoomLogic {
 	}
 	/**
 	 * 是否胡牌
-	 * @param players
+	 * @param player
 	 * @param outCard 打出的牌,-1=自己摸牌
 	 * @return
 	 */
-	public boolean isHupai(RoomPlayer players, int outCard){
-		List<Integer> tmp = new ArrayList<>(players.getHand());
+	public boolean isHupai(RoomPlayer player, int outCard){
+		//听了牌才可以胡牌
+		if(player.isListen() == false){
+			return false;
+		}
+		List<Integer> tmp = new ArrayList<>(player.getHand());
 		if(outCard > 0){
 			tmp.add(outCard);
 			//排序

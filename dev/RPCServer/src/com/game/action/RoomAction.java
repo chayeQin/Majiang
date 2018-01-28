@@ -18,7 +18,21 @@ public class RoomAction {
 		logic.start();
 		roomLogics.put(roomId, logic);
 	}
-	
+	/**
+	 * 重新开始游戏
+	 */
+	public static void restart(String roomId) {
+		RoomLogic logic = roomLogics.get(roomId);
+		if(null != logic){
+			logic.start();
+		}
+	}
+	/**
+	 * 解散房间
+	 */
+	public static void exit(String roomId) {
+		roomLogics.remove(roomId);
+	}
 	/**
 	 * 执行动作
 	 */

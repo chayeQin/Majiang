@@ -1,20 +1,25 @@
 package com.model.rpc.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import com.model.game.server.RoomStatus;
 import com.model.rpc.tb.PlayerRecord;
 import com.statics.TRoomType;
+import com.util.DateUtil;
 
 public class Room {
 	private String roomId;
-	private int count;
+	private int maxCount;
 	private String types;
-	private int size;
+	private int maxSize;
 	private int serverId;
 	private int roomType;
+	
+	private int count;
 	
 	private String[] players;
 	private boolean[] playerState;
@@ -24,24 +29,28 @@ public class Room {
 	//当前牌局的记录
 	private PlayerRecord record;
 	private List<PlayerRecordContent> recordContents;
-	private RoomStatus roomStatus = null;	
+	private RoomStatus roomStatus = null;
 	
-	public Room(String roomId, String uid, int count, String types, int size) {
+	private List<String> exitUids;
+	
+	public Room(String roomId, String uid, int maxCount, String types, int maxSize) {
 		this.roomType = TRoomType.def;
 		this.roomId = roomId;
-		this.players = new String[size];
-		this.playerState = new boolean[size];
+		this.players = new String[maxSize];
+		this.playerState = new boolean[maxSize];
 		this.players[0] = uid;
 		this.playerState[0] = true; //默认准备
 		this.playerSize++;
 		this.roomState = false;
-		this.count = count;
+		this.maxCount = maxCount;
 		this.types = types;
-		this.size = size;
+		this.maxSize = maxSize;
+		this.count = 0;
+		this.exitUids = new ArrayList<String>();
 	}
 	/** 是否满了 **/
 	public boolean isFull(){
-		return this.playerSize >= this.size;
+		return this.playerSize >= this.maxSize;
 	}
 	/** 加入房间 **/
 	public void join(String uid) {
@@ -72,13 +81,34 @@ public class Room {
 	 * 重新开始
 	 */
 	public void restart() {
+		this.count++;
 		String uuid = UUID.randomUUID().toString();
 		uuid = uuid.replaceAll("-", "");
 		this.record = new PlayerRecord();
 		this.record.setRid(uuid);
+		this.record.setRoomId(roomId);
+		this.record.setRound(this.count);
+		String playersStr = "";
+		for (int i = 0;i < players.length;i++) {
+			uuid = players[i];
+			if(null == uuid)continue;
+			if(i == players.length-1){
+				playersStr = playersStr + uuid;
+			}else{
+				playersStr = playersStr + uuid + ",";
+			}
+		}
+		if(playersStr.endsWith(",")) playersStr = playersStr.substring(0,playersStr.length() - 1);
+		this.record.setPlayers(playersStr);
+		this.record.setTime(DateUtil.format.format(new Date()));
 		this.recordContents = new ArrayList<>();
 	}
-	
+	/*** 申请退出房间 **/
+	public void exit(String uid) {
+		if(! this.exitUids.contains(uid) ){
+			this.exitUids.add(uid);
+		}
+	}
 	public String[] getPlayers() {
 		return this.players;
 	}
@@ -94,7 +124,7 @@ public class Room {
 	}
 	/** 是否都准备好了 **/
 	public boolean isPrepare() {
-		if(playerSize < this.size)return false;
+		if(playerSize < this.maxSize)return false;
 		
 		for(int i = 0;i < playerState.length;i++){
 			if(playerState[i] == false){
@@ -128,11 +158,11 @@ public class Room {
 	public RoomStatus getRoomStatus() {
 		return roomStatus;
 	}
-	public int getCount() {
-		return count;
+	public int getMaxCount() {
+		return maxCount;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setMaxCount(int count) {
+		this.maxCount = count;
 	}
 	public String getTypes() {
 		return types;
@@ -140,14 +170,34 @@ public class Room {
 	public void setTypes(String types) {
 		this.types = types;
 	}
-	public int getSize() {
-		return size;
+	public int getMaxSize() {
+		return maxSize;
 	}
-	public void setSize(int size) {
-		this.size = size;
+	public void setMaxSize(int maxSize) {
+		this.maxSize = maxSize;
 	}
 	public int getRoomType() {
 		return this.roomType;
 	}
-	
+	public PlayerRecord getRecord() {
+		return record;
+	}
+	public List<PlayerRecordContent> getRecordContents() {
+		return recordContents;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public List<String> getExitUids() {
+		return exitUids;
+	}
+	public void setExitUids(List<String> exitUids) {
+		this.exitUids = exitUids;
+	}
+	public int getPlayerSize() {
+		return this.playerSize;
+	}
 }

@@ -14,9 +14,11 @@ import com.model.game.server.RoomStatus;
 import com.model.rpc.server.GameServer;
 import com.model.rpc.server.Room;
 import com.model.rpc.tb.Player;
+import com.model.rpc.tb.PlayerRecord;
 import com.rpc.netty.SystemHandler;
 import com.statics.ErrorException;
 import com.statics.TResponseCode;
+import com.util.MySqlUtil;
 
 /**
  * 房间管理器
@@ -31,31 +33,34 @@ public class RoomAction {
 	/**
 	 * 创建房间
 	 * @param uid
+	 * @return 
 	 */
-	public static void create(String uid, int count, String types, int size) throws Exception{
+	public static String create(String uid, int count, String types, int size) throws Exception{
 		if(userRooms.containsKey(uid)){
 			String roomId = userRooms.get(uid);
 			//已经进入了房间,推送房间信息给玩家
 			sendRoomInfo(uid, roomId);
-			return;
+			return roomId;
 		}
 		String roomId = getRandomRoomId();
 		Room room = new Room(roomId, uid, count, types, size);
 		rooms.put(roomId, room);
 		userRooms.put(uid, roomId);
 		sendRoomInfo(uid, roomId);
+		return roomId;
 	}
 	/**
 	 * 加入房间
 	 * @param uid
 	 * @param roomId
+	 * @return 
 	 */
-	public static void join(String uid,String roomId) throws Exception{
+	public static String join(String uid,String roomId) throws Exception{
 		if(userRooms.containsKey(uid)){
 			roomId = userRooms.get(uid);
 			//已经进入了房间,推送房间信息给玩家
 			sendRoomInfo(uid, roomId);
-			return;
+			return roomId;
 		}
 		//不存在
 		if(!rooms.containsKey(roomId)){
@@ -73,13 +78,14 @@ public class RoomAction {
 			if(null == uuid)continue;
 			sendRoomInfo(uuid, roomId);
 		}
+		return roomId;
 	}
 	
 	/** 
 	 * 准备  
 	 * @param uid
 	 */
-	public static void prepare(String uid) throws Exception{
+	public static String prepare(String uid) throws Exception{
 		if(!userRooms.containsKey(uid)){
 			throw new ErrorException("未加入房间");
 		}
@@ -94,6 +100,12 @@ public class RoomAction {
 			if(null == uuid)continue;
 			sendRoomInfo(uuid, roomId);
 		}
+		
+		//如果全部是准备状态,并且局数未超过最大局
+		if(room.isPrepare() && room.getCount() < room.getMaxCount()){
+			start(room.getPlayers()[0]);
+		}
+		return roomId;
 	}
 	/**
 	 * 开始游戏
@@ -108,10 +120,13 @@ public class RoomAction {
 		if(null == room){
 			throw new ErrorException("房间已解散");
 		}
-		if(room.isRoomOwners(uid)){
+		if(room.getCount() >= room.getMaxCount()){
+			throw new ErrorException("房间次数不足");
+		}
+		if(!room.isRoomOwners(uid)){
 			throw new ErrorException("您不是房主,没有权限操作!");
 		}
-		if(room.isPrepare()){
+		if(!room.isPrepare()){
 			throw new ErrorException("没有全部准备!");
 		}
 		//已经开始
@@ -120,27 +135,42 @@ public class RoomAction {
 			return;
 		}
 		//随机一个服务器
-		int serverId = GameServerAction.getServerByWeight();
-		if(serverId <= 0){
-			throw new ErrorException("操作失败,请稍后重试!");
-		}
-		room.setServerId(serverId);
-		room.start();
-		String playersStr = "";
-		String[] players = room.getPlayers();
-		for (int i = 0;i < players.length;i++) {
-			String uuid = players[i];
-			if(null == uuid)continue;
-			sendRoomInfo(uuid, roomId);
-			if(i == players.length-1){
-				playersStr = playersStr + uuid;
-			}else{
-				playersStr = playersStr + uuid + ",";
+		if(room.getServerId() <= 0){
+			int serverId = GameServerAction.getServerByWeight();
+			if(serverId <= 0){
+				throw new ErrorException("操作失败,请稍后重试!");
 			}
+			room.setServerId(serverId);
 		}
-		if(playersStr.endsWith(",")) playersStr = playersStr.substring(0,playersStr.length() - 1);
-		//通知游戏服务器
-		GameServerAction.send(serverId, "room", "start", roomId, room.getRoomType(), room.getCount(), room.getTypes(), room.getSize(), playersStr);
+		if(room.getRecord() == null){
+			room.start();
+			String playersStr = "";
+			String[] players = room.getPlayers();
+			for (int i = 0;i < players.length;i++) {
+				String uuid = players[i];
+				if(null == uuid)continue;
+				sendRoomInfo(uuid, roomId);
+				if(i == players.length-1){
+					playersStr = playersStr + uuid;
+				}else{
+					playersStr = playersStr + uuid + ",";
+				}
+			}
+			if(playersStr.endsWith(",")) playersStr = playersStr.substring(0,playersStr.length() - 1);
+			//通知游戏服务器
+			GameServerAction.send(room.getServerId(), "room", "start", roomId, room.getRoomType(), room.getMaxCount(), room.getTypes(), room.getMaxSize(), playersStr);
+			GameServerAction.roomCreate(room.getServerId());
+		}else{
+			//保存上一句的记录
+			PlayerRecord record = room.getRecord();
+			String content = JSON.toJSONString(room.getRecordContents());
+			record.setContent(content);
+			MySqlUtil.insert(record);
+			
+			room.start();
+			//通知游戏服务器
+			GameServerAction.send(room.getServerId(), "room", "restart", roomId);
+		}
 	}
 	/**
 	 * 随机一个房间id
@@ -179,7 +209,12 @@ public class RoomAction {
 		Map<String, Object> map = new HashMap<>();
 		map.put("roomId", room.getRoomId());
 		map.put("status", room.getRoomState());
+		map.put("maxSize", room.getMaxSize());
+		map.put("maxCount", room.getMaxCount());
+		map.put("types", room.getTypes());
+		map.put("roomType", room.getRoomType());
 		map.put("players", list);
+		map.put("exitUids", room.getExitUids());
 		SystemHandler.send(uid, TResponseCode.update_room, map);
 	}
 	
@@ -239,21 +274,23 @@ public class RoomAction {
 	 * 操作
 	 * @param uid
 	 * @param type 操作类型
+	 * @return 
 	 */
-	public static void doAction(String uid, int type){
-		doAction(uid, type, null);
+	public static int doAction(String uid, int type){
+		return doAction(uid, type, null);
 	}
 	/**
 	 * 操作
 	 * @param uid
 	 * @param type 操作类型
 	 * @param card 操作的牌
+	 * @return 
 	 */
-	public static void doAction(String uid, int type,int[] card){
+	public static int doAction(String uid, int type,int[] card){
 		String roomId = userRooms.get(uid);
-		if(roomId == null)return;
+		if(roomId == null)return type;
 		Room room = rooms.get(roomId);
-		if(null == room)return;
+		if(null == room)return type;
 		if(room.isDoAction(uid)){
 			int serverId = room.getServerId();
 			if(serverId > 0){
@@ -264,14 +301,13 @@ public class RoomAction {
 				}
 			}
 		}
+		return type;
 	}
 	
-	public static void gs_doAction(String uid, int type) {
-		gs_doAction(uid, type, null);
+	public static void gs_doAction(String roomId, String uid, int type) {
+		gs_doAction(roomId, uid, type, null);
 	}
-	public static void gs_doAction(String uid, int type,int[] card) {
-		String roomId = userRooms.get(uid);
-		if(roomId == null)return;
+	public static void gs_doAction(String roomId, String uid, int type,int[] card) {
 		Room room = rooms.get(roomId);
 		if(null == room)return;
 		String[] players = room.getPlayers();
@@ -282,5 +318,48 @@ public class RoomAction {
 				SystemHandler.send(uuid, TResponseCode.do_action, uid, type, card);
 			}
 		}
+	}
+	
+	/**
+	 * 聊天
+	 * @param uid
+	 * @param str
+	 * @return 
+	 */
+	public static String chat(String uid,String str){
+		String roomId = userRooms.get(uid);
+		if(roomId == null)return uid ;
+		Room room = rooms.get(roomId);
+		if(null == room)return uid;
+		String[] players = room.getPlayers();
+		for (String uuid : players) {
+			SystemHandler.send(uuid, TResponseCode.chat, uid, str);
+		}
+		return roomId;
+	}
+	/**
+	 * 退出房间
+	 * @return 
+	 */
+	public static String exit(String uid) throws Exception{
+		String roomId = userRooms.get(uid);
+		if(roomId == null)return uid;
+		Room room = rooms.get(roomId);
+		if(null == room)return uid;
+		room.exit(uid);
+		
+		if(room.getExitUids().size() >= room.getPlayerSize()){
+			//通知游戏服务器
+			GameServerAction.send(room.getServerId(), "room", "exit", roomId);
+			rooms.remove(roomId);
+			String[] players = room.getPlayers();
+			for (String uuid : players) {
+				if(null != uuid){
+					userRooms.remove(uuid);
+				}
+			}
+			GameServerAction.roomExit(room.getServerId());
+		}
+		return roomId;
 	}
 }

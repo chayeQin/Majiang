@@ -32,7 +32,7 @@ public class JsonDecoder extends ByteToMessageDecoder{
 			return;
 		}
 		int size = in.readableBytes();
-		//System.out.println("len="+len+", size="+size);
+//		System.out.println("len="+len+", size="+size);
 		//byte[] bb = new byte[4];
 		//in.getBytes(0, bb);
 		//System.out.println(Arrays.toString(bb));

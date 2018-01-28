@@ -8,10 +8,17 @@ import com.model.Table;
 public class PlayerRecord extends Model{
 	private String rid;
 	private String roomId;
+	private int round;
 	private String players;
-	private long time;
+	private String time;
 	private String content;
 	
+	public int getRound() {
+		return round;
+	}
+	public void setRound(int round) {
+		this.round = round;
+	}
 	public String getRid() {
 		return rid;
 	}
@@ -30,10 +37,10 @@ public class PlayerRecord extends Model{
 	public void setPlayers(String players) {
 		this.players = players;
 	}
-	public long getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(long time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	@Column(type = "text")

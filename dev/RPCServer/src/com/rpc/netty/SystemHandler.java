@@ -2,6 +2,7 @@ package com.rpc.netty;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -282,7 +283,7 @@ public class SystemHandler extends ChannelInboundHandlerAdapter{
 	 * @param type {@link TResponseCode}
 	 * @param result 参数
 	 */
-	public static void send(String uid, int type, Object...result) {
+	public static void send(String uid, int type, Object...params) {
 		//如果关机状态,不做任何操作
 		if(shutdown){
 			return;
@@ -294,7 +295,11 @@ public class SystemHandler extends ChannelInboundHandlerAdapter{
 		if(clientIsConnection(channel) == false)return;
 		Response resp = new Response();
 		resp.setType(type);
-		resp.setResult(result);
+		if(params != null && params.length == 1){
+			resp.setResult(params[0]);
+		}else{
+			resp.setResult(params);
+		}
 		channel.writeAndFlush(resp);
 		if(log.isInfoEnabled()){
 			log.info("[Write] ["+client+"] "+JSON.toJSONString(resp));

@@ -22,14 +22,16 @@ public class RoomStatus {
 	private int bankerIndex; //庄家下标
 	
 	private int librarySize;//剩余的牌堆数量
+	private int baopai; //宝牌
 	
 	private RoomPlayer[] players; //里面的玩家
 	private Map<String, Integer> playerIndexs;//玩家所在的位置
 	
 	private int outIndex; //出牌的人
 	private int outCard;  //出牌的牌
+	private int getCard;  //摸到了哪张牌
 	
-	
+	private RoomSettlement[] setts = null;//房间的结算数据
 	
 	private List<String> waitPlayers;//等待的列表
 	public RoomStatus() {
@@ -144,9 +146,6 @@ public class RoomStatus {
 
 	public void setOutIndex(int outIndex) {
 		this.outIndex = outIndex;
-		if(this.outIndex >= this.players.length){
-			this.outIndex = this.outIndex - this.players.length;
-		}
 	}
 
 	public int getOutCard() {
@@ -163,6 +162,24 @@ public class RoomStatus {
 
 	public void setWaitPlayers(List<String> waitPlayers) {
 		this.waitPlayers = waitPlayers;
+	}
+	public RoomSettlement[] getSetts() {
+		return setts;
+	}
+	public void setSetts(RoomSettlement[] setts) {
+		this.setts = setts;
+	}
+	public int getBaopai() {
+		return baopai;
+	}
+	public void setBaopai(int baopai) {
+		this.baopai = baopai;
+	}
+	public int getGetCard() {
+		return getCard;
+	}
+	public void setGetCard(int getCard) {
+		this.getCard = getCard;
 	}
 	/**
 	 * 清理掉数据

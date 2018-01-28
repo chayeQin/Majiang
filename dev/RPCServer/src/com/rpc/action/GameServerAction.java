@@ -47,10 +47,9 @@ public class GameServerAction {
 			gameServerAll.put(id, gameServer);
 		}else{
 			gameServer.setChannel(channel);
-			gameServer.setPlayerSize(0);
 			gameServer.setRoomSize(0);
 		}
-		updateServerWeight(id, 0);
+		updateServerWeight(id, gameServer.getRoomSize());
 	}
 	/**
 	 * 服务器退出
@@ -140,6 +139,27 @@ public class GameServerAction {
 		if(null == gameServer)return -1;
 		return gameServer.getServerId();
 	}
+	/**
+	 * 创建房间
+	 */
+	public static void roomCreate(int serverId) {
+		GameServer gameServer = gameServerAll.get(serverId);
+		if(null != gameServer){
+			gameServer.setRoomSize(gameServer.getRoomSize() + 1);
+			updateServerWeight(serverId, gameServer.getRoomSize());
+		}
+	}
+	/**
+	 * 退出房间
+	 */
+	public static void roomExit(int serverId) {
+		GameServer gameServer = gameServerAll.get(serverId);
+		if(null != gameServer){
+			gameServer.setRoomSize(gameServer.getRoomSize() - 1);
+			updateServerWeight(serverId, gameServer.getRoomSize());
+		}
+	}
+	
 	/**
 	 * 发送到游戏服务器
 	 * @param serverId

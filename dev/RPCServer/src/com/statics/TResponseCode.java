@@ -13,4 +13,6 @@ public class TResponseCode {
 	public static final int update_game = 102;
 	/** 推送-执行动作  **/
 	public static final int do_action = 103;
+	/** 推送-聊天  **/
+	public static final int chat = 104;
 }
