@@ -13,9 +13,11 @@ cls.POS_DELTA = {
 	[4] = cc.p(0, 20),
 }
 
-function cls:ctor(tablePos)
+function cls:ctor(tablePos, playerIndex)
+	cls.super.ctor(self)
 	self.cards = {}
 	self.tablePos = tablePos
+	self.playerIndex = playerIndex
 	self.selectedIndex = nil
 	self:onTouch(handler(self, self.onTouchHandler))
 	self:enableNodeEvents()
@@ -23,6 +25,11 @@ end
 
 function cls:onEnter()
 	-- 监听手牌变化
+	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.updateCards))
+end
+
+function cls:onExit()
+	Util:removeEvent(self.onUpdateHandle)
 end
 
 function cls:updateCards()
@@ -30,7 +37,7 @@ function cls:updateCards()
 		v:remove()
 	end
 	self.cards = {}
-	local cardLst = GameModel:getPlayerCards(self.tablePos)
+	local cardLst = User:getPlayerCards(self.playerIndex)
 	table.sort(cardLst, function(v1, v2)
 		return v1 < v2
 	end)
@@ -89,7 +96,18 @@ function cls:onTouchHandler(event)
 
 		local selectedIndex = math.floor(np.x / self.delta.x) + 1
 		if self.selectedIndex and selectedIndex == self.selectedIndex then
-			if GameModel:isPlayerSendCard() then -- 玩家出牌阶段, 点击同一个牌打出去
+			-- 玩家可以操作
+			local isHasAction = false
+			for _, v in ipairs(User.gameInfo.waitPlayers) do
+				if v == User.info.uid then
+					isHasAction = true
+					break
+				end
+			end
+
+			if isHasAction and User.gameInfo.outIndex == User:getUserIndex() then -- 玩家出牌阶段, 点击同一个牌打出去
+				local num = self.cards[self.selectedIndex].num
+				GameProxy:doAction(ActionTips.ACTION_TYPE_CHUPAI, {num})
 			else
 				self.cards[self.selectedIndex]:y(0)
 			end

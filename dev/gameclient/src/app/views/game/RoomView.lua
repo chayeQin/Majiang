@@ -83,6 +83,7 @@ function cls:onExit()
 end
 
 function cls:updateUI()
+	print("****************")
 	self.lab_tableNum:setString("房间号:" .. User:getRoomId())
 
 	if User:isGameStart() then -- 如果对局已经开始

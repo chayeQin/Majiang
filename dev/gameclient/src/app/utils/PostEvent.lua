@@ -70,32 +70,32 @@ end
 -- 上传数据
 function cls:call(method)
 	print("*** PostEvent :", method)
-	local url   = URLConfig.FORMAT_LOG
-	local param = {
-		sid     = self:getSid(),
-		uid     = self:getUid(),
-		type    = method,
-		phoneId = LoginCtrl:getPhoneMac()
-	}
+	-- local url   = URLConfig.FORMAT_LOG
+	-- local param = {
+	-- 	sid     = self:getSid(),
+	-- 	uid     = self:getUid(),
+	-- 	type    = method,
+	-- 	phoneId = LoginCtrl:getPhoneMac()
+	-- }
 
-	-- 失败重试
-	local tryCount = 3
-	local load     = nil
+	-- -- 失败重试
+	-- local tryCount = 3
+	-- local load     = nil
 
-	load = function()
-		tryCount = tryCount - 1
-		if tryCount <= 0 then
-			return
-		end
+	-- load = function()
+	-- 	tryCount = tryCount - 1
+	-- 	if tryCount <= 0 then
+	-- 		return
+	-- 	end
 
-		Http.load(url, function(v)
-			if v ~= "ok" then
-				load()
-			end
-		end, false, load, nil, false, param)
-	end
+	-- 	Http.load(url, function(v)
+	-- 		if v ~= "ok" then
+	-- 			load()
+	-- 		end
+	-- 	end, false, load, nil, false, param)
+	-- end
 
-	load()
+	-- load()
 end
 
 function cls:getUid()

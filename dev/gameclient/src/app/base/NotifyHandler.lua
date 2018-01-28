@@ -40,14 +40,16 @@ end
 -- 房间信息推送
 function cls:update_room(v)
 	dump(v)
-	User:setRoomInfo(v.r[1])
+	User:setRoomInfo(v.r)
 end
 
 function cls:update_game(v)
+	dump(v)
 	User:setGameInfo(v.r)
 end
 
 function cls:do_action(v)
+	dump(v)
 end
 
 -- 将TYPE转为function

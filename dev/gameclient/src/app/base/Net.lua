@@ -136,7 +136,6 @@ end
 -- 有loading...
 function cls:call(func,bean,method,...)
 	Loading.show()
-
 	local id = self:send(bean,method,...)
 	if id == nil then 
 		print("*** call id is nil")
@@ -206,7 +205,7 @@ function cls:doPost()
 		local msg = self.postList[1]
 		table.remove(self.postList,1)
 		self.postId = msg.i
-
+		print("*****send msg", msg)
 		self:socketSend(msg)
 	else-- 网络已经断开，重新连接
 		print("网络已经断开，重新连接")
@@ -263,6 +262,7 @@ function cls:recv(v)
 	-- end
 	
 	-- 发送下一条消息
+	print("***receive ", v.i)
 	if self.postId == v.i then
 		local time = socket.gettime() - self.lastSendTime
 		self.sendCount = self.sendCount + 1

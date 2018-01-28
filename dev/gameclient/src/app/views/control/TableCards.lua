@@ -22,16 +22,23 @@ cls.POS_DELTA = {
 }
 
 -- 两人16只一排， 3人以上10只一排
-function cls:ctor(tablePos, colCount)
+function cls:ctor(tablePos, playerIndex, colCount)
 	cls.super.ctor(self)
 	self.cards = {}
 	self.tablePos = tablePos
+	self.playerIndex = playerIndex
 	self.colCount = colCount or 12
 	self:enableNodeEvents()
 end
 
 function cls:onEnter()
 	--监听手牌变化
+	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.updateCards))
+
+end
+
+function cls:onExit()
+	Util:removeEvent(self.onUpdateHandle)
 end
 
 function cls:updateCards()
@@ -40,7 +47,7 @@ function cls:updateCards()
 	end
 	self.cards = {}
 
-	local cardLst = GameModel:getTableCards(self.tablePos)
+	local cardLst = User:getTableCards(self.playerIndex)
 	self.delta = cls.POS_DELTA[self.tablePos]
 	for i, v in ipairs(cardLst) do
 		local x = self.delta.calDeltaX(i, self.colCount) 

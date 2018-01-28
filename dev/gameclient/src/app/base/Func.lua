@@ -12,6 +12,7 @@ end
 
 -- 连接失败 
 function g.connectFhand()
+    print("***连接失败")
 	Util:tick(handler(Net, Net.connectFhand))
 end
 

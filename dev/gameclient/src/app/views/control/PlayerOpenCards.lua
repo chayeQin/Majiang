@@ -22,15 +22,21 @@ cls.GROUP_POS_DELTA = {
 }
 
 
-function cls:ctor(tablePos)
+function cls:ctor(tablePos, playerIndex)
 	cls.super.ctor(self)
 	self.tablePos = tablePos
+	self.playerIndex = playerIndex
 	self.cards = {}
 	self:enableNodeEvents()
 end
 
 function cls:onEnter()
 	--监听手牌变化
+	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.updateCards))
+end
+
+function cls:onExit()
+	Util:removeEvent(self.onUpdateHandle)
 end
 
 function cls:updateCards()
@@ -41,7 +47,7 @@ function cls:updateCards()
 		v:remove()
 	end
 	self.cards = {}
-	local cardLst = GameModel:getOpendCars()
+	local cardLst = User:getOpenedCards(self.playerIndex)
 	local x = 0
 	local y = 0
 	for i, group in ipairs(cardLst) do
