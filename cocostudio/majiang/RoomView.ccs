@@ -7,11 +7,11 @@
           <Image Name="big_img_tableCloth1.png" />
         </Folder>
         <Folder Name="csb">
+          <Project Name="ActionEffect.csd" Type="Layer" />
           <Project Name="PlayView.csd" Type="Layer" />
           <Project Name="ReadyView.csd" Type="Layer" />
           <Project Name="RoomView.csd" Type="Layer" />
           <Project Name="StartAni.csd" Type="Layer" />
-          <Project Name="ActionEffect.csd" Type="Layer" />
         </Folder>
         <Folder Name="img">
           <Image Name="big_img_tx5.png" />

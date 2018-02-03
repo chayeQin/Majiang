@@ -18,7 +18,6 @@ local keys = {
 	roomInfoUpdate = "roomInfoUpdate",				-- 房间信息更新
 	gameInfoUpdate = "gameInfoUpdate",				-- 局内信息更新
 	
-
 }
 
 return keys

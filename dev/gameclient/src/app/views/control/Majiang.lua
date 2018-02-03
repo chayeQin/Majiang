@@ -8,8 +8,8 @@ local cls = class("Majiang", cc.load("mvc").ViewBase)
 
 local RES_FORMAT = {
 	[1] = "#majiang_icon_tong%d.png", -- 筒子
-	[2] = "#majiang_icon_w%d.png", -- 万字
-	[3] = "#majiang_icon_tiao%d.png", -- 条子
+	[2] = "#majiang_icon_tiao%d.png", -- 条子
+	[3] = "#majiang_icon_w%d.png", -- 万字
 }
 
 local SPECIAL_FORMAT = {
@@ -50,7 +50,7 @@ function cls:ctor(mType, num)
 		local cardType = math.floor(num / 10)
 		local cardNum = (num-1) % 10 + 1
 		local res = ""
-		if cardType == 4 then
+		if cardType == 0 then
 			res = SPECIAL_FORMAT[cardNum]
 		else
 			res = string.format(RES_FORMAT[cardType], cardNum)

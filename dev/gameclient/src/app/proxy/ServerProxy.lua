@@ -34,6 +34,7 @@ function cls:joinRoom(rommId, rhand)
 end
 
 function cls:ready(rhand)
+	print("**************ready")
 	Net:call(rhand, "room", "prepare", User:getUid())
 end
 
@@ -41,8 +42,9 @@ function cls:start(rhand)
 	Net:call(rhand, "room", "start", User:getUid())
 end
 
-function cls:doAction()
-	print("****")
+
+function cls:doAction(actType, cardLst, rhand)
+	Net:call(rhand, "room", "doAction", User:getUid(), actType, cardLst)
 end
 
 

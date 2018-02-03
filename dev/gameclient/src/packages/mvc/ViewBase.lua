@@ -2,7 +2,7 @@
 local ViewBase = class("ViewBase", cc.Node)
 
 function ViewBase:ctor(app, name)
-    if TEST_DEV then
+    if TEST_DEV and self.__cname~="Majiang" then
         print("****** ",self.__cname)
     end
     

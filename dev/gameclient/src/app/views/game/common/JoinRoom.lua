@@ -146,6 +146,7 @@ function cls:checkEnterRoom()
 	local roomNum = table.concat(self.numList)
 	print("房间号为:" .. roomNum)
 	GameProxy:joinRoom(roomNum)
+	self:btn_closeHandler()
 end
 
 function cls:btn_closeHandler(target)

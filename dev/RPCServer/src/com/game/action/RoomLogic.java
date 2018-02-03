@@ -164,6 +164,7 @@ public class RoomLogic {
 		}
 		//检测是否有暗杠|头顶杠|胡牌
 		boolean gang = isAngang(doPlayer);
+		boolean ting = isTing(doPlayer); 
 		boolean hupai = false;
 		if(touchCard > 0){
 			if(gang == false)gang = isTopgang(doPlayer);
@@ -177,12 +178,14 @@ public class RoomLogic {
 		if(hupai){
 			doPlayer.getActions().add(TDoActType.hu);
 		}
+		if(ting){
+			doPlayer.getActions().add(TDoActType.ting);
+		}
 		room.getWaitPlayers().add(doPlayer.getUid());
 		doPlayer.getActions().add(TDoActType.chupai);
 		//同步数据
 		GameHandler.send("room", "gs_updateGame", room);
 	}
-
 
 	/**
 	 * 从牌堆里面摸一张牌
@@ -199,6 +202,34 @@ public class RoomLogic {
 		return this.library.remove(this.library.size()-1);
 	}
 
+	/**
+	 * 是否可以听牌
+	 * @param doPlayer
+	 * @return
+	 */
+	private boolean isTing(RoomPlayer doPlayer) {
+		if(doPlayer.isListen()){
+			return false;
+		}
+		//缺1张牌就胡牌，那么就可以听牌了
+		List<Integer> hand = doPlayer.getHand();
+		//剩1张牌，肯定可以听牌
+		if(hand.size() == 1){
+			return true;
+		}
+		//剩下的牌里面，给他一张，能胡就可以听牌
+		//先假装已听牌
+		doPlayer.setListen(true);
+		boolean isTing = false;
+		for(int outCard : StaticData.libraryType){
+			isTing = isHupai(doPlayer, outCard);
+			if(isTing){
+				break;
+			}
+		}
+		doPlayer.setListen(false);
+		return isTing;
+	}
 	/**
 	 * 是否暗杠
 	 */
@@ -474,15 +505,15 @@ public class RoomLogic {
 			List<Integer> list = getCardsByCard(hand, cards[0], 4);
 			if(list.size() >= 4){
 				//手里3张扔掉
-				list_remove(hand, room.getOutCard());
-				list_remove(hand, room.getOutCard());
-				list_remove(hand, room.getOutCard());
+				list_remove(hand, cards[0]);
+				list_remove(hand, cards[0]);
+				list_remove(hand, cards[0]);
 				//放入头顶中
 				List<Integer> addList = new ArrayList<Integer>();
-				addList.add(room.getOutCard());
-				addList.add(room.getOutCard());
-				addList.add(room.getOutCard());
-				addList.add(room.getOutCard());
+				addList.add(-cards[0]);
+				addList.add(-cards[0]);
+				addList.add(-cards[0]);
+				addList.add(-cards[0]);
 				top.add(addList);
 				ok = true;
 			}else{
@@ -564,10 +595,10 @@ public class RoomLogic {
 						list_remove(hand, card);
 						//放入头顶中
 						List<Integer> addList = new ArrayList<Integer>();
-						addList.add(card);
-						addList.add(card);
-						addList.add(card);
-						addList.add(card);
+						addList.add(-card);
+						addList.add(-card);
+						addList.add(-card);
+						addList.add(-card);
 						player.getTop().add(addList);
 						ok = true;
 						break;
@@ -577,9 +608,13 @@ public class RoomLogic {
 				}
 			}
 		}
-		
-		//屁股摸牌&轮到自己出牌了
-		doNext(2, player.getIndex());
+		//如果杠牌失败，就按取消
+		if(ok == false){
+			doActionQuxiao(uid);
+		}else{
+			//屁股摸牌&轮到自己出牌了
+			doNext(2, player.getIndex());
+		}
 	}
 
 	/**
@@ -608,6 +643,19 @@ public class RoomLogic {
 	 * @param doCard2 牌2
 	 */
 	private void doActionChi(String uid, int doCard1, int doCard2) {
+		//检测能不能吃
+		List<Integer> list = new ArrayList<>();
+		list.add(doCard1);
+		list.add(doCard2);
+		list.add(room.getOutCard());
+		Collections.sort(list);
+		if(list.get(0)+1 == list.get(1) && list.get(0)+2 == list.get(2)){
+			
+		}else{
+			//帮他取消
+			doActionQuxiao(uid);
+			return;
+		}
 		RoomPlayer p = room.getPlayers()[room.getOutIndex()];
 		list_remove(p.getLose(), room.getOutCard());
 		
@@ -631,6 +679,12 @@ public class RoomLogic {
 	 */
 	private void doActionChupai(String doUid, int doCard) {
 		RoomPlayer player = room.getPlayer(doUid);
+		//听牌以后，只能出刚刚抓的牌
+		if(player.isListen()){
+			if(doCard != room.getGetCard()){
+				doCard = room.getGetCard();
+			}
+		}
 		room.setOutCard(doCard);
 		room.setOutIndex(player.getIndex());
 		list_remove(player.getHand(), doCard);
@@ -662,7 +716,7 @@ public class RoomLogic {
 			RoomPlayer player = players[i];
 			boolean chi = false;
 			//出牌的人，是我的上一家，才能吃
-			if((i == 0 && outIndex == 3) || outIndex == i - 1)chi = isChipai(player, outCard);
+			if((i == 0 && outIndex == players.length-1) || outIndex == i - 1)chi = isChipai(player, outCard);
 			boolean peng = isPengpai(player, outCard);
 			boolean gang = isGangpai(player, outCard);
 			boolean hu = isHupai(player, outCard);
@@ -705,6 +759,10 @@ public class RoomLogic {
 	 * @return
 	 */
 	public boolean isPengpai(RoomPlayer player, int outCard) {
+		//听牌以后不可以碰
+		if(player.isListen()){
+			return false;
+		}
 		List<Integer> tmp = new ArrayList<>(player.getHand());
 		//只有2张牌不能碰
 		if(tmp.size() <= 2)return false;
@@ -720,6 +778,9 @@ public class RoomLogic {
 	 * @return
 	 */
 	public boolean isChipai(RoomPlayer player, int outCard) {
+		//听牌以后不可以吃
+		if(player.isListen())return false;
+		
 		List<Integer> tmp = new ArrayList<>(player.getHand());
 		//只有2张牌不能吃
 		if(tmp.size() <= 2)return false;

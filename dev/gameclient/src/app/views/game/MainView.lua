@@ -88,10 +88,6 @@ function cls:onRoomInfoUpdate()
 	end
 end
 
-function cls:btn_createHandler(target)
-	-- require("app.views.game.common.JoinRoom").new()
-	
-end
 
 function cls:btn_joinHandler(target)
 	require("app.views.game.common.JoinRoom").new()
