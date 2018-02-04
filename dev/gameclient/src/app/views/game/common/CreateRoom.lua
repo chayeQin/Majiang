@@ -71,9 +71,9 @@ function cls:initCheckBox()
 	if not roomConfig then return end
 	local lst = {}
 	for i = 1,MAX_ROUND do
-		local chk = Util:button("com_img_checkboxbg",handler(self,self.selectedRound),nil,
-			nil,nil,ccui.TextureResType.plistType)
-		chk.selectedSp = display.newSprite("#com_img_checkbox.png")
+		local chk = Util:button("com/com_img_checkboxbg",handler(self,self.selectedRound),nil,
+			nil,nil)
+		chk.selectedSp = Util:sprite("com/com_img_checkbox")
 		chk.selectedSp:addTo(chk):center():hide()
 		chk.lab = Util:label("",24)
 		chk.lab:addTo(chk):align(display.LEFT_CENTER,chk:width() + 5,chk:height() / 2)
@@ -84,9 +84,9 @@ function cls:initCheckBox()
 		self:setSelected(chk,roomConfig.roomMode == chk.index)
 	end
 	for i = 1,MAX_COUNT do
-		local chk = Util:button("com_img_checkboxbg",handler(self,self.selectedCount),nil,
-			nil,nil,ccui.TextureResType.plistType)
-		chk.selectedSp = display.newSprite("#com_img_checkbox.png")
+		local chk = Util:button("com/com_img_checkboxbg",handler(self,self.selectedCount),nil,
+			nil,nil)
+		chk.selectedSp = Util:sprite("com/com_img_checkbox")
 		chk.selectedSp:addTo(chk):center():hide()
 		chk.lab = Util:label("",24)
 		chk.lab:addTo(chk):align(display.LEFT_CENTER,chk:width() + 5,chk:height() / 2)
@@ -104,9 +104,9 @@ function cls:initCheckBox()
 	local subLst = Util:convertSubLst(config.PLAY,3)
 	for _,v in ipairs(subLst) do
 		for i,data in ipairs(v) do
-			local chk = Util:button("com_img_checkboxbg2",handler(self,self.selectedPlay),nil,
-			nil,nil,ccui.TextureResType.plistType)
-			chk.selectedSp = display.newSprite("#com_img_checkbox2.png")
+			local chk = Util:button("com/com_img_checkboxbg2",handler(self,self.selectedPlay),nil,
+			nil,nil)
+			chk.selectedSp = Util:sprite("com/com_img_checkbox2")
 			chk.selectedSp:addTo(chk):center(5,5)
 			chk.lab = Util:label(data.desc,24)
 			chk.lab:setTextColor(Const.COLOR_GREEN)
@@ -189,6 +189,10 @@ function cls:btn_createHandler(target)
 	local count = roomConfig.count
 	GameProxy:createRoom(round,playStr,count)
 	PopupManager:popView(self)	
+end
+
+function cls:btn_playContentHandler(target)
+	require("app.views.game.common.PlayContent").new()
 end
 
 function cls:btn_closeHandler(target)

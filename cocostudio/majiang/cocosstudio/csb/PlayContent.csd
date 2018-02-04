@@ -26,9 +26,7 @@
             <PrePosition X="0.9312" Y="0.9222" />
             <PreSize X="0.0734" Y="0.1264" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_close.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_close.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -43,7 +41,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5600" />
                 <PreSize X="0.6602" Y="0.5333" />
-                <FileData Type="PlistSubImage" Path="com_txt_ccmj_choose.png" Plist="plist/com.plist" />
+                <FileData Type="Normal" Path="com/com_txt_ccmj_choose.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
             </Children>
@@ -53,10 +51,10 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1859" Y="0.7014" />
             <PreSize X="0.1609" Y="0.1042" />
-            <FileData Type="PlistSubImage" Path="com_btn_choose.png" Plist="plist/com.plist" />
+            <FileData Type="Normal" Path="com/com_btn_choose.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="list_play" ActionTag="815040207" Tag="7" IconVisible="False" LeftMargin="352.0000" RightMargin="98.0000" TopMargin="140.0000" BottomMargin="60.0000" Scale9Enable="True" LeftEage="24" RightEage="24" TopEage="24" BottomEage="24" Scale9OriginX="24" Scale9OriginY="24" Scale9Width="26" Scale9Height="26" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="list_play" ActionTag="815040207" Tag="7" IconVisible="False" LeftMargin="352.0000" RightMargin="98.0000" TopMargin="140.0000" BottomMargin="60.0000" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
             <Size X="830.0000" Y="520.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="352.0000" Y="580.0000" />
@@ -64,7 +62,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.2750" Y="0.8056" />
             <PreSize X="0.6484" Y="0.7222" />
-            <FileData Type="PlistSubImage" Path="com_img_panel2.png" Plist="plist/com.plist" />
+            <FileData Type="Normal" Path="com/com_img_panel5.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

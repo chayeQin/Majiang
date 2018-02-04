@@ -9,36 +9,109 @@ local cls = class("PlayView", cc.load("mvc").ViewBase)
 cls.RESOURCE_FILENAME = "csb/PlayView.csb"
 
 cls.RESOURCE_BINDING = {
+	["node_direction"] = {
+		varname = "node_direction",
+	},
+	["node_direction.img_light2"] = {
+		varname = "img_light2",
+	},
+	["node_direction.img_light1"] = {
+		varname = "img_light1",
+	},
+	["img_clock1"] = {
+		varname = "img_clock1",
+	},
+	["img_clock2"] = {
+		varname = "img_clock2",
+	},
+	-- 2
+	["lab_totalRound"] = {
+		varname = "lab_totalRound",
+	},
+	-- 100
+	["lab_leftCard"] = {
+		varname = "lab_leftCard",
+	},
 }
+
 
 function cls:ctor()
 	cls.super.ctor(self)
+	self.img_light2:setOpacity(0)
+	local tmp = ActionTips.new()
+					tmp:addTo(self)
+					tmp:pos(1020, 200)
 	self.nxtOpenCardPos = {}
 	self.cardLst = {}
+	self.indexTablePosMap = {}
+
 end
 
 function cls:onEnter()
-	self.gameUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.onGameUpdate))
+	self.gameInfoHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.onGameInfoUpdate))
+	self.doActionHandle = Util:addEvent(Event.doAction, handler(self, self.onDoAction))
+	self.img_light1:run{"rep",
+							{"seq",
+								{"scaleto", 1, 0.7, 0.7},
+								{"scaleto", 0, 1, 1}
+
+							}
+						}
+	self.img_light2:run{"rep",
+							{"seq",
+								{"fadein", 1},
+								{"fadeout", 0}
+
+							}
+						}
+	self:schedule(handler(self, self.onUpdate))
 end
 
 function cls:onExit()
-	Util:removeEvent(self.gameUpdateHandle)
+	Util:removeEvent(self.gameInfoHandle)
+	Util:removeEvent(self.doActionHandle)
 end
 
-function cls:onGameUpdate()
+function cls:onUpdate()
+	self:adjustPlayerCardPos()
 end
+
+function cls:onDoAction(event)
+	local params = event.params
+	local uid = params[1]
+	local action = params[2]
+
+	for _, v in pairs(User.roomInfo.players) do
+		if v.uid == uid then
+			local index = v.index
+			local tablePos = self.indexTablePosMap[index]
+			if tablePos then
+				
+			end
+			break
+		end
+	end
+end
+
+function cls:onGameInfoUpdate()
+	self.lab_totalRound:setString(User.roomInfo.maxCount)
+	self.lab_leftCard:setString(User.gameInfo.librarySize)
+	
+	local tablePos = self.indexTablePosMap[User.gameInfo.outIndex]
+	if tablePos then
+		self.node_direction:rotate((tablePos - 1) * 90)
+	end
+end
+
 
 function cls:updateUI()
-	self.clockBg = display.newSprite("#playscene_img_fx1.png")
-	self.clockBg:addTo(self)
-	self.clockBg:pos(display.width/2, display.height/2 + 30)
+	self.lab_totalRound:setString(User.roomInfo.maxCount)
+	self.lab_leftCard:setString(User.gameInfo.librarySize)
 	self:initCards()
 end
 
 function cls:initCards()
 	print("******initPlayerCards")
-
-
 	local indexMap = {}
 	local orig = 0
 	local sortKey = orig
@@ -66,31 +139,29 @@ function cls:initCards()
 		posMap = {1,2,3,4}
 	end
 
+	self.indexTablePosMap = {}
+
 	for i, v in ipairs(indexMap) do
 		local tablePos = posMap[i]
 		local info = User.roomInfo.players[v[1]]
 		print("***tablepos", tablePos)
-		local playerCards = PlayerCards.new(tablePos, info.index)
-		playerCards:addTo(self)
-		playerCards:updateCards()
-
+		self.indexTablePosMap[info.index] = tablePos
 		local openCards = PlayerOpenCards.new(tablePos, info.index)
 		openCards:updateCards()
 		openCards:addTo(self)
 
+		local playerCards = PlayerCards.new(tablePos, info.index)
+		playerCards:addTo(self)
+		playerCards:updateCards()
+
 		local tableCards = TableCards.new(tablePos, info.index)
 		tableCards:updateCards()
-		tableCards:addTo(self)	
+		tableCards:addTo(self)
 	end
-
-	local tmp = ActionTips.new()
-	tmp:addTo(self)
-	tmp:pos(1020, 200)
-
-
 end
 
 function cls:adjustPlayerCardPos()
+	
 end
 
 function cls:addOpendCards(playerPos, cards)

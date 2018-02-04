@@ -41,9 +41,11 @@ function cls:ctor()
 		end
 	end
 
-	local tmp = ActionTips.new({1,2,3,4})
-	tmp:addTo(self)
-	tmp:pos(1000, 300)
+	-- Majiang.new(1, 11):addTo(self):pos(300, 300)
+
+	-- local tmp = ActionTips.new({1,2,3,4})
+	-- tmp:addTo(self)
+	-- tmp:pos(1000, 300)
 	self:enableNodeEvents()
 end
 

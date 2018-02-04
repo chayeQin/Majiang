@@ -13,6 +13,7 @@ cc.exports.NotifyEvent = {
 	update_room						= "101",   -- 更新房间
 	update_game 					= "102",   -- 更新游戏信息
 	do_action						= "103",   -- 执行动作
+	chat							= "104",   -- 聊天
 }
 
 -- 输出推送信息
@@ -49,6 +50,13 @@ function cls:update_game(v)
 end
 
 function cls:do_action(v)
+	dump(v)
+	Util:event(Event.doAction, v.r)
+end
+
+function cls:chat(v)
+	local uid = v[1]
+	local content = v[2]
 	dump(v)
 end
 

@@ -28,7 +28,7 @@
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_closelittle.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_closelittle.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -107,9 +107,7 @@
             <PrePosition X="0.3359" Y="0.5417" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -122,9 +120,7 @@
             <PrePosition X="0.5000" Y="0.5417" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -137,9 +133,7 @@
             <PrePosition X="0.6641" Y="0.5417" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -152,9 +146,7 @@
             <PrePosition X="0.3359" Y="0.4236" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -167,9 +159,7 @@
             <PrePosition X="0.5000" Y="0.4236" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -182,9 +172,7 @@
             <PrePosition X="0.6641" Y="0.4236" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -197,9 +185,7 @@
             <PrePosition X="0.3359" Y="0.3056" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -212,9 +198,7 @@
             <PrePosition X="0.5000" Y="0.3056" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -227,9 +211,7 @@
             <PrePosition X="0.6641" Y="0.3056" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -242,9 +224,7 @@
             <PrePosition X="0.5000" Y="0.1875" />
             <PreSize X="0.1328" Y="0.1083" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_number0.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_number0.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -257,9 +237,7 @@
             <PrePosition X="0.3359" Y="0.1875" />
             <PreSize X="0.1328" Y="0.1056" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_reset.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_reset.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -272,9 +250,7 @@
             <PrePosition X="0.6641" Y="0.1875" />
             <PreSize X="0.1328" Y="0.1069" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_delete.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_delete.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

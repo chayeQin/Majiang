@@ -70,6 +70,7 @@ function cls:ctor()
 	cls.super.ctor(self)
 	self:enableNodeEvents()
 	PlayerIcon.new():addTo(self.node_icon)
+
 end
 
 function cls:onEnter()
@@ -98,7 +99,7 @@ function cls:btn_shareHandler(target)
 end
 
 function cls:btn_settingHandler(target)
-	require("app.views.game.common.SettingView").new()
+	require("app.views.game.common.SettingView").new(true)
 end
 
 function cls:btn_playHelpHandler(target)

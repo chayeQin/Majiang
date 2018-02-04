@@ -49,7 +49,6 @@ end
 
 function cls:onCreate()
     self.testURL = TEST_SERVER
-    print("***self.testURL**",  self.testURL)
 	local debugServer = load(DEBUG_SERVER)
 	local text = "点击切换:内网"
 	if debugServer and debugServer ~= 1 then

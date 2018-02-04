@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" ctype="GameLayerObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="big_img_mainscenebg_1" CanEdit="False" ActionTag="-948308496" Tag="2" IconVisible="False" ctype="SpriteObjectData">
+          <AbstractNodeData Name="big_img_mainscenebg_1" ActionTag="-948308496" Tag="2" IconVisible="False" ctype="SpriteObjectData">
             <Size X="1280.0000" Y="720.0000" />
             <AnchorPoint />
             <Position />
@@ -25,7 +25,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition Y="1.0000" />
             <PreSize X="1.0000" Y="0.1458" />
-            <FileData Type="PlistSubImage" Path="mainscene_img_top.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_img_top.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="btn_create" ActionTag="374130137" Tag="5" IconVisible="False" LeftMargin="352.4371" RightMargin="468.5629" TopMargin="250.6042" BottomMargin="205.3958" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="429" Scale9Height="242" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -37,7 +37,7 @@
             <PrePosition X="0.4546" Y="0.4686" />
             <PreSize X="0.3586" Y="0.3667" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_createroom.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_createroom.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -50,7 +50,7 @@
             <PrePosition X="0.7997" Y="0.4851" />
             <PreSize X="0.3523" Y="0.3361" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_joinroom.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_joinroom.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -62,7 +62,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5948" Y="0.9196" />
             <PreSize X="0.1477" Y="0.0694" />
-            <FileData Type="PlistSubImage" Path="mainscene_img_fk_bg.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_img_fk_bg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="mainscene_img_fangka_5" ActionTag="334668717" Tag="8" IconVisible="False" LeftMargin="637.6599" RightMargin="550.3401" TopMargin="20.1473" BottomMargin="630.8527" ctype="SpriteObjectData">
@@ -73,7 +73,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5341" Y="0.9241" />
             <PreSize X="0.0719" Y="0.0958" />
-            <FileData Type="PlistSubImage" Path="mainscene_img_fangka.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_img_fangka.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="lab_cardCount" ActionTag="-399100342" Tag="9" IconVisible="False" LeftMargin="722.9282" RightMargin="546.0718" TopMargin="43.9170" BottomMargin="654.0830" FontSize="22" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -96,8 +96,7 @@
             <PrePosition X="0.6442" Y="0.9196" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <PressedFileData Type="PlistSubImage" Path="mainscene_btn_add.png" Plist="plist/mainscene.plist" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_add.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_add.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -110,8 +109,7 @@
             <PrePosition X="0.8663" Y="0.9196" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <PressedFileData Type="PlistSubImage" Path="mainscene_btn_share.png" Plist="plist/mainscene.plist" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_share.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_share.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -124,8 +122,7 @@
             <PrePosition X="0.9427" Y="0.9196" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <PressedFileData Type="PlistSubImage" Path="mainscene_btn_set.png" Plist="plist/mainscene.plist" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_set.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_set.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -137,7 +134,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8672" Y="0.8762" />
             <PreSize X="0.0492" Y="0.0486" />
-            <FileData Type="PlistSubImage" Path="mainscene_txt_fx.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_txt_fx.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="mainscene_txt_sz_8" ActionTag="-1307016014" Tag="21" IconVisible="False" LeftMargin="1177.1589" RightMargin="39.8411" TopMargin="72.1304" BottomMargin="613.8696" ctype="SpriteObjectData">
@@ -148,7 +145,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9443" Y="0.8762" />
             <PreSize X="0.0492" Y="0.0472" />
-            <FileData Type="PlistSubImage" Path="mainscene_txt_sz.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_txt_sz.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="lab_name" ActionTag="-558486834" Tag="13" IconVisible="False" LeftMargin="123.8214" RightMargin="1116.1786" TopMargin="21.2551" BottomMargin="678.7449" FontSize="20" LabelText="name" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -190,7 +187,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0862" Y="0.3086" />
             <PreSize X="0.1695" Y="0.5000" />
-            <FileData Type="PlistSubImage" Path="mainscene_img_gg.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_img_gg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="mainscene_img_bottom_6" ActionTag="-1771254582" Tag="16" IconVisible="False" LeftMargin="8.5000" RightMargin="8.5000" TopMargin="563.0000" ctype="SpriteObjectData">
@@ -201,7 +198,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" />
             <PreSize X="0.9867" Y="0.2181" />
-            <FileData Type="PlistSubImage" Path="mainscene_img_bottom.png" Plist="plist/mainscene.plist" />
+            <FileData Type="Normal" Path="mainscene/mainscene_img_bottom.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="btn_activity" ActionTag="-1941640814" Tag="17" IconVisible="False" LeftMargin="236.8461" RightMargin="957.1539" TopMargin="596.3748" BottomMargin="29.6252" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="56" Scale9Height="72" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -213,7 +210,7 @@
             <PrePosition X="0.2186" Y="0.1064" />
             <PreSize X="0.0672" Y="0.1306" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_activity.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_activity.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -226,7 +223,7 @@
             <PrePosition X="0.3722" Y="0.1064" />
             <PreSize X="0.0586" Y="0.1208" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_record.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_record.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -239,7 +236,7 @@
             <PrePosition X="0.5262" Y="0.1064" />
             <PreSize X="0.0680" Y="0.1236" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_sc.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_sc.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -252,7 +249,7 @@
             <PrePosition X="0.6779" Y="0.1064" />
             <PreSize X="0.0539" Y="0.1264" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_playhelp.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_playhelp.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -265,11 +262,11 @@
             <PrePosition X="0.8268" Y="0.1064" />
             <PreSize X="0.0625" Y="0.1333" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="mainscene_btn_service.png" Plist="plist/mainscene.plist" />
+            <NormalFileData Type="Normal" Path="mainscene/mainscene_btn_service.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_4" ActionTag="70412154" Tag="25" IconVisible="False" LeftMargin="40.6179" RightMargin="1089.3821" TopMargin="383.4050" BottomMargin="156.5950" IsCustomSize="True" FontSize="20" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lab_notice" ActionTag="70412154" Tag="25" IconVisible="False" LeftMargin="40.6179" RightMargin="1089.3821" TopMargin="383.4050" BottomMargin="156.5950" IsCustomSize="True" FontSize="20" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="150.0000" Y="180.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="115.6179" Y="246.5950" />

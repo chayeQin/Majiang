@@ -37,8 +37,8 @@
             <PrePosition X="0.5000" Y="0.2243" />
             <PreSize X="0.1766" Y="0.1125" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <PressedFileData Type="PlistSubImage" Path="com_btn_create.png" Plist="plist/com.plist" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_create.png" Plist="plist/com.plist" />
+            <PressedFileData Type="Normal" Path="com/com_btn_create.png" Plist="" />
+            <NormalFileData Type="Normal" Path="com/com_btn_create.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

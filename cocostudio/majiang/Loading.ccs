@@ -3,117 +3,14 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Folder Name="com">
+          <Image Name="com_btn_move.png" />
+        </Folder>
         <Folder Name="csb">
           <Project Name="Loading.csd" Type="Layer" />
         </Folder>
-        <Folder Name="plist">
-          <PlistImageFolder Image="com.png" PListFile="com.plist" Name=".com_PList.Dir">
-            <PlistImageFile Name="com_btn_choose.png" Key="com_btn_choose.png" />
-            <PlistImageFile Name="com_btn_close.png" Key="com_btn_close.png" />
-            <PlistImageFile Name="com_btn_closelittle.png" Key="com_btn_closelittle.png" />
-            <PlistImageFile Name="com_btn_create.png" Key="com_btn_create.png" />
-            <PlistImageFile Name="com_btn_delete.png" Key="com_btn_delete.png" />
-            <PlistImageFile Name="com_btn_dismiss.png" Key="com_btn_dismiss.png" />
-            <PlistImageFile Name="com_btn_ensure.png" Key="com_btn_ensure.png" />
-            <PlistImageFile Name="com_btn_move.png" Key="com_btn_move.png" />
-            <PlistImageFile Name="com_btn_number0.png" Key="com_btn_number0.png" />
-            <PlistImageFile Name="com_btn_reset.png" Key="com_btn_reset.png" />
-            <PlistImageFile Name="com_btn_unchoose.png" Key="com_btn_unchoose.png" />
-            <PlistImageFile Name="com_icon_head.png" Key="com_icon_head.png" />
-            <PlistImageFile Name="com_img_checkbox.png" Key="com_img_checkbox.png" />
-            <PlistImageFile Name="com_img_checkbox2.png" Key="com_img_checkbox2.png" />
-            <PlistImageFile Name="com_img_checkboxbg.png" Key="com_img_checkboxbg.png" />
-            <PlistImageFile Name="com_img_checkboxbg2.png" Key="com_img_checkboxbg2.png" />
-            <PlistImageFile Name="com_img_iconframe.png" Key="com_img_iconframe.png" />
-            <PlistImageFile Name="com_img_kungbg.png" Key="com_img_kungbg.png" />
-            <PlistImageFile Name="com_img_panel_black.png" Key="com_img_panel_black.png" />
-            <PlistImageFile Name="com_img_panel_cellbg.png" Key="com_img_panel_cellbg.png" />
-            <PlistImageFile Name="com_img_panel_celltitle.png" Key="com_img_panel_celltitle.png" />
-            <PlistImageFile Name="com_img_panel_srk.png" Key="com_img_panel_srk.png" />
-            <PlistImageFile Name="com_img_panel2.png" Key="com_img_panel2.png" />
-            <PlistImageFile Name="com_img_panel3.png" Key="com_img_panel3.png" />
-            <PlistImageFile Name="com_img_panel4.png" Key="com_img_panel4.png" />
-            <PlistImageFile Name="com_img_panel5.png" Key="com_img_panel5.png" />
-            <PlistImageFile Name="com_img_transparent.png" Key="com_img_transparent.png" />
-            <PlistImageFile Name="com_txt_ccmj_choose.png" Key="com_txt_ccmj_choose.png" />
-            <PlistImageFile Name="com_txt_ccmj_unchoose.png" Key="com_txt_ccmj_unchoose.png" />
-            <PlistImageFile Name="com_txt_dp.png" Key="com_txt_dp.png" />
-            <PlistImageFile Name="com_txt_gsh.png" Key="com_txt_gsh.png" />
-            <PlistImageFile Name="com_txt_hdh.png" Key="com_txt_hdh.png" />
-            <PlistImageFile Name="com_txt_hp.png" Key="com_txt_hp.png" />
-            <PlistImageFile Name="com_txt_jlmj_choose.png" Key="com_txt_jlmj_choose.png" />
-            <PlistImageFile Name="com_txt_jlmj_unchoose.png" Key="com_txt_jlmj_unchoose.png" />
-            <PlistImageFile Name="com_txt_qd.png" Key="com_txt_qd.png" />
-            <PlistImageFile Name="com_txt_tp.png" Key="com_txt_tp.png" />
-            <PlistImageFile Name="com_txt_wtp.png" Key="com_txt_wtp.png" />
-            <PlistImageFile Name="com_txt_zm.png" Key="com_txt_zm.png" />
-          </PlistImageFolder>
-          <PlistImageFolder Image="other.png" PListFile="other.plist" Name=".other_PList.Dir">
-            <PlistImageFile Name="other_btn_chapai.png" Key="other_btn_chapai.png" />
-            <PlistImageFile Name="other_btn_move.png" Key="other_btn_move.png" />
-            <PlistImageFile Name="other_btn_pyq.png" Key="other_btn_pyq.png" />
-            <PlistImageFile Name="other_btn_wfjs.png" Key="other_btn_wfjs.png" />
-            <PlistImageFile Name="other_btn_wx.png" Key="other_btn_wx.png" />
-            <PlistImageFile Name="other_icon_failed.png" Key="other_icon_failed.png" />
-            <PlistImageFile Name="other_icon_time.png" Key="other_icon_time.png" />
-            <PlistImageFile Name="other_icon_win.png" Key="other_icon_win.png" />
-            <PlistImageFile Name="other_img_bqchoose.png" Key="other_img_bqchoose.png" />
-            <PlistImageFile Name="other_img_bqunchoose.png" Key="other_img_bqunchoose.png" />
-            <PlistImageFile Name="other_img_chat1.png" Key="other_img_chat1.png" />
-            <PlistImageFile Name="other_img_chat2.png" Key="other_img_chat2.png" />
-            <PlistImageFile Name="other_img_chatcellbg.png" Key="other_img_chatcellbg.png" />
-            <PlistImageFile Name="other_img_chattitle.png" Key="other_img_chattitle.png" />
-            <PlistImageFile Name="other_img_cyychoose.png" Key="other_img_cyychoose.png" />
-            <PlistImageFile Name="other_img_cyyunchoose.png" Key="other_img_cyyunchoose.png" />
-            <PlistImageFile Name="other_img_fgx.png" Key="other_img_fgx.png" />
-            <PlistImageFile Name="other_img_loading.png" Key="other_img_loading.png" />
-            <PlistImageFile Name="other_img_loading_circle.png" Key="other_img_loading_circle.png" />
-            <PlistImageFile Name="other_img_tingbg.png" Key="other_img_tingbg.png" />
-            <PlistImageFile Name="other_img_xin.png" Key="other_img_xin.png" />
-            <PlistImageFile Name="other_img_yl.png" Key="other_img_yl.png" />
-            <PlistImageFile Name="other_img_yxt.png" Key="other_img_yxt.png" />
-            <PlistImageFile Name="other_txt_bao.png" Key="other_txt_bao.png" />
-            <PlistImageFile Name="other_txt_ccmj.png" Key="other_txt_ccmj.png" />
-            <PlistImageFile Name="other_txt_cjfj.png" Key="other_txt_cjfj.png" />
-            <PlistImageFile Name="other_txt_dqqs.png" Key="other_txt_dqqs.png" />
-            <PlistImageFile Name="other_txt_dqzs.png" Key="other_txt_dqzs.png" />
-            <PlistImageFile Name="other_txt_fs.png" Key="other_txt_fs.png" />
-            <PlistImageFile Name="other_txt_fx.png" Key="other_txt_fx.png" />
-            <PlistImageFile Name="other_txt_hyq.png" Key="other_txt_hyq.png" />
-            <PlistImageFile Name="other_txt_jx.png" Key="other_txt_jx.png" />
-            <PlistImageFile Name="other_txt_jxyx.png" Key="other_txt_jxyx.png" />
-            <PlistImageFile Name="other_txt_kjsj.png" Key="other_txt_kjsj.png" />
-            <PlistImageFile Name="other_txt_name.png" Key="other_txt_name.png" />
-            <PlistImageFile Name="other_txt_pyq.png" Key="other_txt_pyq.png" />
-            <PlistImageFile Name="other_txt_qd.png" Key="other_txt_qd.png" />
-            <PlistImageFile Name="other_txt_qx.png" Key="other_txt_qx.png" />
-            <PlistImageFile Name="other_txt_sfzh.png" Key="other_txt_sfzh.png" />
-            <PlistImageFile Name="other_txt_smrz.png" Key="other_txt_smrz.png" />
-            <PlistImageFile Name="other_txt_sqjs.png" Key="other_txt_sqjs.png" />
-            <PlistImageFile Name="other_txt_syps.png" Key="other_txt_syps.png" />
-            <PlistImageFile Name="other_txt_tc.png" Key="other_txt_tc.png" />
-            <PlistImageFile Name="other_txt_title_bq.png" Key="other_txt_title_bq.png" />
-            <PlistImageFile Name="other_txt_title_cjfj.png" Key="other_txt_title_cjfj.png" />
-            <PlistImageFile Name="other_txt_title_cyy.png" Key="other_txt_title_cyy.png" />
-            <PlistImageFile Name="other_txt_title_fjgz.png" Key="other_txt_title_fjgz.png" />
-            <PlistImageFile Name="other_txt_title_fx.png" Key="other_txt_title_fx.png" />
-            <PlistImageFile Name="other_txt_title_hd.png" Key="other_txt_title_hd.png" />
-            <PlistImageFile Name="other_txt_title_jrfj.png" Key="other_txt_title_jrfj.png" />
-            <PlistImageFile Name="other_txt_title_pjxq.png" Key="other_txt_title_pjxq.png" />
-            <PlistImageFile Name="other_txt_title_sqjsfj.png" Key="other_txt_title_sqjsfj.png" />
-            <PlistImageFile Name="other_txt_title_sz.png" Key="other_txt_title_sz.png" />
-            <PlistImageFile Name="other_txt_title_ts.png" Key="other_txt_title_ts.png" />
-            <PlistImageFile Name="other_txt_title_wfsm_.png" Key="other_txt_title_wfsm_.png" />
-            <PlistImageFile Name="other_txt_title_xq.png" Key="other_txt_title_xq.png" />
-            <PlistImageFile Name="other_txt_title_zj.png" Key="other_txt_title_zj.png" />
-            <PlistImageFile Name="other_txt_title_zjjl.png" Key="other_txt_title_zjjl.png" />
-            <PlistImageFile Name="other_txt_xh.png" Key="other_txt_xh.png" />
-            <PlistImageFile Name="other_txt_xq.png" Key="other_txt_xq.png" />
-            <PlistImageFile Name="other_txt_xx.png" Key="other_txt_xx.png" />
-            <PlistImageFile Name="other_txt_yx.png" Key="other_txt_yx.png" />
-            <PlistImageFile Name="other_txt_yy.png" Key="other_txt_yy.png" />
-            <PlistImageFile Name="other_txt_zb.png" Key="other_txt_zb.png" />
-          </PlistImageFolder>
+        <Folder Name="other">
+          <Image Name="other_img_loading.png" />
         </Folder>
       </RootFolder>
     </Group>

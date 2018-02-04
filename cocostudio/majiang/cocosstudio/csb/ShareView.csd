@@ -28,7 +28,7 @@
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_closelittle.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_closelittle.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -40,7 +40,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.7806" />
             <PreSize X="0.0656" Y="0.0597" />
-            <FileData Type="PlistSubImage" Path="other_txt_title_fx.png" Plist="plist/other.plist" />
+            <FileData Type="Normal" Path="other/other_txt_title_fx.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="btn_friend" ActionTag="-868728148" Tag="8" IconVisible="False" LeftMargin="737.0000" RightMargin="397.0000" TopMargin="279.0000" BottomMargin="295.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="116" Scale9Height="124" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -52,9 +52,7 @@
             <PrePosition X="0.6328" Y="0.5111" />
             <PreSize X="0.1141" Y="0.2028" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="other_btn_pyq.png" Plist="plist/other.plist" />
+            <NormalFileData Type="Normal" Path="other/other_btn_pyq.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -67,9 +65,7 @@
             <PrePosition X="0.3672" Y="0.5111" />
             <PreSize X="0.1141" Y="0.2028" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="other_btn_wx.png" Plist="plist/other.plist" />
+            <NormalFileData Type="Normal" Path="other/other_btn_wx.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -81,7 +77,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3672" Y="0.3472" />
             <PreSize X="0.0977" Y="0.0514" />
-            <FileData Type="PlistSubImage" Path="other_txt_hyq.png" Plist="plist/other.plist" />
+            <FileData Type="Normal" Path="other/other_txt_hyq.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="other_txt_pyq_7" ActionTag="-1934316206" Tag="11" IconVisible="False" LeftMargin="756.5000" RightMargin="416.5000" TopMargin="451.5000" BottomMargin="231.5000" ctype="SpriteObjectData">
@@ -92,7 +88,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.6328" Y="0.3472" />
             <PreSize X="0.0836" Y="0.0514" />
-            <FileData Type="PlistSubImage" Path="other_txt_pyq.png" Plist="plist/other.plist" />
+            <FileData Type="Normal" Path="other/other_txt_pyq.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

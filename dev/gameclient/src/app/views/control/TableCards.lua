@@ -28,6 +28,19 @@ function cls:ctor(tablePos, playerIndex, colCount)
 	self.tablePos = tablePos
 	self.playerIndex = playerIndex
 	self.colCount = colCount or 12
+
+	self.selectedImg = Util:sprite("majiang/img_01")
+							:addTo(self)
+							:zorder(9999)
+							:anchor(0.5, 0)
+							:hide()
+	self.selectedImg:run{"rep",
+							{"seq",
+								{"moveby", 0.5, cc.p(0, 15)},
+								{"moveby", 0.5, cc.p(0, -15)},
+							}
+						}
+
 	self:enableNodeEvents()
 end
 
@@ -57,6 +70,15 @@ function cls:updateCards()
 		img:pos(x, y)
 		img:zorder(display.height-y)
 		table.insert(self.cards, img)
+	end
+
+	local lastCard = self.cards[#self.cards]
+	if lastCard and User.gameInfo.outIndex == self.playerIndex then
+		-- self.selectedImg:show()
+		local p = cc.pAdd(lastCard:pos(), cc.p(16, 30))
+		self.selectedImg:pos(p)
+	else
+		self.selectedImg:hide()
 	end
 
 	self:adjustPos()

@@ -6,6 +6,9 @@
         <Folder Name="bg">
           <Image Name="big_img_loginbg.png" />
         </Folder>
+        <Folder Name="com">
+          <Image Name="com_btn_create.png" />
+        </Folder>
         <Folder Name="csb">
           <Project Name="StartView.csd" Type="Layer" />
         </Folder>
@@ -29,14 +32,14 @@
             <PlistImageFile Name="com_img_checkboxbg2.png" Key="com_img_checkboxbg2.png" />
             <PlistImageFile Name="com_img_iconframe.png" Key="com_img_iconframe.png" />
             <PlistImageFile Name="com_img_kungbg.png" Key="com_img_kungbg.png" />
-            <PlistImageFile Name="com_img_panel2.png" Key="com_img_panel2.png" />
-            <PlistImageFile Name="com_img_panel3.png" Key="com_img_panel3.png" />
-            <PlistImageFile Name="com_img_panel4.png" Key="com_img_panel4.png" />
-            <PlistImageFile Name="com_img_panel5.png" Key="com_img_panel5.png" />
             <PlistImageFile Name="com_img_panel_black.png" Key="com_img_panel_black.png" />
             <PlistImageFile Name="com_img_panel_cellbg.png" Key="com_img_panel_cellbg.png" />
             <PlistImageFile Name="com_img_panel_celltitle.png" Key="com_img_panel_celltitle.png" />
             <PlistImageFile Name="com_img_panel_srk.png" Key="com_img_panel_srk.png" />
+            <PlistImageFile Name="com_img_panel2.png" Key="com_img_panel2.png" />
+            <PlistImageFile Name="com_img_panel3.png" Key="com_img_panel3.png" />
+            <PlistImageFile Name="com_img_panel4.png" Key="com_img_panel4.png" />
+            <PlistImageFile Name="com_img_panel5.png" Key="com_img_panel5.png" />
             <PlistImageFile Name="com_img_transparent.png" Key="com_img_transparent.png" />
             <PlistImageFile Name="com_txt_ccmj_choose.png" Key="com_txt_ccmj_choose.png" />
             <PlistImageFile Name="com_txt_ccmj_unchoose.png" Key="com_txt_ccmj_unchoose.png" />
@@ -54,6 +57,10 @@
           <PlistImageFolder Image="emoji.png" PListFile="emoji.plist" Name=".emoji_PList.Dir">
             <PlistImageFile Name="E00E.png" Key="E00E.png" />
             <PlistImageFile Name="emoji_1.png" Key="emoji_1.png" />
+            <PlistImageFile Name="emoji_1_1.png" Key="emoji_1_1.png" />
+            <PlistImageFile Name="emoji_1_2.png" Key="emoji_1_2.png" />
+            <PlistImageFile Name="emoji_1_3.png" Key="emoji_1_3.png" />
+            <PlistImageFile Name="emoji_1_4.png" Key="emoji_1_4.png" />
             <PlistImageFile Name="emoji_10.png" Key="emoji_10.png" />
             <PlistImageFile Name="emoji_10_1.png" Key="emoji_10_1.png" />
             <PlistImageFile Name="emoji_10_2.png" Key="emoji_10_2.png" />
@@ -107,10 +114,6 @@
             <PlistImageFile Name="emoji_16_2.png" Key="emoji_16_2.png" />
             <PlistImageFile Name="emoji_16_3.png" Key="emoji_16_3.png" />
             <PlistImageFile Name="emoji_16_4.png" Key="emoji_16_4.png" />
-            <PlistImageFile Name="emoji_1_1.png" Key="emoji_1_1.png" />
-            <PlistImageFile Name="emoji_1_2.png" Key="emoji_1_2.png" />
-            <PlistImageFile Name="emoji_1_3.png" Key="emoji_1_3.png" />
-            <PlistImageFile Name="emoji_1_4.png" Key="emoji_1_4.png" />
             <PlistImageFile Name="emoji_2.png" Key="emoji_2.png" />
             <PlistImageFile Name="emoji_2_1.png" Key="emoji_2_1.png" />
             <PlistImageFile Name="emoji_2_2.png" Key="emoji_2_2.png" />
@@ -296,10 +299,10 @@
             <PlistImageFile Name="majiang_txt_8.png" Key="majiang_txt_8.png" />
             <PlistImageFile Name="majiang_txt_9.png" Key="majiang_txt_9.png" />
             <PlistImageFile Name="mj_mb.png" Key="mj_mb.png" />
-            <PlistImageFile Name="mj_mb2.png" Key="mj_mb2.png" />
-            <PlistImageFile Name="mj_mb6.png" Key="mj_mb6.png" />
             <PlistImageFile Name="mj_mb_1.png" Key="mj_mb_1.png" />
             <PlistImageFile Name="mj_mb_2.png" Key="mj_mb_2.png" />
+            <PlistImageFile Name="mj_mb2.png" Key="mj_mb2.png" />
+            <PlistImageFile Name="mj_mb6.png" Key="mj_mb6.png" />
             <PlistImageFile Name="nan.png" Key="nan.png" />
             <PlistImageFile Name="s_hao.png" Key="s_hao.png" />
             <PlistImageFile Name="s_piao.png" Key="s_piao.png" />

@@ -23,19 +23,19 @@ function cls:initDialog()
 	Util:touchLayer(self)
 	self.spBg = Util:sprite("img/big_img_panel2")
 	self.spBg:addTo(self):pos(display.cx,display.cy)
-	self.spTitle = display.newSprite("#other_txt_title_ts.png")
+	self.spTitle = Util:sprite("other/other_txt_title_ts")
 	self.spTitle:addTo(self.spBg):pos(self.spBg:width() / 2,self.spBg:height() - 50)
 	self.labMsg = Util:label(self.msg,28,Const.COLOR_GRAY,{width = self.spBg:width() - 60},
 		cc.TEXT_ALIGNMENT_CENTER,cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
 	self.labMsg:addTo(self.spBg):center()
-	local btnConfirm = Util:button("com_btn_number0",handler(self,self.btn_yesHandler),
-				self.yesLabel or "确定",28, display.COLOR_WHITE,ccui.TextureResType.plistType)
+	local btnConfirm = Util:button("com/com_btn_number0",handler(self,self.btn_yesHandler),
+				self.yesLabel or "确定",28, display.COLOR_WHITE)
 				:addTo(self.spBg)
 				:pos(self.spBg:width() / 2,100)
 	if self.noFunc or self.noLabel then
 		btnConfirm:x(self.spBg:width() / 2 - 200)
-		Util:button("com_btn_number0",handler(self,self.btn_noHandler),
-			self.yesLabel or "取消",28, display.COLOR_WHITE,ccui.TextureResType.plistType)
+		Util:button("com/com_btn_number0",handler(self,self.btn_noHandler),
+			self.yesLabel or "取消",28, display.COLOR_WHITE)
 			:addTo(self.spBg)
 			:pos(self.spBg:width() / 2 + 200,100)
 	end

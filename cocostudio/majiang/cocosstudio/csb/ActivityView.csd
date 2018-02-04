@@ -28,7 +28,7 @@
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_close.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_close.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -40,7 +40,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.8750" />
             <PreSize X="0.0680" Y="0.0625" />
-            <FileData Type="PlistSubImage" Path="other_txt_title_hd.png" Plist="plist/other.plist" />
+            <FileData Type="Normal" Path="other/other_txt_title_hd.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="lab_content" ActionTag="-1115491648" Tag="5" IconVisible="False" LeftMargin="570.0000" RightMargin="570.0000" TopMargin="382.4600" BottomMargin="309.5400" FontSize="28" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">

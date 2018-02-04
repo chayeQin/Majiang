@@ -38,7 +38,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0961" Y="0.9701" />
             <PreSize X="0.0289" Y="0.0278" />
-            <FileData Type="PlistSubImage" Path="playscene_icon_dc00.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_icon_dc00.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="node_battery2" ActionTag="2049668260" VisibleForFrame="False" Alpha="247" Tag="5" IconVisible="False" LeftMargin="109.4520" RightMargin="1145.5480" TopMargin="16.5040" BottomMargin="693.4960" ProgressInfo="100" ctype="LoadingBarObjectData">
@@ -49,7 +49,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0953" Y="0.9701" />
             <PreSize X="0.0195" Y="0.0139" />
-            <ImageFileData Type="PlistSubImage" Path="playscene_icon_dc0.png" Plist="plist/playscene.plist" />
+            <ImageFileData Type="Normal" Path="playScene/playscene_icon_dc0.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="lab_clock" ActionTag="-2013749904" Tag="6" IconVisible="False" LeftMargin="45.2578" RightMargin="1184.7422" TopMargin="11.5040" BottomMargin="688.4960" FontSize="20" LabelText="12:12" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="50.0000" Y="20.0000" />
@@ -81,7 +81,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0975" Y="0.9701" />
             <PreSize X="0.0336" Y="0.0250" />
-            <FileData Type="PlistSubImage" Path="playscene_icon_dc11.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_icon_dc11.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="node_battery" ActionTag="1921961893" Tag="10" IconVisible="False" LeftMargin="105.5512" RightMargin="1139.4487" TopMargin="14.3430" BottomMargin="691.6570" ProgressInfo="100" ctype="LoadingBarObjectData">
@@ -92,7 +92,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0961" Y="0.9704" />
             <PreSize X="0.0273" Y="0.0194" />
-            <ImageFileData Type="PlistSubImage" Path="playscene_icon_dc1.png" Plist="plist/playscene.plist" />
+            <ImageFileData Type="Normal" Path="playScene/playscene_icon_dc1.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="btn_rules" ActionTag="-427161557" Tag="11" IconVisible="False" LeftMargin="37.4896" RightMargin="1115.5104" TopMargin="46.8214" BottomMargin="622.1786" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="97" Scale9Height="29" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="127.0000" Y="51.0000" />
@@ -103,7 +103,7 @@
             <PrePosition X="0.0789" Y="0.8996" />
             <PreSize X="0.0992" Y="0.0708" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="playscene_btn_xq.png" Plist="plist/playscene.plist" />
+            <NormalFileData Type="Normal" Path="playScene/playscene_btn_xq.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -116,7 +116,7 @@
             <PrePosition X="0.9618" Y="0.9309" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="playscene_btn_sz.png" Plist="plist/playscene.plist" />
+            <NormalFileData Type="Normal" Path="playScene/playscene_btn_sz.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -129,7 +129,7 @@
             <PrePosition X="0.9618" Y="0.8334" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="playscene_btn_xx.png" Plist="plist/playscene.plist" />
+            <NormalFileData Type="Normal" Path="playScene/playscene_btn_xx.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -142,7 +142,7 @@
             <PrePosition X="0.9618" Y="0.7373" />
             <PreSize X="0.0484" Y="0.0847" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="playscene_btn_yy.png" Plist="plist/playscene.plist" />
+            <NormalFileData Type="Normal" Path="playScene/playscene_btn_yy.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -154,7 +154,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4979" Y="0.7656" />
             <PreSize X="0.1516" Y="0.0750" />
-            <FileData Type="PlistSubImage" Path="playscene_txt_ccmj.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_txt_ccmj.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="img_wifi4" ActionTag="-9184420" Tag="17" IconVisible="False" LeftMargin="3.1496" RightMargin="1237.8503" TopMargin="6.6804" BottomMargin="702.3196" ctype="SpriteObjectData">
@@ -165,7 +165,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0177" Y="0.9831" />
             <PreSize X="0.0305" Y="0.0153" />
-            <FileData Type="PlistSubImage" Path="playscene_img_wiff1.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_img_wiff1.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="img_wifi3" ActionTag="-160589698" Tag="18" IconVisible="False" LeftMargin="8.6496" RightMargin="1243.3503" TopMargin="13.2079" BottomMargin="697.7921" ctype="SpriteObjectData">
@@ -176,7 +176,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0177" Y="0.9754" />
             <PreSize X="0.0219" Y="0.0125" />
-            <FileData Type="PlistSubImage" Path="playscene_img_wiff2.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_img_wiff2.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="img_wifi2" ActionTag="-1548552782" Tag="19" IconVisible="False" LeftMargin="14.1496" RightMargin="1248.8503" TopMargin="18.7373" BottomMargin="694.2627" ctype="SpriteObjectData">
@@ -187,7 +187,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0177" Y="0.9691" />
             <PreSize X="0.0133" Y="0.0097" />
-            <FileData Type="PlistSubImage" Path="playscene_img_wiff3.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_img_wiff3.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="img_wifi1" ActionTag="-734335017" Tag="20" IconVisible="False" LeftMargin="19.6496" RightMargin="1254.3503" TopMargin="25.2637" BottomMargin="689.7363" ctype="SpriteObjectData">
@@ -198,7 +198,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0177" Y="0.9614" />
             <PreSize X="0.0047" Y="0.0069" />
-            <FileData Type="PlistSubImage" Path="playscene_img_wiff4.png" Plist="plist/playscene.plist" />
+            <FileData Type="Normal" Path="playScene/playscene_img_wiff4.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

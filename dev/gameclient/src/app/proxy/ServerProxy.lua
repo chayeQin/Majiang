@@ -42,9 +42,12 @@ function cls:start(rhand)
 	Net:call(rhand, "room", "start", User:getUid())
 end
 
-
-function cls:doAction(actType, cardLst, rhand)
+function cls:doAction(actType, cardLst)
 	Net:call(rhand, "room", "doAction", User:getUid(), actType, cardLst)
+end
+
+function cls:sendChat(content,rhand)
+	Net:call(rhand,"room","chat",User:getUid(),content)
 end
 
 

@@ -186,4 +186,19 @@ function cls:getPlayerCardInfoByIndex(playerIndex)
 	return 
 end
 
+-- 房间规则(人数)
+function cls:getMaxSize()
+	return self.roomInfo.maxSize
+end
+
+-- 房间规则(玩法)
+function cls:getPlayTypes()
+	return self.roomInfo.types
+end
+
+-- 房间规则(场次)
+function cls:getMaxCount()
+	return self.roomInfo.maxCount
+end
+
 return cls

@@ -69,17 +69,7 @@ end
 
 function cls:loadPlist()
 	print("****load plist")
-	Util:plist("com")
-	Util:plist("login")
-	Util:plist("emoji")
-	Util:plist("mainscene")
-	Util:plist("majiang")
-	Util:plist("mjCardBg")
-	Util:plist("other")
-	Util:plist("playscene")
-	Util:plist("report")
-	Util:plist("saizi")
-	Util:plist("setting")
+	
 end
 
 -- 主页地址测试完成,并开始加载

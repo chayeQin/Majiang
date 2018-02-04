@@ -33,6 +33,12 @@ function cls:onExit()
 end
 
 function cls:updateCards()
+	local info = User:getPlayerCardInfoByIndex(self.playerIndex)
+
+	if not info then
+		return
+	end
+
 	for _, v in ipairs(self.cards) do
 		v:remove()
 	end
@@ -41,6 +47,8 @@ function cls:updateCards()
 	table.sort(cardLst, function(v1, v2)
 		return v1 < v2
 	end)
+
+
 
 	self.selectedIndex = nil
 	self.delta = cls.POS_DELTA[self.tablePos]
@@ -54,19 +62,46 @@ function cls:updateCards()
 		table.insert(self.cards, img)
 	end
 
+	local isPlayerSendCard = false
+	for _, v in pairs(info.actions) do
+		if v == ActionTips.ACTION_TYPE_CHUPAI then
+			isPlayerSendCard = true
+			break
+		end
+	end
+	if info.uid == User.info.uid and isPlayerSendCard then -- 如果是玩家出牌阶段
+		local origX = self.cards[#self.cards]:x()
+		self.cards[#self.cards]:x(origX + 15)
+	end
+
 	self:adjustPos()
 end
 
 function cls:adjustPos()
+	-- TODO: 根据杠，碰的牌调整位置
+
 	if self.tablePos == 1 then 
-		-- TODO: 根据杠，碰的牌调整位置
-		self:pos(display.width / 2 - self.delta.x * self:getCardCount() / 2, 0)
+		local x = display.width / 2 - self.delta.x * self:getCardCount() / 2
+		local cardLst = User:getOpenedCards(self.playerIndex)
+		x = x + #cardLst*60
+		self:pos(x, 0)
 	elseif self.tablePos == 2 then
-		self:pos(130, display.height / 2 - self.delta.y * self:getCardCount() / 2)
+		print("*****adjust pos")
+		local y = display.height / 2 - self.delta.y * self:getCardCount() / 2
+		local cardLst = User:getOpenedCards(self.playerIndex)
+		y = y -  #cardLst*57
+		self:pos(130, y)
 	elseif self.tablePos == 3 then
-		self:pos(display.width / 2 - self.delta.x * self:getCardCount() / 2,  display.height - 60)
+		local x = display.width / 2 - self.delta.x * self:getCardCount() / 2
+
+		local cardLst = User:getOpenedCards(self.playerIndex)
+		x = x - #cardLst*60
+		self:pos(x,  display.height - 60)
 	elseif self.tablePos == 4 then
-		self:pos(display.width - 130, display.height / 2 - self.delta.y * self:getCardCount() / 2)
+		local y = display.height / 2 - self.delta.y * self:getCardCount() / 2
+		local cardLst = User:getOpenedCards(self.playerIndex)
+		y = y + #cardLst*57
+		self:pos(display.width - 130, y)
 	end
 end
 

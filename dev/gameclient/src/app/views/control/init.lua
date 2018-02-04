@@ -25,3 +25,5 @@ cc.exports.ActionTips      		= import(".ActionTips")
 cc.exports.PlayerIcon			= import(".PlayerIcon")
 cc.exports.Msg					= import(".Msg")
 
+cc.exports.ChooseOptionCards	= import(".ChooseOptionCards")
+cc.exports.ActionEffect			= import(".ActionEffect")

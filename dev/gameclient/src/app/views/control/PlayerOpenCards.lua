@@ -51,8 +51,12 @@ function cls:updateCards()
 	local x = 0
 	local y = 0
 	for i, group in ipairs(cardLst) do
+		table.sort(group, function(v1, v2)
+			return v1 < v2
+		end)
+
 		for j, v in ipairs(group) do
-			local img = Majiang.new(self.tablePos + 4, v)
+			local img = Majiang.new(self.tablePos + 4, math.abs(v))
 							:addTo(self)
 			
 			img:pos(x, y)
@@ -64,6 +68,8 @@ function cls:updateCards()
 		x = x + self.groupDelta.x
 		y = y + self.groupDelta.y
 	end
+
+	self.maxX = x
 	self:adjustPos()
 end
 

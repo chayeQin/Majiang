@@ -15,7 +15,7 @@
             <PrePosition X="0.5000" Y="0.2849" />
             <PreSize X="0.2219" Y="0.1319" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="playscene_btn_wxyq.png" Plist="plist/playscene.plist" />
+            <NormalFileData Type="Normal" Path="playScene/playscene_btn_wxyq.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -30,7 +30,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5066" Y="0.5561" />
                 <PreSize X="0.6637" Y="0.5366" />
-                <FileData Type="PlistSubImage" Path="playscene_txt_jsfj.png" Plist="plist/playscene.plist" />
+                <FileData Type="Normal" Path="playScene/playscene_txt_jsfj.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
             </Children>
@@ -41,7 +41,7 @@
             <PrePosition X="0.8940" Y="0.0672" />
             <PreSize X="0.1766" Y="0.1139" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <NormalFileData Type="PlistSubImage" Path="com_btn_dismiss.png" Plist="plist/com.plist" />
+            <NormalFileData Type="Normal" Path="com/com_btn_dismiss.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

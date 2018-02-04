@@ -126,4 +126,20 @@ function cls:showPlayView()
 	self.view:addTo(self)
 end
 
+function cls:btn_rulesHandler(target)
+	require("app.views.game.common.RoomRuleView").new()
+end
+
+function cls:btn_setttingHandler(target)
+	require("app.views.game.common.SettingView").new(false)
+end
+
+function cls:btn_chatHandler(target)
+	require("app.views.game.common.ChatView").new()
+end
+
+function cls:btn_voiceHandler(target)
+	require("app.views.game.common.GameResultView").new()
+end
+
 return cls

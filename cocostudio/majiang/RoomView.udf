@@ -28,17 +28,5 @@
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="csb/ReadyView.csd" />
-          <FilePathData Path="csb/StartAni.csd" />
-          <FilePathData Path="csb/RoomView.csd" />
-          <FilePathData Path="csb/ActionEffect.csd" />
-          <FilePathData Path="csb/PlayView.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="csb/PlayView.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>
