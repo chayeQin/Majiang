@@ -56,7 +56,7 @@ end
 
 function cls:checkWhiteUser()
 	if CACHE_DEBUG_LOG and not self.logBtn then
-		self.logBtn = Util:button("button/btn_09", function()
+		self.logBtn = Util:button("com/com_btn_create", function()
 			GMLogView.new()
 		end, "日志")
 		
@@ -66,7 +66,7 @@ function cls:checkWhiteUser()
 	end
 
 	if CACHE_DEBUG_LOG and not self.btnGvoice then
-		self.btnGvoice = Util:button("button/btn_09", function()
+		self.btnGvoice = Util:button("com/com_btn_create", function()
 			if not GVoiceUtil.isInit then
 				GVoiceUtil:init(function()
 					Msg.new("Init OK")

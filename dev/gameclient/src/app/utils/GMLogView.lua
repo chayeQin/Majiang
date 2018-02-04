@@ -19,7 +19,7 @@ function cls:onCreate()
 	self.listView:update(CACHE_DEBUG_LOG, #CACHE_DEBUG_LOG)
 	self:onTouch(handler(self, self.onTouchHandler), nil, true)
 
-	Util:button("button/button_bg_01", function()
+	Util:button("com/com_btn_create", function()
 			CACHE_DEBUG_LOG = {}
 			self.listView:update(CACHE_DEBUG_LOG, #CACHE_DEBUG_LOG)
 		end, "清除")
@@ -27,7 +27,7 @@ function cls:onCreate()
 		:pos(display.width - 50, 120)
 		:setTitleFontName(nil)
 
-	Util:button("button/button_bg_01", function()
+	Util:button("com/com_btn_create", function()
 			PopupManager:popView(self)
 			appView:checkWhiteUser()
 		end, "关闭")

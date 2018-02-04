@@ -46,6 +46,9 @@ function cls:ctor()
 	-- local tmp = ActionTips.new({1,2,3,4})
 	-- tmp:addTo(self)
 	-- tmp:pos(1000, 300)
+
+
+
 	self:enableNodeEvents()
 end
 
@@ -55,6 +58,12 @@ function cls:onEnter()
 	-- 检测登陆
 	print("******onenter***********")
 	self:connectServer()
+
+
+	Util:tick(function()
+		WhiteUser.new()
+	end)
+		
 end
 
 function cls:onExit()
@@ -67,7 +76,6 @@ function cls:connectServer()
 end
 
 function cls:connectRhand()
-	self:btn_startHandler()
 end
 
 function cls:connectFHand()
