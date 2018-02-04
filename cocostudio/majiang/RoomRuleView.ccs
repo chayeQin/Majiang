@@ -1,0 +1,23 @@
+<Solution>
+  <PropertyGroup Name="RoomRuleView" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="bg">
+          <Image Name="big_img_panel2.png" />
+        </Folder>
+        <Folder Name="com">
+          <Image Name="com_btn_close.png" />
+          <Image Name="com_btn_closelittle.png" />
+          <Image Name="com_txt_ccmj_choose.png" />
+        </Folder>
+        <Folder Name="csb">
+          <Project Name="RoomRuleView.csd" Type="Layer" />
+        </Folder>
+        <Folder Name="other">
+          <Image Name="other_txt_title_wfsm_.png" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

@@ -1,0 +1,53 @@
+<Solution>
+  <PropertyGroup Name="ChatView" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="bg">
+          <Image Name="big_img_panel2.png" />
+        </Folder>
+        <Folder Name="csb">
+          <Project Name="ChatView.csd" Type="Layer" />
+        </Folder>
+        <Folder Name="img">
+          <Image Name="big_img_chatbg.png" />
+          <Image Name="big_img_createroombg.png" />
+          <Image Name="big_img_finalreportbg.png" />
+          <Image Name="big_img_girl.png" />
+          <Image Name="big_img_headicon.jpg" />
+          <Image Name="big_img_joinroombg.png" />
+          <Image Name="big_img_panel1.png" />
+          <Image Name="big_img_panel2.png" />
+          <Image Name="big_img_roundreportbg.png" />
+          <Image Name="big_img_tx1.png" />
+          <Image Name="big_img_tx11.png" />
+          <Image Name="big_img_tx12.png" />
+          <Image Name="big_img_tx13.png" />
+          <Image Name="big_img_tx14.png" />
+          <Image Name="big_img_tx2.png" />
+          <Image Name="big_img_tx22.png" />
+          <Image Name="big_img_tx23.png" />
+          <Image Name="big_img_tx24.png" />
+          <Image Name="big_img_tx25.png" />
+          <Image Name="big_img_tx25b.png" />
+          <Image Name="big_img_tx26.png" />
+          <Image Name="big_img_tx27.png" />
+          <Image Name="big_img_tx3.png" />
+          <Image Name="big_img_tx4.png" />
+          <Image Name="big_img_tx5.png" />
+          <Image Name="big_img_tx6.png" />
+          <Image Name="big_img_tx7.png" />
+          <Image Name="big_img_tx8.png" />
+          <Image Name="big_txt_ccmj_help.png" />
+          <Image Name="big_txt_ccmj_option.png" />
+          <Image Name="big_txt_jlmj_help.png" />
+        </Folder>
+        <Folder Name="other">
+          <Image Name="other_img_bqchoose.png" />
+          <Image Name="other_img_chattitle.png" />
+          <Image Name="other_img_cyychoose.png" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

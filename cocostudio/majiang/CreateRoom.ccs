@@ -1,0 +1,27 @@
+<Solution>
+  <PropertyGroup Name="CreateRoom" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="bg">
+          <Image Name="big_img_createroombg.png" />
+        </Folder>
+        <Folder Name="com">
+          <Image Name="com_btn_choose.png" />
+          <Image Name="com_btn_close.png" />
+          <Image Name="com_btn_create.png" />
+          <Image Name="com_btn_ensure.png" />
+          <Image Name="com_img_panel5.png" />
+          <Image Name="com_txt_ccmj_choose.png" />
+        </Folder>
+        <Folder Name="csb">
+          <Project Name="CreateRoom.csd" Type="Layer" />
+        </Folder>
+        <Folder Name="other">
+          <Image Name="other_btn_wfjs.png" />
+          <Image Name="other_txt_title_cjfj.png" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
