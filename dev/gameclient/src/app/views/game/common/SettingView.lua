@@ -68,6 +68,7 @@ function cls:btn_dismissHandler(target)
 		app:restart()
 	else
 		-- TODO 解散房间
+		GameProxy:dismiss(handler(self, self.btn_closeHandler), 1)
 	end
 end
 

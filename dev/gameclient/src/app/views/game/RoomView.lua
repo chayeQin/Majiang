@@ -73,8 +73,8 @@ end
 
 function cls:onEnter()
 	-- 监听对局开始的消息
+	print("*****Room view on enter")
 	self.roomInfoHandle = Util:addEvent(Event.roomInfoUpdate, handler(self, self.updateUI))
-
 	-- 获取玩家头像信息
 end
 
@@ -83,7 +83,48 @@ function cls:onExit()
 end
 
 function cls:updateUI()
-	print("****************")
+	print("******RoomView:updateUI")
+	if not User:isInRoom() then -- 房间解散了
+		print("*******房间解散了")
+		Util:event(Event.gameSwitch, "MainView")
+		return
+	end
+	local isVoting = false
+	for _, v in ipairs(User.roomInfo.exitUids) do
+		if v == User.info.uid then
+			isVoting = false
+			break
+		else
+			isVoting = true
+		end
+	end
+
+	local voteName = ""
+	for _, v in ipairs(User.roomInfo.players) do
+		if v.uid == User.roomInfo.exitUids[1] then
+			voteName = v.nickname
+			break
+		end
+	end
+
+	if self.exitMsg then
+		PopupManager:popView(self.exitMsg)
+		self.exitMsg = nil
+	end
+
+	if isVoting then
+		self.exitMsg = Msg.new(voteName .. "请求解散游戏，是否同意解散?", 
+						function()
+							self.exitMsg = nil
+							GameProxy:dismiss(nil, 1)
+						end, 
+						function() -- 不同意
+							self.exitMsg = nil
+							GameProxy:dismiss(nil, 0)
+						end)
+	end
+
+
 	self.lab_tableNum:setString("房间号:" .. User:getRoomId())
 
 	if User:isGameStart() then -- 如果对局已经开始

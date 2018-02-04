@@ -22,6 +22,7 @@ local DEBUG_NOTIFY = {
 }
 
 function cls.handleEvent(v, msg)
+	dump(v)
 	local strType = tostring(v.t)
 	local func = NotifyEvent.MAP[strType]
 	print("***收到推送", strType)

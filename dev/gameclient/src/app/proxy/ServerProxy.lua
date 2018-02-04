@@ -50,5 +50,8 @@ function cls:sendChat(content,rhand)
 	Net:call(rhand,"room","chat",User:getUid(),content)
 end
 
+function cls:dismiss(rhand, param)
+	Net:call(rhand, "room", "exit", User:getUid(), param)
+end
 
 return cls

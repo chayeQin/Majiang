@@ -44,13 +44,13 @@ function cls:ctor()
 	self.nxtOpenCardPos = {}
 	self.cardLst = {}
 	self.indexTablePosMap = {}
-
 end
 
 function cls:onEnter()
 	self.gameInfoHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.onGameInfoUpdate))
 	self.doActionHandle = Util:addEvent(Event.doAction, handler(self, self.onDoAction))
 	self.img_light1:run{"rep",
+
 							{"seq",
 								{"scaleto", 1, 0.7, 0.7},
 								{"scaleto", 0, 1, 1}
@@ -72,7 +72,12 @@ function cls:onExit()
 	Util:removeEvent(self.doActionHandle)
 end
 
+
+
 function cls:onUpdate()
+	if not User.gameInfo or not User.gameInfo.outTime then
+		return
+	end
 	local leftTime = User.gameInfo.outTime + 15 - Util:time()
 	leftTime = math.max(0, leftTime)
 	local i1 = math.floor(leftTime / 10)
@@ -98,7 +103,6 @@ function cls:onDoAction(event)
 	local params = event.params[1]
 	local uid = params[1]
 	local action = params[2]
-	dump(params)
 	local effectPosMap = {
 		cc.p(display.width/2, 200),
 		cc.p(350, display.height/2),
@@ -109,13 +113,10 @@ function cls:onDoAction(event)
 	local index = User.gameInfo.playerIndexs[uid]
 	if index then
 		local tablePos = self.indexTablePosMap[index]
-		print("******ACTION INDEX", index, tablePos)
 		if tablePos then
 			effectPos = effectPosMap[tablePos]
 		end
 	end
-
-	dump(effectPos)
 
 	if effectPos and 
 		action ~= ActionTips.ACTION_TYPE_GUO and
@@ -127,6 +128,20 @@ function cls:onDoAction(event)
 end
 
 function cls:onGameInfoUpdate()
+	if User.gameInfo.setts then -- 展示结算界面
+		if User.gameInfo.count >= User.gameInfo.maxCount then -- 结算后回主界面
+			Msg.new("游戏结束", function()
+				Util:event(Event.gameSwitch, "MainView")
+			end)
+		else
+			Msg.new("开始下一局", 
+				function()
+					print("******ready")
+					GameProxy:ready()				
+				end)	
+		end
+		return
+	end
 	self.lab_totalRound:setString(User.roomInfo.maxCount)
 	self.lab_leftCard:setString(User.gameInfo.librarySize)
 	

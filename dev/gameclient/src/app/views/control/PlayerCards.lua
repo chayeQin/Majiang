@@ -98,7 +98,12 @@ function cls:updateCards()
 	end
 
 	if info.uid == User.info.uid and info.listen then -- 玩家听牌中
-		self:updateShadow({self.cards[#self.cards]}) -- 只可以操作刚摸回来的牌
+		if isPlayerSendCard then
+			self:updateShadow({self.cards[#self.cards]}) -- 只可以操作刚摸回来的牌
+		else
+			self:updateShadow({})
+		end
+		
 	end
 
 	self.isInited = true

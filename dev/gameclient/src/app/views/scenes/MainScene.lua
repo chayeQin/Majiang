@@ -16,7 +16,6 @@ end
 
 function cls:onEnter()
 	cls.super.onEnter(self)
-
 	if User:isInRoom() then -- 如果玩家正在对局中，则进入对局
 		Util:event(Event.gameSwitch, "RoomView")
 	else

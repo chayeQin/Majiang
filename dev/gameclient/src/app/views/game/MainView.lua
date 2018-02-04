@@ -70,14 +70,6 @@ function cls:ctor()
 	cls.super.ctor(self)
 	self:enableNodeEvents()
 	PlayerIcon.new():addTo(self.node_icon)
-
-
-	if self.shadow then
-		self.shadow:remove()
-		self.shadow = nil
-	end
-	
-	
 end
 
 function cls:onEnter()
