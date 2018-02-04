@@ -14,22 +14,22 @@ CC_DESIGN_RESOLUTION = {
     width = 1280,
     height = 720,
     -- autoscale = "EXACT_FIT", -- 拉伸
-    autoscale = "SHOW_ALL",
-    callback = function(framesize)
-        local ratio = framesize.width / framesize.height
-        if ratio <= 1.77 then
-            local height = 1280 / ratio
-            RESET_DISPLAY_HEIGHT = height - 720
-            -- iPad 768*1024(1536*2048) is 4:3 screen
-            return {autoscale = "SHOW_ALL",
-                    width = 1280,
-                    height = height}
-        else
-            return {autoscale = "SHOW_ALL",
-                    width = 720 * ratio,
-                    height = 720}
-        end
-    end
+    autoscale = "EXACT_FIT",
+    -- callback = function(framesize)
+    --     local ratio = framesize.width / framesize.height
+    --     if ratio <= 1.77 then
+    --         local height = 1280 / ratio
+    --         RESET_DISPLAY_HEIGHT = height - 720
+    --         -- iPad 768*1024(1536*2048) is 4:3 screen
+    --         return {autoscale = "SHOW_ALL",
+    --                 width = 1280,
+    --                 height = height}
+    --     else
+    --         return {autoscale = "SHOW_ALL",
+    --                 width = 720 * ratio,
+    --                 height = 720}
+    --     end
+    -- end
 }
 
 

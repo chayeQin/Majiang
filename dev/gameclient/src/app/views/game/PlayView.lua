@@ -73,23 +73,56 @@ function cls:onExit()
 end
 
 function cls:onUpdate()
-	self:adjustPlayerCardPos()
+	local leftTime = User.gameInfo.outTime + 15 - Util:time()
+	leftTime = math.max(0, leftTime)
+	local i1 = math.floor(leftTime / 10)
+	local imgRes1 = string.format("majiang/majiang_txt_%d", i1)
+	local p1 = self.img_clock1:pos()
+	if self.img_clock1 then
+		self.img_clock1:remove()
+		self.img_clock1 = nil
+	end
+	self.img_clock1 = Util:sprite(imgRes1):addTo(self):pos(p1)
+
+	local i2 = leftTime % 10
+	local imgRes2 = string.format("majiang/majiang_txt_%d", i2)
+	local p2 = self.img_clock2:pos()
+	if self.img_clock2 then
+		self.img_clock2:remove()
+		self.img_clock2 = nil
+	end
+	self.img_clock2 = Util:sprite(imgRes2):addTo(self):pos(p2)
 end
 
 function cls:onDoAction(event)
-	local params = event.params
+	local params = event.params[1]
 	local uid = params[1]
 	local action = params[2]
-
-	for _, v in pairs(User.roomInfo.players) do
-		if v.uid == uid then
-			local index = v.index
-			local tablePos = self.indexTablePosMap[index]
-			if tablePos then
-				
-			end
-			break
+	dump(params)
+	local effectPosMap = {
+		cc.p(display.width/2, 200),
+		cc.p(350, display.height/2),
+		cc.p(display.width/2, display.height - 80),
+		cc.p(930, display.height/2),
+	}
+	local effectPos = nil
+	local index = User.gameInfo.playerIndexs[uid]
+	if index then
+		local tablePos = self.indexTablePosMap[index]
+		print("******ACTION INDEX", index, tablePos)
+		if tablePos then
+			effectPos = effectPosMap[tablePos]
 		end
+	end
+
+	dump(effectPos)
+
+	if effectPos and 
+		action ~= ActionTips.ACTION_TYPE_GUO and
+		action ~= ActionTips.ACTION_TYPE_CHUPAI then
+		ActionEffect.new(action)
+			:addTo(self)
+			:pos(effectPos)
 	end
 end
 
@@ -102,7 +135,6 @@ function cls:onGameInfoUpdate()
 		self.node_direction:rotate((tablePos - 1) * 90)
 	end
 end
-
 
 function cls:updateUI()
 	self.lab_totalRound:setString(User.roomInfo.maxCount)
@@ -160,9 +192,6 @@ function cls:initCards()
 	end
 end
 
-function cls:adjustPlayerCardPos()
-	
-end
 
 function cls:addOpendCards(playerPos, cards)
 	local startPos = self.nxtOpenCardPos[playerPos]

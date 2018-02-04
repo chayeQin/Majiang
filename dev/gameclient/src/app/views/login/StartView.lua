@@ -57,7 +57,6 @@ function cls:onEnter()
 	self:connectServer()
 end
 
-
 function cls:onExit()
 	-- Util:removeEvent(self.serverListHandle)
 	-- self.serverListHandle = nil
@@ -82,6 +81,7 @@ function cls:onRegister(v)
 end
 
 function cls:onLogin(v)
+	Util:initTime(v.r.serverTime, v.r.serverTimeZone)
 	User:setUserInfo(v.r)
 	GameProxy:getRoomStatus(function(v2)
 		local roomId = tostring(v2.r)
