@@ -6,17 +6,6 @@
       <ObjectData Name="Layer" ctype="GameLayerObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="big_img_loginbg_1" ActionTag="669303494" Tag="2" IconVisible="False" ctype="SpriteObjectData">
-            <Size X="1280.0000" Y="720.0000" />
-            <AnchorPoint />
-            <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Normal" Path="bg/big_img_loginbg.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="img_logo" ActionTag="-408101579" Tag="3" IconVisible="False" LeftMargin="305.0000" RightMargin="305.0000" BottomMargin="191.0000" ctype="SpriteObjectData">
             <Size X="670.0000" Y="529.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
