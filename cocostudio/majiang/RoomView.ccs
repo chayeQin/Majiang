@@ -10,11 +10,11 @@
           <Image Name="com_btn_dismiss.png" />
         </Folder>
         <Folder Name="csb">
+          <Project Name="ActionEffect.csd" Type="Node" />
           <Project Name="PlayView.csd" Type="Layer" />
           <Project Name="ReadyView.csd" Type="Layer" />
           <Project Name="RoomView.csd" Type="Layer" />
           <Project Name="StartAni.csd" Type="Layer" />
-          <Project Name="ActionEffect.csd" Type="Node" />
         </Folder>
         <Folder Name="img">
           <Image Name="big_img_tx2.png" />

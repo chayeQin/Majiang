@@ -28,5 +28,13 @@
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="csb/PlayView.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="csb/PlayView.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>
