@@ -1,0 +1,30 @@
+<Solution>
+  <PropertyGroup Name="GameResultView" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="bg" />
+        <Folder Name="com">
+          <Image Name="com_btn_create.png" />
+        </Folder>
+        <Folder Name="csb">
+          <Project Name="GameResultView.csd" Type="Layer" />
+        </Folder>
+        <Folder Name="img">
+          <Image Name="big_img_girl.png" />
+          <Image Name="big_img_roundreportbg.png" />
+        </Folder>
+        <Folder Name="other">
+          <Image Name="other_txt_jxyx.png" />
+        </Folder>
+        <Folder Name="report">
+          <Image Name="report_img_bpframe.png" />
+          <Image Name="report_img_girl.png" />
+          <Image Name="report_img_shu.png" />
+          <Image Name="report_img_win.png" />
+        </Folder>
+        <Image Name="20180131214840.jpg" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
