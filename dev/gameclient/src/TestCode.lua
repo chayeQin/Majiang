@@ -30,7 +30,7 @@ TEST_DEV = true
 -- TEST_GAME_SERVER  = "192.168.1.72"
 
 -- -- 测试更新
-TEST_UPDATE = true 
+TEST_UPDATE = false 
 
 GAME_NAME = "majiang"
 PLAT_NAME = "game" -- 测试平台名字
