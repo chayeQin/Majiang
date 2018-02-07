@@ -12,6 +12,10 @@
         <Folder Name="csb">
           <Project Name="StartView.csd" Type="Layer" />
         </Folder>
+        <Folder Name="other">
+          <Image Name="other_img_yl.png" />
+          <Image Name="other_img_yxt.png" />
+        </Folder>
         <Image Name="big_img_logo.png" />
       </RootFolder>
     </Group>

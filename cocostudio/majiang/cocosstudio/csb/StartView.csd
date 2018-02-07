@@ -42,6 +42,60 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="lab_ver" ActionTag="-1940744421" Tag="5" IconVisible="False" LeftMargin="1178.0322" RightMargin="51.9678" TopMargin="670.0808" BottomMargin="29.9192" FontSize="20" LabelText="1.0.0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="50.0000" Y="20.0000" />
+            <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
+            <Position X="1228.0322" Y="39.9192" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9594" Y="0.0554" />
+            <PreSize X="0.0391" Y="0.0278" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="node_update" ActionTag="1963553039" Tag="8" IconVisible="True" RightMargin="1280.0000" TopMargin="720.0000" ctype="SingleNodeObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <Children>
+              <AbstractNodeData Name="other_img_yxt_1" ActionTag="-1015450935" Tag="7" IconVisible="False" LeftMargin="489.0000" RightMargin="-791.0000" TopMargin="-170.4482" BottomMargin="148.4482" ctype="SpriteObjectData">
+                <Size X="302.0000" Y="22.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0000" Y="159.4482" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="other/other_img_yxt.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="node_progress" ActionTag="-1047392920" Tag="6" IconVisible="False" LeftMargin="488.0000" RightMargin="-792.0000" TopMargin="-171.4474" BottomMargin="147.4474" ctype="LoadingBarObjectData">
+                <Size X="304.0000" Y="24.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0000" Y="159.4474" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <ImageFileData Type="Normal" Path="other/other_img_yl.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="lab_progress" ActionTag="1031993770" Tag="9" IconVisible="False" LeftMargin="620.0001" RightMargin="-660.0001" TopMargin="-169.0000" BottomMargin="149.0000" FontSize="20" LabelText="100%" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="40.0000" Y="20.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0001" Y="159.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="26" G="26" B="26" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint />
+            <Position />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
