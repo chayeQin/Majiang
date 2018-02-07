@@ -41,14 +41,6 @@ function cls:ctor()
 		end
 	end
 
-	-- Majiang.new(1, 11):addTo(self):pos(300, 300)
-
-	-- local tmp = ActionTips.new({1,2,3,4})
-	-- tmp:addTo(self)
-	-- tmp:pos(1000, 300)
-
-
-
 	self:enableNodeEvents()
 end
 
@@ -63,7 +55,6 @@ function cls:onEnter()
 	Util:tick(function()
 		WhiteUser.new()
 	end)
-		
 end
 
 function cls:onExit()
@@ -72,7 +63,8 @@ function cls:onExit()
 end
 
 function cls:connectServer()
-	GameProxy:connectServer(TEST_GAME_SERVER, "10002", handler(self, self.connectRhand), handler(self, self.connectFHand))
+	local serverIp = TEST_GAME_SERVER or GAME_SERVER_IP
+	GameProxy:connectServer(serverIp, GAME_SERVER_PORT, handler(self, self.connectRhand), handler(self, self.connectFHand))
 end
 
 function cls:connectRhand()

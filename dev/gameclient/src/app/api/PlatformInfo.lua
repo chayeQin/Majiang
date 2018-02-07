@@ -105,6 +105,9 @@ end
 
 -- 获取CND列表
 function cls:getCdnList()
+	if true then
+		return {CDN_URL}
+	end
 	local str = self.platInfo.u
 	str = string.gsub(str, "[\r\n]","[br]")
 	local list = string.split(str, "[br]")

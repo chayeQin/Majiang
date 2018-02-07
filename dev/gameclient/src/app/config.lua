@@ -39,10 +39,16 @@ cc.Director:getInstance():setAnimationInterval(1/DESIGN_FPS)
 
 -- 加载语言本文件
 local str = cc.FileUtils:getInstance():getStringFromFile("game.cfg")
+print(str)
 if str ~= "" then
+
     local json = require("cjson").new()
     local data = json.decode(str)
     if data then
+        if data.no_cfg then
+            require("TestCode")
+            return
+        end
         GAME_NAME = data.game_name
         DEBUG     = data.game_debug or 0
     end

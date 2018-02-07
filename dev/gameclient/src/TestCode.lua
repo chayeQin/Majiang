@@ -25,17 +25,12 @@ NOT_USE_DEPRECATE = true
 TEST_DEV = true
 
 -- 测试WEB地址
-TEST_SERVER = "192.168.1.72"
+-- TEST_SERVER = "192.168.1.72"
 
 -- TEST_GAME_SERVER  = "192.168.1.72"
 
--- TEST_GAME_SERVER = "127.0.0.1"
-TEST_GAME_SERVER = "58.220.3.9"-- 外网服务器
-
-TEST_PORT = 10002
-
 -- -- 测试更新
-TEST_UPDATE = false 
+TEST_UPDATE = true 
 
 GAME_NAME = "majiang"
 PLAT_NAME = "game" -- 测试平台名字

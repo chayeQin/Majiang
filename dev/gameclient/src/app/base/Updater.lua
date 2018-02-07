@@ -18,7 +18,6 @@ cls.STATE_CHECK_UPDATE = 1 -- 检测更新
 cls.STATE_UPDATING     = 2 -- 更新中
 cls.STATE_UPDATE_FINISH= 3 -- 更新完毕
 
-
 --@brief 检测更新
 --@param[rhand] 检测完毕回调
 --@param[stateCallback] 状态回调 stateCallback(state, data)
@@ -336,8 +335,7 @@ function cls:start()
         return
     end
 
-    SDKEvent:updateStart()
-    PostEvent:updateStart()
+
     
     self.addPercent = 100 / self.up.sumCount
     self.percent = self.up.downCount * self.addPercent
@@ -493,8 +491,6 @@ function cls:downloadFinish()
     os.remove(TEMP_PATH)
 
     -- 上传数据更新完成
-    SDKEvent:updateComplete()
-    PostEvent:updateComplete()
 
     -- 重新启动
     app.ver = self.verNum

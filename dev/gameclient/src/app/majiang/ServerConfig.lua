@@ -6,17 +6,9 @@
 -- 多台WEB
 cc.exports.SERVER_BASE_LIST = 1
 
-local area = GAME_CFG.area
+cc.exports.GAME_SERVER_IP = "58.220.3.9"
 
-if area == Area.arabic then-- 中东服务器
-	SERVER_BASE_LIST = {
-	}
+cc.exports.GAME_SERVER_PORT = "10002"
 
-	return
-end
+cc.exports.CDN_URL = "http://58.220.3.9:11000/"
 
--- 默认全球服
--- gs1-yhbz.awwgc.com -- 游戏服
-SERVER_BASE_LIST = {
-
-}

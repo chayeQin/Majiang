@@ -8,6 +8,13 @@ local cls = class("LogoScene",  cc.load("mvc").ViewBase)
 local SAVE_INIT_LANG_TW = "SAVE_INIT_LANG_TW" -- 繁体包处理
 local Area = require("app.base.Area")
 
+if GAME_CFG.test_game_path then
+    local res = "res/" .. GAME_NAME .. "/share"
+    cc.FileUtils:getInstance():addSearchPath(res)
+    local res = "res/" .. GAME_NAME
+    cc.FileUtils:getInstance():addSearchPath(res)
+end
+
 function cls:onCreate()
 	local logoTime = 0.1
 	local bgColor = GAME_CFG.game_init_bg_color

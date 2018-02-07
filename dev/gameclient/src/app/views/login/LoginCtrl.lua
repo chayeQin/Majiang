@@ -12,43 +12,29 @@ local SAVE_NEW_PHONE = "SAVE_NEW_PHONE" -- 第一次启动
 local SAVE_FIRST_REG   = "SAVE_FIRST_REG" -- 第一次启动并注册
 
 function cls:init()
-	self.loginView = false
-	self.noticeView = nil
 end
 
 function cls:clear()
-	self.loginView = false
-	self.noticeView = nil
 end
 
 function cls:loginStart()
-	if TEST_GAME_SERVER or GAME_CFG.GAME_SERVER then -- 固定一个游戏服务器
-		self:loadServerRhand()
-	else
-		URLConfig:checkGameUrl(function()
-			-- 第一次启动
-			if not Util:load(SAVE_NEW_PHONE) then
-				PostEvent:newPhone()
-				Util:save(SAVE_NEW_PHONE, true)
-			end
-
-			if SDK.isWhiteUser then -- 启动白名单用户重新加载服务器列表
-				ServersUtil:loadServerInfo(handler(self, self.loadServerRhand))
-			else
-				self:loadServerRhand()
-			end
-		end)
+	print("检测更新")
+	local function updateRhand(state, data)
+		Util:event(Event.gameUpdateProgress, {state = state, data = data})
+		if state == Updater.STATE_UPDATE_FINISH then
+			Loading.show()
+			InitUser:load(handler(self, self.refreshView))
+		end
 	end
-
-	
+	Updater:checkUpdate(updateRhand)
 end
 
 function cls:loadServerRhand()
-	if PlatformInfo:isInReview() then
-		cc.exports.TEST_TUTORIAL       = -1
-		cc.exports.TEST_UNLOCK         = true
-		cc.exports.TEST_SKIP_ANIMATION = true
-	end
+	-- if PlatformInfo:isInReview() then
+	-- 	cc.exports.TEST_TUTORIAL       = -1
+	-- 	cc.exports.TEST_UNLOCK         = true
+	-- 	cc.exports.TEST_SKIP_ANIMATION = true
+	-- end
 
 	Util:event(Event.loadServerFinish)
 
@@ -112,6 +98,8 @@ function cls:startUpdate()
 			function() os.exit() end, Lang:find("retry"), Lang:find("lmjshtc"))
 		end
 	end
+
+
 
 	ServersUtil:loadServerInfo(loadServerRhand)
 end
@@ -226,25 +214,6 @@ function cls:getServerStatus()
 	end
 
 	return 0 -- 正常状态
-end
-
-function cls:closeLoginView()
-	if self.loginView then
-		self.loginView:remove()
-		self.loginView = nil
-	end
-end
-
---@brief 显示服务器列表
-function cls:showServerLst()
-end
-
---@brief 显示登录界面
-function cls:showLoginView()
-	if not self.loginView then
-		self.loginView = LoginView.new()
-		self.loginView:addTo(appView, 5)
-	end
 end
 
 -- 登陆用户
