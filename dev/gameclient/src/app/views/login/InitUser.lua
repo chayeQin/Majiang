@@ -16,15 +16,13 @@ function cls:load(rhand)
 	
 	if not cls.isRelogin then
 		SDK:post()
-		PostEvent:loginStart()
-		SDKEvent:loginStart()
+
 	end
 
-	ChatModel:initData()
 
 	self.index = 0
-	Net:send("user", "startLogin", User.info.uid)
-	Net.postId = -100 -- 不让后面发包
+	-- Net:send("user", "startLogin", User.info.uid)
+	-- Net.postId = -100 -- 不让后面发包
 	self.loop = cc.Director:getInstance():getScheduler():scheduleScriptFunc(handler(self, self.timeOut), TIME_OUT, false)
 end
 
@@ -42,7 +40,6 @@ function cls:timeOut()
 		self.loop = nil
 	end
 
-	PostEvent:loginError()
 
 	local msg = "(InitUser)KEY不对或服务端缺返回值:"
 	for k,v in pairs(self.callbackTest) do
@@ -72,8 +69,7 @@ function cls:endRequire()
 	User.initDataTime = Util:time() -- 用户数据初始化时间
 
 	if not cls.isRelogin then
-		PostEvent:loginComplete()
-		SDKEvent:loginComplete()
+	
 		cls.isRelogin = true
 	end
 

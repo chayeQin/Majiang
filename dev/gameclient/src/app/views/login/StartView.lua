@@ -5,10 +5,23 @@
 --
 local cls = class("StartView", cc.load("mvc").ViewBase)
 
-
 cls.RESOURCE_FILENAME = "csb/StartView.csb"
 
 cls.RESOURCE_BINDING = {
+	["node_update"] = {
+		varname = "node_update",
+	},
+	-- 100%
+	["node_update.lab_progress"] = {
+		varname = "lab_progress",
+	},
+	["node_update.node_progress"] = {
+		varname = "node_progress",
+	},
+	-- 1.0.0
+	["lab_ver"] = {
+		varname = "lab_ver",
+	},
 	-- 当前用户: hello
 	["lab_userName"] = {
 		varname = "lab_userName",
@@ -45,21 +58,17 @@ function cls:ctor()
 end
 
 function cls:onEnter()
-	-- self.serverListHandle = Util:addEvent(Event.loadServerFinish, handler(self, self.onLoadServerList))
-	-- self.updateStartHandle = Util:addEvent(Event.gameUpdateProgress, handler(self, self.onGameUpdate))
+	self.updateStartHandle = Util:addEvent(Event.gameUpdateProgress, handler(self, self.onGameUpdate))
 	-- 检测登陆
-	print("******onenter***********")
-	self:connectServer()
 
-
-	Util:tick(function()
-		WhiteUser.new()
-	end)
+	-- Util:tick(function()
+	-- 	WhiteUser.new()
+	-- end)
 end
 
 function cls:onExit()
-	-- Util:removeEvent(self.serverListHandle)
-	-- self.serverListHandle = nil
+	Util:removeEvent(self.updateStartHandle)
+	self.updateStartHandle = nil
 end
 
 function cls:connectServer()
@@ -81,7 +90,6 @@ function cls:onRegister(v)
 end
 
 function cls:onLogin(v)
-	dump(v)
 	Util:initTime(v.r.serverTime, v.r.serverTimeZone)
 	User:setUserInfo(v.r)
 	GameProxy:getRoomStatus(function(v2)
@@ -115,32 +123,22 @@ function cls:onLoadServerList()
 end
 
 function cls:onGameUpdate(event)
-	local params = event.params
-	local data = params.data
+	local params = event.params[1]
 	if params.state == Updater.STATE_CHECK_UPDATE then
 		self:showUpdateUI()
 	elseif params.state == Updater.STATE_UPDATING then
 		self:updateProgressing(params.state, params.data)
 	elseif params.state == Updater.STATE_UPDATE_FINISH then
 		self:updateProgressing(params.state, params.data)
+		self:connectServer()
+		self:showStartUI()
 	end
 end
 
 function cls:showStartUI()
-	if PlatformInfo:getLoginApi() == "Game" and GAME_CFG.login_sdk then -- pc 平台	切换账号
-	end
 		
-	self.startBtn:show()
-	if TEST_DEV and GAME_CFG.login_sdk then
-		local serverLst = PlatformInfo:getServerList()
-		local recordId = Util:load("last_login_server")
-		if not recordId or not PlatformInfo:getServerById(recordId) then
-			recordId = serverLst[1].t
-		end
-		PlatformInfo:selectServer(recordId)
-		self.serverLabel:setString(PlatformInfo:getServerName())
-	end
-
+	self.btn_start:show()
+	self.node_update:hide()
 	local ver = app.ver
 	if PlatformInfo.getVer then
 		ver = PlatformInfo:getVer()
@@ -148,46 +146,13 @@ function cls:showStartUI()
 		print("无版本号")
 		ver = "1.0.0"
 	end
-	self.verLabel:setString("v" .. ver)
+	self.lab_ver:setString("v" .. ver)
 	self.startTime = os.time() -- 进入开始界面的时间 
 end
 
 function cls:showUpdateUI()
-	self.startBtn:hide()
-	if self.serverLst then
-		self.serverLst:remove()
-		self.serverLst = nil
-	end
-end
-
-function cls:showLoadUserUI()
-	local content = Util:randomTips(1)
-	self.tipsLab:setString(content)
-	if self.serverLst then
-		self.serverLst:remove()
-		self.serverLst = nil
-	end
-end
-
---@brief 开始游戏
-function cls:gameStart()
-	LoginCtrl:sdkLogin()
-end
-
---@brief 显示服务器列表
-function cls:showServerLst()
-	if not self.serverLst then
-		self.serverLst = ServerList.new(handler(self, self.onSelectServer))
-								:addTo(self,100)
-								:pos(display.width/2, 250)
-	else
-		self.serverLst:remove()
-		self.serverLst = nil
-	end
-end
-
-function cls:onSelectServer()
-	self.serverLabel:setString(PlatformInfo:getServerName())
+	self.btn_start:hide()
+	self.node_update:show()
 end
 
 --@brief 更新进度
@@ -202,7 +167,7 @@ function cls:updateProgressing(state, data)
 
 	if state == Updater.STATE_CHECK_UPDATE then
 		local msg = Lang:find("user_init_state", 0)
-		self.stateLab:setString(msg)
+		self.lab_progress:setString(msg)
 	elseif state == Updater.STATE_UPDATING then
 		local percent  = data[1]
 		local sumSize  = math.ceil(data[2])
@@ -213,32 +178,15 @@ function cls:updateProgressing(state, data)
 			speed = speed / 1024
 			speedName = "MB/S"
 		end
+		self.node_progress:setPercent(percent)
+
 		local text     = string.format("%.2f%s %d%s",speed, speedName, sumSize, sizeName)
-		self.stateProgress:setPercent(percent)
 		local str = Lang:find(tips, string.format("%.2f", percent), text)
-		self.stateLab:setString(str)
+		self.lab_progress:setString(str)
 	elseif state == Updater.STATE_UPDATE_FINISH then
-		self.stateLab:setString("")
+		self.lab_progress:setString("")
 	end
 end
 
---@brief 加载用户数据进度
-function cls:loadUsrProgressing(step, maxStep)
-	local percent = step / maxStep * 100
-	self.stateProgress:setPercent(percent)
-	local str = Lang:find("user_init_state",string.format("%.2f",percent))
-	self.stateLab:setString(str)
-	print("********")
-end
-
---@brief 显示账号界面注册
-function cls:register(e)
-	LoginCtrl:showLoginView()
-end
-
---@brief 显示账号界面注册
-function cls:change(e)
-	LoginCtrl:showLoginView()
-end 
 
 return cls

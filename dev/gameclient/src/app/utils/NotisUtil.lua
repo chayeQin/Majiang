@@ -58,7 +58,6 @@ function cls:onResume()
 	print("********************* onResume")
 
 	if User and User.info and User.info.uid then
-		PostEvent:resume()
 	end
 end
 
@@ -80,7 +79,6 @@ function cls:onPause()
 	Sound:unloadSound()
 	HeartBeatUtil:pause()
 
-	PostEvent:puase()
 end
 
 -- 升级与打造

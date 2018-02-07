@@ -84,7 +84,6 @@ end
 
 function cls:showMsg(v)
 	Net:close()
-	PostEvent:netclose()
 	-- Msg.createSysMsg(Lang:find("sys_net_lose") .. v, function()
 	-- 	app:clearModule()
 	-- 	app:restart()
@@ -125,7 +124,6 @@ function cls:beatTickHandler()
     -- 上次心跳包没回调
     if self.beatSending then
 		print("*** 心跳包超时：", time)
-		PostEvent:netHeart()
     	self:reconnect()
     	return
     end

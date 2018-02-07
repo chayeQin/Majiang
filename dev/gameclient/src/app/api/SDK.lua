@@ -79,16 +79,16 @@ function cls:post()
     -- 游戏区服ID
     -- 游戏区服名称
     -- 平台uid
-	local params = {
-		uid   = User.info.uid,
-		name  = User.info.name,
-		level = User.info.level,
-		sid   = PlatformInfo:getServerId(),
-		sname = PlatformInfo:getServerName(),
-		puid  = PlatformInfo:getPlatformUid(),
-	}
-    Api:call("DataEyeInfo", "post", params)
-	Api:call("SDK", "post", params)
+	-- local params = {
+	-- 	uid   = User.info.uid,
+	-- 	name  = User.info.name,
+	-- 	level = User.info.level,
+	-- 	sid   = PlatformInfo:getServerId(),
+	-- 	sname = PlatformInfo:getServerName(),
+	-- 	puid  = PlatformInfo:getPlatformUid(),
+	-- }
+ --    Api:call("DataEyeInfo", "post", params)
+	-- Api:call("SDK", "post", params)
 end
 
 function cls:exit()

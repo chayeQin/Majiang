@@ -20,13 +20,12 @@ end
 function cls:loginStart()
 	print("检测更新")
 	local function updateRhand(state, data)
+		print("***state", state)
 		Util:event(Event.gameUpdateProgress, {state = state, data = data})
-		if state == Updater.STATE_UPDATE_FINISH then
-			Loading.show()
-			InitUser:load(handler(self, self.refreshView))
-		end
 	end
-	Updater:checkUpdate(updateRhand)
+	Util:tick(function()
+		Updater:checkUpdate(updateRhand)
+	end)
 end
 
 function cls:loadServerRhand()
@@ -183,7 +182,6 @@ function cls:serverLoginRhand(isNew, userData, time, timezone, reloginId)
 
 	-- 调用第三方统计
 	if isNew then
-		PostEvent:newUser()
 		local params = {
 			uid   = User.info.uid,
 			name  = User.info.name,
@@ -192,11 +190,9 @@ function cls:serverLoginRhand(isNew, userData, time, timezone, reloginId)
 			sname = PlatformInfo:getServerName(),
 			puid  = PlatformInfo:getPlatformUid()
 		}
-	    SDKEvent:newUser(params)
 	    Util:save(Const.TUTORIAL_VER_TAG, Const.TUTORIAL_VER, User)
 
 		if not Util:load(SAVE_FIRST_REG) then
-	    	PostEvent:newPhoneReg()
 			Util:save(SAVE_FIRST_REG, true)
 		end
 	end

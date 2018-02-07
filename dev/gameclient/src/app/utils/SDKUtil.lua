@@ -45,7 +45,6 @@ function cls:login(rhand)
 		return true
 	end
 
-	PostEvent:openSDK()
 	Api:call("SDK", "login", nil, function(v)
 		if not v or v == "" then
 			return
@@ -53,7 +52,6 @@ function cls:login(rhand)
 			v = json.decode(v)
 		end
 
-		PostEvent:sdkBack()
 		PlatformInfo:setSdkParam(v)
 		self:loginRhand()
 	end)

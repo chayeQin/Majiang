@@ -175,7 +175,6 @@ function cls:verHandler(str)
         self:getVerFhand()
         return
     end
-    PostEvent:updateVer()
 
     self.cdnVerStr = str
     -- 获取本地版本信息
@@ -270,7 +269,6 @@ function cls:listRhand(str,req)
         return
     end
 
-    PostEvent:updateList()
 
     local map = {}
     local sumSize = 0
@@ -420,7 +418,6 @@ end
 function cls:downloadFhand(load)
     self.isErrorUpdate = true
     Msg.createSysMsg(Lang:find("sys_down_file",load.fileName), handler(self, self.clearUpdate))
-    PostEvent:updateErrorFile()
 end
 
 --@brief 下载文件成功
@@ -479,7 +476,6 @@ function cls:downloadFinish()
 
         if not Util:exists(path) then -- 不完全更新
             -- 更新出错, 清空更新目录，重新进入开始界面
-            PostEvent:updateErrorCopy()
             Msg.createSysMsg(Lang:find("sys_update_error_copy",key), handler(self, self.clearUploadDir))
             return
         end

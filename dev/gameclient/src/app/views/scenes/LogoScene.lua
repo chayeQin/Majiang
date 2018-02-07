@@ -147,8 +147,7 @@ function cls:serverRhand()
 end
 
 function cls:enterGame()
-	-- PostEvent:startup()
-	PostEvent:post("startup")
+
 	
 	local dtime = self.logoTime - (os.time() - self.startTime)
 	if dtime > 0 then
