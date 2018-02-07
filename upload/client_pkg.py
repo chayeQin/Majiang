@@ -13,7 +13,7 @@ import gamelist as GlobalVar
 game_list=GlobalVar.getGameList()
 
 #code_src='E:/jyx/yhbz/temp_branch/'
-code_src=os.path.join(os.getcwd(), "..", "trunk") + "/"
+code_src=os.path.join(os.getcwd(), "..", "dev") + "/"
 print 'src = ' + code_src
 
 # 加密用的KEY和SIGN
@@ -69,22 +69,8 @@ def createAdd(url,path,cdn_update):
 	f = file(startDir + srcpath + 'upload.list')
 	new_file = json.load(f)
 	f.close()
-	
-	# 获取CDN地址
-	while True :
-		try:
-			urllib.urlretrieve(url,upload_old)
-			f = file(upload_old)
-			old_file = json.load(f)
-			f.close()
-			os.remove(upload_old)
-			url = old_file.get('u').split('\r\n')[0]
-			if url[-1] != '/':
-				url = url + '/'
-			print 'CDN : ' + url
-			break
-		except urllib.error.URLError as ex:
-			raw_input('net is error ,enter to reload')
+	print url
+
 
 
 	# 远程服务器列表
@@ -97,7 +83,7 @@ def createAdd(url,path,cdn_update):
 			f.close()
 			os.remove(upload_old)
 			break
-		except urllib.error.URLError as ex:         #处理超时、url不正确异常
+		except :        #处理超时、url不正确异常
 			raw_input('net is error ,enter to reload')
 			
 	file_cdn = open(outcdn,'w')

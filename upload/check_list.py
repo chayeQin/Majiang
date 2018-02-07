@@ -17,7 +17,7 @@ import sys
 
 # CDN
 CDNS = [
-	'http://yhbz-cdn2.my-seiya.com/yhbz/v257/'
+	'http://58.220.3.9:11000/'
 ]
 
 # 检查平台
