@@ -8,10 +8,10 @@ local cls = class("PlayerOpenCards", cc.load("mvc").ViewBase)
 
 
 cls.POS_DELTA = {
-	[1] = cc.p(32, 0),
-	[2] = cc.p(0, -22),
-	[3] = cc.p(-32, 0),
-	[4] = cc.p(0, 22),
+	[1] = cc.p(52, 0),
+	[2] = cc.p(0, -24),
+	[3] = cc.p(-36, 0),
+	[4] = cc.p(0, 26),
 }
 
 cls.GROUP_POS_DELTA = {
@@ -75,14 +75,13 @@ end
 
 function cls:adjustPos()
 	if self.tablePos == 1 then 
-		self:pos(130, 30)
+		self:pos(10, 10)
 	elseif self.tablePos == 2 then
-		self:pos(130, 580)
+		self:pos(130, 630)
 	elseif self.tablePos == 3 then
-		self:pos(1000, 670)
+		self:pos(1050, 660)
 	elseif self.tablePos == 4 then
-		self:pos(1150, 140)
-		-- sel:pos(display.width - 130, display.height / 2 - self.delta.y * self:getCardCount() / 2)
+		self:pos(display.width-160, 140)
 	end
 end
 

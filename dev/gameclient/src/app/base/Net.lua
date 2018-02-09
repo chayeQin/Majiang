@@ -262,7 +262,6 @@ function cls:recv(v)
 	-- end
 	
 	-- 发送下一条消息
-	print("***receive ", v.i)
 	if self.postId == v.i then
 		local time = socket.gettime() - self.lastSendTime
 		self.sendCount = self.sendCount + 1

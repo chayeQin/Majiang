@@ -30,7 +30,11 @@ local M_TYPE_BG = {
 	"mjCardBg_1_2", -- 开牌1
 	"mjCardBg_1_6", -- 开牌2
 	"mjCardBg_1_2", -- 开牌3
-	"mjCardBg_1_6"  -- 开牌4
+	"mjCardBg_1_6",  -- 开牌4
+	"mjCardBg_1_2", -- 开牌1
+	"mjCardBg_1_6", -- 开牌2
+	"mjCardBg_1_2", -- 开牌3
+	"mjCardBg_1_6",  -- 开牌4
 }
 
 -- 左下角anchor
@@ -41,13 +45,11 @@ function cls:ctor(mType, num)
 	local bgRes = M_TYPE_BG[mType]
 	local bg = Util:sprite("mjCardBg/" ..bgRes)
 					:addTo(self)
-
+					print("****", mType, num)
 	self.bg = bg
 	bg:pos(bg:width()/2, bg:height()/2)
 	
-	if num and (self.mType == 1 or self.mType == 5 or 
-				self.mType == 6 or self.mType == 7 or 
-				self.mType == 8)then
+	if num and (self.mType == 1 or self.mType >= 5)then
 		local cardType = math.floor(num / 10)
 		local cardNum = (num-1) % 10 + 1
 		local res = ""
@@ -71,31 +73,55 @@ end
 function cls:initType()
 	if self.mType == 1 then 
 		self.cardNum:y(self.cardNum:y() - 6)
+		self:scale(1.25)
 	elseif self.mType == 2 then
-		self:scale(0.8)
+		self:scale(0.9)
 	elseif self.mType == 3 then
-		self:scale(0.8)
+		self:scale(0.9)
 	elseif self.mType == 4 then
-		self:scale(0.8)
+		self:scale(0.9)
 	elseif self.mType == 5 then
-		self:scale(0.8)
+		self:scale(1.3)
 		self.cardNum:scaleX(0.55)
 		self.cardNum:scaleY(0.50)
 		self.cardNum:y(self.cardNum:y() + 6)
 	elseif self.mType == 6 then
-		self:scale(0.8)
+		self:scale(0.85)
 		self.cardNum:scaleX(0.5)
 		self.cardNum:scaleY(0.60)
 		self.cardNum:pos(self.cardNum:x() , self.cardNum:y() + 7)
 		self.cardNum:rotate(90)
 	elseif self.mType == 7 then
-		self:scale(0.8)
+		self:scale(0.9)
 		self.cardNum:pos(self.cardNum:x(),self.cardNum:y() + 6)
 		self.cardNum:scaleX(0.55)
 		self.cardNum:scaleY(0.50)
 		self.cardNum:rotate(180)
 	elseif self.mType == 8 then
-		self:scale(0.8)
+		self:scale(0.9)
+		self.cardNum:rotate(-90)
+		self.cardNum:pos(self.cardNum:x(), self.cardNum:y() + 8)
+		self.cardNum:scaleX(0.5)
+		self.cardNum:scaleY(0.6)
+	elseif self.mType == 9 then
+		self:scale(1.3)
+		self.cardNum:scaleX(0.55)
+		self.cardNum:scaleY(0.50)
+		self.cardNum:y(self.cardNum:y() + 6)
+	elseif self.mType == 10 then
+		self:scale(1.3)
+		self.cardNum:scaleX(0.5)
+		self.cardNum:scaleY(0.60)
+		self.cardNum:pos(self.cardNum:x() , self.cardNum:y() + 7)
+		self.cardNum:rotate(90)
+	elseif self.mType == 11 then
+		self:scale(1.3)
+		self.cardNum:pos(self.cardNum:x(),self.cardNum:y() + 6)
+		self.cardNum:scaleX(0.55)
+		self.cardNum:scaleY(0.50)
+		self.cardNum:rotate(180)
+	elseif self.mType == 12 then
+		self:scale(1.3)
 		self.cardNum:rotate(-90)
 		self.cardNum:pos(self.cardNum:x(), self.cardNum:y() + 8)
 		self.cardNum:scaleX(0.5)

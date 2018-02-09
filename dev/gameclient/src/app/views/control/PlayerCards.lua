@@ -7,10 +7,10 @@
 local cls = class("PlayerCards", cc.load("mvc").ViewBase)
 
 cls.POS_DELTA = {
-	[1] = cc.p(70, 0),
-	[2] = cc.p(0, -20),
-	[3] = cc.p(-32, 0),
-	[4] = cc.p(0, 20),
+	[1] = cc.p(86, 0),
+	[2] = cc.p(0, -26),
+	[3] = cc.p(-36, 0),
+	[4] = cc.p(0, 26),
 }
 
 function cls:ctor(tablePos, playerIndex)
@@ -22,8 +22,6 @@ function cls:ctor(tablePos, playerIndex)
 	self.isInited = false
 	self:onTouch(handler(self, self.onTouchHandler))
 	self:enableNodeEvents()
-
-
 end
 
 function cls:onEnter()
@@ -95,6 +93,7 @@ function cls:updateCards()
 		local origX = self.cards[#self.cards]:x()
 		self.cards[#self.cards]:x(origX + 15)
 		self:checkListen() 
+	else
 	end
 
 	if info.uid == User.info.uid and info.listen then -- 玩家听牌中
@@ -164,23 +163,22 @@ function cls:adjustPos()
 	if self.tablePos == 1 then 
 		local x = display.width / 2 - self.delta.x * self:getCardCount() / 2
 		local cardLst = User:getOpenedCards(self.playerIndex)
-		x = x + #cardLst*60
+		x = x + #cardLst*85
 		self:pos(x, 0)
 	elseif self.tablePos == 2 then
 		local y = display.height / 2 - self.delta.y * self:getCardCount() / 2
 		local cardLst = User:getOpenedCards(self.playerIndex)
-		y = y -  #cardLst*57
+		y = y -  #cardLst*55
 		self:pos(130, y)
 	elseif self.tablePos == 3 then
 		local x = display.width / 2 - self.delta.x * self:getCardCount() / 2
-
 		local cardLst = User:getOpenedCards(self.playerIndex)
 		x = x - #cardLst*60
 		self:pos(x,  display.height - 60)
 	elseif self.tablePos == 4 then
 		local y = display.height / 2 - self.delta.y * self:getCardCount() / 2
 		local cardLst = User:getOpenedCards(self.playerIndex)
-		y = y + #cardLst*57
+		y = y + #cardLst*70
 		self:pos(display.width - 130, y)
 	end
 end
@@ -226,20 +224,7 @@ function cls:onTouchHandler(event)
 		local selectedIndex = math.floor(np.x / self.delta.x) + 1
 		if self.selectedIndex and selectedIndex == self.selectedIndex then
 			-- 玩家可以操作
-			local isHasAction = false
-			for _, v in ipairs(User.gameInfo.waitPlayers) do
-				if v == User.info.uid then
-					isHasAction = true
-					break
-				end
-			end
-
-			if isHasAction and User.gameInfo.outIndex == User:getUserIndex() then -- 玩家出牌阶段, 点击同一个牌打出去
-				local num = self.cards[self.selectedIndex].num
-				GameProxy:doAction(ActionTips.ACTION_TYPE_CHUPAI, {num})
-			else
-				self.cards[self.selectedIndex]:y(0)
-			end
+			self:sendCard(self.selectedIndex)
 			self.selectedIndex = nil
 			return
 		end
@@ -257,10 +242,52 @@ function cls:onTouchHandler(event)
 
 		self.cards[selectedIndex]:y(30)
 		self.selectedIndex = selectedIndex
+		self.lastPos = cc.p(event.x, event.y)
+		self.cardOrigPos = self.cards[selectedIndex]:pos()
+		self.cardOrigZ = self.cards[selectedIndex]:zorder()
+		self.cards[selectedIndex]:zorder(999)
 		return true
 	elseif event.name == "moved" then
+		if self.selectedIndex then
+			local touchP = cc.p(event.x, event.y)
+			local card = self.cards[self.selectedIndex]
+			local p = card:pos()
+			local delta = cc.pSub(touchP, self.lastPos)
+			local newP = cc.pAdd(p, delta)
+			card:pos(newP)
+			self.lastPos = touchP
+		end
 	elseif event.name == "ended" then
+		if self.selectedIndex then
+			local card = self.cards[self.selectedIndex]
+			if event.y > 170 then
+				self:sendCard(self.selectedIndex)
+			else
+				card:pos(self.cardOrigPos)
+				card:zorder(self.cardOrigZ)
+			end
+
+		end
 	end
+end
+
+function cls:sendCard(index)
+	-- 玩家可以操作
+	local isHasAction = false
+	for _, v in ipairs(User.gameInfo.waitPlayers) do
+		if v == User.info.uid then
+			isHasAction = true
+			break
+		end
+	end
+
+	if isHasAction and User.gameInfo.outIndex == User:getUserIndex() then -- 玩家出牌阶段, 点击同一个牌打出去
+		local num = self.cards[index].num
+		GameProxy:doAction(ActionTips.ACTION_TYPE_CHUPAI, {num})
+	else
+		self.cards[index]:y(0)
+	end
+	self.selectedIndex = nil
 end
 
 

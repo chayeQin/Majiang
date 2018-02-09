@@ -15,7 +15,6 @@ local PAUSE_TIME_OUT = 60 -- 切后台后X秒后直接重登
 local PING_TIME      = 60 -- 网络延迟每60秒上传一次
 
 function cls:ctor()
-	self.jewelTryCount = 0
 	self.lastPingTime = 0
 	self.lastBeatBagTime = 0 -- 上次检查心跳时间
 end
@@ -42,7 +41,6 @@ function cls:init()
 end
 
 function cls:start()
-	if true then return end
 	self:init()
 
 	if self.loop then
@@ -54,11 +52,6 @@ function cls:start()
 	self.lastTime    = os.time() -- 上次断线检查通过时间
 	self.loop        = cc.Director:getInstance():getScheduler():scheduleScriptFunc(handler(self,self.tickHandler), BEAT_CHECK, false)
 	self.loop2       = cc.Director:getInstance():getScheduler():scheduleScriptFunc(handler(self,self.beatTickHandler), BEAT_BAG, false)
-
-	-- 恢复钻石查询
-	if self.jewelTryCount > 0 then
-		self:updateJewel()
-	end
 
 	-- 立马发一个心跳包
 	self:sendBag()
@@ -139,7 +132,7 @@ function cls:sendBag()
 
 	self.beatSending = true
 	local data = RES_LIST[self.beatIndex]
-    Net:call_(handler(self, self.beatRhand), "User", "heartbeat", User.info.uid, data[1], data[2])
+    Net:call_(handler(self, self.beatRhand), "user", "ping", User.info.uid)
 end
 
 function cls:pause()

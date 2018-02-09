@@ -39,10 +39,15 @@ function cls:ctor()
 	cls.super.ctor(self)
 	self.img_light2:setOpacity(0)
 	local tmp = ActionTips.new()
-					tmp:addTo(self)
-					tmp:pos(1020, 200)
+	tmp:addTo(self, 10)
+	tmp:pos(1020, 200)
 	self.nxtOpenCardPos = {}
 	self.cardLst = {}
+
+	self.tipsImg = Util:sprite("majiang/img_48")
+						:addTo(self, 9)
+						:pos(display.width/2, 170)
+						:hide()
 	self.indexTablePosMap = {}
 end
 
@@ -71,7 +76,6 @@ function cls:onExit()
 	Util:removeEvent(self.gameInfoHandle)
 	Util:removeEvent(self.doActionHandle)
 end
-
 
 
 function cls:onUpdate()
@@ -122,7 +126,7 @@ function cls:onDoAction(event)
 		action ~= ActionTips.ACTION_TYPE_GUO and
 		action ~= ActionTips.ACTION_TYPE_CHUPAI then
 		ActionEffect.new(action)
-			:addTo(self)
+			:addTo(self, 11)
 			:pos(effectPos)
 	end
 end
@@ -148,6 +152,21 @@ function cls:onGameInfoUpdate()
 	local tablePos = self.indexTablePosMap[User.gameInfo.outIndex]
 	if tablePos then
 		self.node_direction:rotate((tablePos - 1) * 90)
+	end
+
+	local info = User:getUserCardInfo()
+	local isPlayerSendCard = false
+	for _, v in pairs(info.actions) do
+		if v == ActionTips.ACTION_TYPE_CHUPAI then -- 玩家出牌阶段
+			isPlayerSendCard = true
+			break
+		end
+	end
+
+	if isPlayerSendCard then
+		self.tipsImg:show()
+	else
+		self.tipsImg:hide()
 	end
 end
 
@@ -191,19 +210,18 @@ function cls:initCards()
 	for i, v in ipairs(indexMap) do
 		local tablePos = posMap[i]
 		local info = User.roomInfo.players[v[1]]
-		print("***tablepos", tablePos)
 		self.indexTablePosMap[info.index] = tablePos
 		local openCards = PlayerOpenCards.new(tablePos, info.index)
 		openCards:updateCards()
-		openCards:addTo(self)
+		openCards:addTo(self, 1)
 
 		local playerCards = PlayerCards.new(tablePos, info.index)
-		playerCards:addTo(self)
+		playerCards:addTo(self, 2)
 		playerCards:updateCards()
 
 		local tableCards = TableCards.new(tablePos, info.index)
 		tableCards:updateCards()
-		tableCards:addTo(self)
+		tableCards:addTo(self, 3)
 	end
 end
 

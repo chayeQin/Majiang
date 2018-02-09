@@ -37,7 +37,7 @@ cls.RESOURCE_BINDING = {
 
 function cls:ctor()
 	cls.super.ctor(self)
-	-- 登录背景
+	-- -- 登录背景
 	local bg = nil
 	if GAME_CFG.game_logo_bg then
 		bg = display.newSprite(GAME_CFG.game_logo_bg)
@@ -54,7 +54,6 @@ function cls:ctor()
 		end
 	end
 
-	self:enableNodeEvents()
 end
 
 function cls:onEnter()
@@ -77,6 +76,7 @@ function cls:connectServer()
 end
 
 function cls:connectRhand()
+	self:showStartUI()
 end
 
 function cls:connectFHand()
@@ -92,11 +92,14 @@ end
 function cls:onLogin(v)
 	Util:initTime(v.r.serverTime, v.r.serverTimeZone)
 	User:setUserInfo(v.r)
-	GameProxy:getRoomStatus(function(v2)
-		local roomId = tostring(v2.r)
-		User:setRoomId(roomId)
-		app:enterScene("scenes.MainScene")
+	InitUser:load(function()
+		GameProxy:getRoomStatus(function(v2)
+			local roomId = tostring(v2.r)
+			User:setRoomId(roomId)
+			app:enterScene("scenes.MainScene")
+		end)
 	end)
+
 end
 
 function cls:btn_startHandler()
@@ -131,7 +134,6 @@ function cls:onGameUpdate(event)
 	elseif params.state == Updater.STATE_UPDATE_FINISH then
 		self:updateProgressing(params.state, params.data)
 		self:connectServer()
-		self:showStartUI()
 	end
 end
 

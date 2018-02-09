@@ -11,7 +11,7 @@ function cls:ctor(optionLst, rhand)
  	self.optionLst = optionLst
 
  	local x = 0
- 	local deltaX = 70
+ 	local deltaX = 86
  	local groupDeltaX = 15
  	self.cardGroup = {}
  	for i, v in ipairs(optionLst) do
@@ -28,7 +28,7 @@ function cls:ctor(optionLst, rhand)
 
  	end
 
- 	self:pos((display.width - x)/2, 100)
+ 	self:pos((display.width - x)/2, 120)
 	self:onTouch(handler(self, self.onTouchHandler), nil, true)
 	PopupManager:push(self)
 end

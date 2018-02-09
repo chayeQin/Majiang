@@ -8,6 +8,7 @@ local cls = class("InitUser")
 local TIME_OUT = 10 -- 整个登录最长时间(秒)
 
 function cls:load(rhand)
+	Loading.show()
 	self.rhand     = rhand
 	--ModelManager.init()
 
@@ -23,7 +24,9 @@ function cls:load(rhand)
 	self.index = 0
 	-- Net:send("user", "startLogin", User.info.uid)
 	-- Net.postId = -100 -- 不让后面发包
+
 	self.loop = cc.Director:getInstance():getScheduler():scheduleScriptFunc(handler(self, self.timeOut), TIME_OUT, false)
+	self:endRequire()
 end
 
 function cls:stop()

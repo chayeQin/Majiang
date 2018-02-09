@@ -56,6 +56,8 @@ local cls = class("User")
     type: 类型;1=自摸;2=胡牌;3=放炮
 
 ]]
+local test_table_pos = false
+
 
 function cls:ctor()
 	self.info = {}
@@ -113,6 +115,15 @@ function cls:isGameStart()
 end
 
 function cls:getPlayerCards(playerIndex)
+	if test_table_pos then
+		return {
+			1,2,3,
+			1,2,3,
+			1,2,3,
+			1,2,3,
+			1,2
+		}
+	end
 	if not self.gameInfo or not self.gameInfo.players then
 		return {}
 	end
@@ -135,6 +146,14 @@ function cls:getUserIndex()
 end
 
 function cls:getOpenedCards(playerIndex)
+	if test_table_pos then
+		return {
+			{1,1,1,1}, 
+			{1,1,1,1}, 
+			{1,1,1,1}, 
+			{1,1,1,1}
+		}
+	end
 	if not self.gameInfo or not self.gameInfo.players then
 		return {}
 	end
@@ -148,6 +167,9 @@ function cls:getOpenedCards(playerIndex)
 end
 
 function cls:getTableCards(playerIndex)
+	if test_table_pos then
+		return {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+	end
 	if not self.gameInfo or not self.gameInfo.players then
 		return {}
 	end
@@ -174,6 +196,9 @@ function cls:getUserCardInfo()
 end
 
 function cls:getPlayerCardInfoByIndex(playerIndex)
+	if test_table_pos then
+		return {actions={}, uid = self.info.uid} 
+	end
 	if not self.gameInfo or not self.gameInfo.players then
 		return 
 	end

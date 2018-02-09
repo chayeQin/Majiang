@@ -15,10 +15,10 @@ local function calRow(delta, i, count)
 end
 
 cls.POS_DELTA = {
-	{calDeltaX=handler(32, calCol), calDeltaY = handler(-40, calRow)},
-	{calDeltaX=handler(-40, calRow), calDeltaY = handler(-22, calCol)},
-	{calDeltaX=handler(-32, calCol), calDeltaY = handler(40, calRow)},
-	{calDeltaX=handler(40, calRow), calDeltaY = handler(22, calCol)},
+	{calDeltaX=handler(52, calCol), calDeltaY = handler(-58, calRow)},
+	{calDeltaX=handler(-66, calRow), calDeltaY = handler(-40, calCol)},
+	{calDeltaX=handler(-52, calCol), calDeltaY = handler(58, calRow)},
+	{calDeltaX=handler(66, calRow), calDeltaY = handler(40, calCol)},
 }
 
 -- 两人16只一排， 3人以上10只一排
@@ -27,7 +27,11 @@ function cls:ctor(tablePos, playerIndex, colCount)
 	self.cards = {}
 	self.tablePos = tablePos
 	self.playerIndex = playerIndex
-	self.colCount = colCount or 12
+
+	local tmpColCountMap = {
+		14,5,14,5
+	}
+	self.colCount = colCount or tmpColCountMap[tablePos]
 
 	self.selectedImg = Util:sprite("majiang/img_01")
 							:addTo(self)
@@ -65,7 +69,7 @@ function cls:updateCards()
 	for i, v in ipairs(cardLst) do
 		local x = self.delta.calDeltaX(i, self.colCount) 
 		local y = self.delta.calDeltaY(i, self.colCount) 
-		local img = Majiang.new(self.tablePos+4, v)
+		local img = Majiang.new(self.tablePos+8, v)
 						:addTo(self)
 		img:pos(x, y)
 		img:zorder(display.height-y)
@@ -87,13 +91,13 @@ end
 
 function cls:adjustPos()
 	if self.tablePos == 1 then 
-		self:pos(490, 200)
+		self:pos(275, 210)
 	elseif self.tablePos == 2 then
-		self:pos(440, 490)
+		self:pos(460, 450)
 	elseif self.tablePos == 3 then
-		self:pos(760, 530)
+		self:pos(1005, 510)
 	elseif self.tablePos == 4 then
-		self:pos(800, 250)
+		self:pos(750, 290)
 		-- sel:pos(display.width - 130, display.height / 2 - self.delta.y * self:getCardCount() / 2)
 	end
 end
