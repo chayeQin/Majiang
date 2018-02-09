@@ -39,24 +39,24 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playscene_txt_zjs_3" ActionTag="582182107" Tag="24" IconVisible="False" LeftMargin="483.6031" RightMargin="719.3969" TopMargin="255.5576" BottomMargin="435.4424" ctype="SpriteObjectData">
+          <AbstractNodeData Name="playscene_txt_zjs_3" ActionTag="582182107" Tag="24" IconVisible="False" LeftMargin="578.7526" RightMargin="624.2474" TopMargin="213.1200" BottomMargin="477.8800" ctype="SpriteObjectData">
             <Size X="77.0000" Y="29.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="522.1031" Y="449.9424" />
+            <Position X="617.2526" Y="492.3800" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4079" Y="0.6249" />
+            <PrePosition X="0.4822" Y="0.6839" />
             <PreSize X="0.0602" Y="0.0403" />
             <FileData Type="Normal" Path="playScene/playscene_txt_zjs.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lab_totalRound" ActionTag="1130096793" Tag="25" IconVisible="False" LeftMargin="519.3217" RightMargin="750.6783" TopMargin="289.1147" BottomMargin="410.8853" FontSize="20" LabelText="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lab_totalRound" ActionTag="1130096793" Tag="25" IconVisible="False" LeftMargin="665.0539" RightMargin="604.9461" TopMargin="217.6200" BottomMargin="482.3800" FontSize="20" LabelText="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="10.0000" Y="20.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="524.3217" Y="420.8853" />
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="665.0539" Y="492.3800" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="0" />
-            <PrePosition X="0.4096" Y="0.5846" />
+            <PrePosition X="0.5196" Y="0.6839" />
             <PreSize X="0.0078" Y="0.0278" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -68,7 +68,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5078" Y="0.5556" />
-            <PreSize X="0.0156" Y="0.0417" />
+            <PreSize X="0.0141" Y="0.0417" />
             <FileData Type="Normal" Path="majiang/majiang_txt_9.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
@@ -79,7 +79,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4922" Y="0.5556" />
-            <PreSize X="0.0047" Y="0.0361" />
+            <PreSize X="0.0141" Y="0.0417" />
             <FileData Type="Normal" Path="majiang/majiang_txt_9.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>

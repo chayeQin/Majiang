@@ -25,6 +25,7 @@
           <Image Name="big_img_tx8.png" />
         </Folder>
         <Folder Name="majiang">
+          <Image Name="img_48.png" />
           <Image Name="majiang_txt_0.png" />
           <Image Name="majiang_txt_1.png" />
           <Image Name="majiang_txt_2.png" />

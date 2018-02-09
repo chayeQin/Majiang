@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="big_img_logo.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn_start" ActionTag="-705430808" Tag="5" IconVisible="False" LeftMargin="527.0000" RightMargin="527.0000" TopMargin="517.9690" BottomMargin="121.0310" TouchEnable="True" FontSize="40" ButtonText="开始游戏" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="196" Scale9Height="59" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn_start" ActionTag="-705430808" VisibleForFrame="False" Tag="5" IconVisible="False" LeftMargin="527.0000" RightMargin="527.0000" TopMargin="517.9690" BottomMargin="121.0310" TouchEnable="True" FontSize="40" ButtonText="开始游戏" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="196" Scale9Height="59" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="226.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="640.0000" Y="161.5310" />
@@ -53,7 +53,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="node_update" ActionTag="1963553039" Tag="8" IconVisible="True" RightMargin="1280.0000" TopMargin="720.0000" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="node_update" ActionTag="1963553039" VisibleForFrame="False" Tag="8" IconVisible="True" RightMargin="1280.0000" TopMargin="720.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="other_img_yxt_1" ActionTag="-1015450935" Tag="7" IconVisible="False" LeftMargin="489.0000" RightMargin="-791.0000" TopMargin="-170.4482" BottomMargin="148.4482" ctype="SpriteObjectData">
