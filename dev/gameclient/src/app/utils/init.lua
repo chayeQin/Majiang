@@ -7,7 +7,6 @@
 -- 基础工具
 cc.exports.Util               = import(".Util").new()
 cc.exports.AlgoUtil           = import(".AlgoUtil").new()
-cc.exports.StoryUtil          = import(".StoryUtil").new()
 cc.exports.GMUtil             = import(".GMUtil").new()
 cc.exports.CacheTextureUtil   = import(".CacheTextureUtil").new()
 cc.exports.HeartBeatUtil      = import(".HeartBeatUtil").new()

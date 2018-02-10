@@ -30,11 +30,11 @@ local M_TYPE_BG = {
 	"mjCardBg_1_2", -- 开牌1
 	"mjCardBg_1_6", -- 开牌2
 	"mjCardBg_1_2", -- 开牌3
-	"mjCardBg_1_6",  -- 开牌4
+	"mjCardBg_1_6", -- 开牌4
 	"mjCardBg_1_2", -- 开牌1
 	"mjCardBg_1_6", -- 开牌2
 	"mjCardBg_1_2", -- 开牌3
-	"mjCardBg_1_6",  -- 开牌4
+	"mjCardBg_1_6", -- 开牌4
 }
 
 -- 左下角anchor
