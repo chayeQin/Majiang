@@ -7,7 +7,7 @@
 //
 
 #import "SDK.h"
-#import "FBInvite.h"
+
 #import "LuaCall.h"
 
 @implementation SDK
@@ -18,13 +18,8 @@
 -(id)init
 {
     self = [super init];
-    self.iospay = [[IOSPay alloc] init];
-    self.iospay.delegate = self;
+  
     
-    FBInvite* invite = [[FBInvite alloc] init];
-    [LuaCall add:invite withKey:@"FBInvite"];
-
-    [FBInvite startUp];
     return self;
 }
 
@@ -49,21 +44,21 @@
 -(void)payUrl:(NSDictionary *)args
 {
     NSDictionary* param = [args objectForKey:@"param"];
-    self.iospay.webUrl = [param objectForKey:@"url"];
+    
 }
 
 -(void)newUser:(NSDictionary *)args
 {
     [super newUser:args];
     
-    [FBInvite newUser];
+    
 }
 
 -(void)guideEnd:(NSDictionary *)args
 {
     [super guideEnd:args];
     
-    [FBInvite guideEnd];
+    
 }
 
 // 完成登陆
@@ -86,27 +81,27 @@
 
 - (void)CGStart:(NSDictionary*)args
 {
-	[FBInvite CGStart];
+	
 }
 	
 - (void)CGSkip:(NSDictionary*)args
 {
-	[FBInvite CGSkip];
+	
 }
 	
 - (void)CGComlete:(NSDictionary*)args
 {
-	[FBInvite CGComlete];
+	
 }
 	
 - (void)FlagSelect:(NSDictionary*)args
 {
-	[FBInvite FlagSelect];
+	
 }
 	
 - (void)FirstTask:(NSDictionary*)args
 {
-	[FBInvite FirstTask];
+	
 }
 	
 - (void)Fort:(NSDictionary*)args
@@ -115,18 +110,18 @@
     
     int fortLevel = [[dict objectForKey:@"fortLevel"] intValue];
 	
-    [FBInvite Fort:fortLevel];
+    
 }
 
 // 登陆完胜，开始加载用户数据（上传数据到sdk）
 -(void)post:(NSDictionary *)args
 {
-    [FBInvite login];
+    
 }
 
 -(void)login:(NSDictionary*)args
 {
-    [FBInvite sdkLogin:args];
+    
 }
 
 -(void)logout:(NSDictionary*)args
@@ -155,7 +150,6 @@
     
     self.iapPrice = [price doubleValue];
     
-    [self.iospay pay:iap param:param];
 }
 
 // 支付回调
@@ -164,11 +158,11 @@
     NSLog(@"pay call back %d", state);
     if(state == 0){ // success
 		double price = self.iapPrice / 100.0;
-        [FBInvite paySuccess:price currency:@"USD"];
+        
     }
     else // fail
     {
-        [FBInvite payFail];
+        
     }
 }
 

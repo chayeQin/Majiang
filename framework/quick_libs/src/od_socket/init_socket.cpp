@@ -133,7 +133,6 @@ int send(lua_State *l)
 
 	CCLOG("*** send(%d)", bufLen);
 	unsigned long tmpLen = ntohl(bufLen);
-	unsigned long tmpLen2 = ntohl(56);
 
 	memcpy(buf, &tmpLen, 4);
 	lua_pushnumber(l,bufLen + 4);

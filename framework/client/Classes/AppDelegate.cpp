@@ -4,6 +4,7 @@
 #include "scripting/lua-bindings/manual/lua_module_register.h"
 #include "package_quick_register.h"
 
+
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
 
@@ -55,6 +56,7 @@ void AppDelegate::initGLContextAttrs()
 // don't modify or remove this function
 static int register_all_packages()
 {
+    extern void package_quick_register();
 	package_quick_register();
     return 0; //flag for packages manager
 }

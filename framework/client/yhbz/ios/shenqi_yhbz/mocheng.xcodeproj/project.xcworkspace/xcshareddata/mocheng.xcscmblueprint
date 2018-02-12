@@ -1,25 +1,25 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "446b1e90-5f22-4346-bce6-9db034a2cc53++6561",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8075a513-b226-5e4a-9423-5794c5a5e8a9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
-    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : {
+    "8075a513-b226-5e4a-9423-5794c5a5e8a9" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : 9223372036854775807
+    "8075a513-b226-5e4a-9423-5794c5a5e8a9" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1DDBEEFD-E989-4603-B3A1-0B41A06DF72F",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "446b1e90-5f22-4346-bce6-9db034a2cc53++6561" : "..\/quick_libs"
+    "8075a513-b226-5e4a-9423-5794c5a5e8a9" : "Majiang\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mocheng",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mocheng.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "framework\/client\/yhbz\/ios\/shenqi_yhbz\/mocheng.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.75:3610",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.111\/Majiang",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "446b1e90-5f22-4346-bce6-9db034a2cc53++6561"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8075a513-b226-5e4a-9423-5794c5a5e8a9"
     }
   ]
 }

@@ -32,9 +32,7 @@
 		50D7C96E17EBBEE6005D0B91 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96D17EBBEE6005D0B91 /* AppKit.framework */; };
 		50D7C97017EBBEEC005D0B91 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96F17EBBEEC005D0B91 /* IOKit.framework */; };
 		5200BECA1A53D9A500AC45E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5200BEC91A53D9A500AC45E4 /* Security.framework */; };
-		651C2DEB1EF954EB00A7974E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 651C2DEA1EF954EB00A7974E /* res */; };
 		65B5E8B51EF7C622003117A2 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8B41EF7C622003117A2 /* libstdc++.6.0.9.tbd */; };
-		65B5E8E41EF7CADB003117A2 /* GCloudVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 65B5E8E31EF7CADB003117A2 /* GCloudVoice.bundle */; };
 		65CD0DBC1EF0DB5E0056A159 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DBB1EF0DB5E0056A159 /* libresolv.tbd */; };
 		65CD0DC41EF0DB690056A159 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DC31EF0DB690056A159 /* SystemConfiguration.framework */; };
 		65CD0DC61EF0DB6F0056A159 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DC51EF0DB6F0056A159 /* CoreTelephony.framework */; };
@@ -49,12 +47,7 @@
 		65CD0DD81EF0DBD30056A159 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DD71EF0DBD30056A159 /* libz.tbd */; };
 		65CD0DDA1EF0DBD80056A159 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DD91EF0DBD80056A159 /* UIKit.framework */; };
 		65CD0DE61EF0DC850056A159 /* SDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CD0DE51EF0DC850056A159 /* SDK.mm */; };
-		65CD0DEE1EF0DC9C0056A159 /* FBInvite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CD0DE91EF0DC9C0056A159 /* FBInvite.mm */; };
 		65CD0E051EF0DDEF0056A159 /* mylibIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0DFA1EF0DDA80056A159 /* mylibIOS.a */; };
-		65CD0E0C1EF0DE1F0056A159 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0E081EF0DE1F0056A159 /* Bolts.framework */; };
-		65CD0E0D1EF0DE1F0056A159 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0E091EF0DE1F0056A159 /* FBSDKCoreKit.framework */; };
-		65CD0E0E1EF0DE1F0056A159 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0E0A1EF0DE1F0056A159 /* FBSDKLoginKit.framework */; };
-		65CD0E0F1EF0DE1F0056A159 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CD0E0B1EF0DE1F0056A159 /* FBSDKShareKit.framework */; };
 		65CD0E111EF0DE930056A159 /* game.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 65CD0E101EF0DE930056A159 /* game.cfg */; };
 		65CD0EBF1EF0E78B0056A159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65CD0EBE1EF0E78B0056A159 /* Images.xcassets */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
@@ -219,10 +212,8 @@
 		50D7C96D17EBBEE6005D0B91 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50D7C96F17EBBEEC005D0B91 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5200BEC91A53D9A500AC45E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		651C2DEA1EF954EB00A7974E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../conf/res; sourceTree = "<group>"; };
 		65B5E8A01EF37185003117A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		65B5E8B41EF7C622003117A2 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libstdc++.6.0.9.tbd"; sourceTree = DEVELOPER_DIR; };
-		65B5E8E31EF7CADB003117A2 /* GCloudVoice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GCloudVoice.bundle; path = ../../quick_libs/proj.ios_mac/third_libs/GVoice/GCloudVoice.bundle; sourceTree = "<group>"; };
 		65CD0DBB1EF0DB5E0056A159 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		65CD0DC31EF0DB690056A159 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		65CD0DC51EF0DB6F0056A159 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
@@ -238,8 +229,6 @@
 		65CD0DD91EF0DBD80056A159 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		65CD0DE41EF0DC850056A159 /* SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDK.h; sourceTree = "<group>"; };
 		65CD0DE51EF0DC850056A159 /* SDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SDK.mm; sourceTree = "<group>"; };
-		65CD0DE81EF0DC9C0056A159 /* FBInvite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBInvite.h; path = ../../../depends/facebook/FBInvite.h; sourceTree = "<group>"; };
-		65CD0DE91EF0DC9C0056A159 /* FBInvite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FBInvite.mm; path = ../../../depends/facebook/FBInvite.mm; sourceTree = "<group>"; };
 		65CD0DF21EF0DDA80056A159 /* quick_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = quick_libs.xcodeproj; path = ../../quick_libs/proj.ios_mac/quick_libs.xcodeproj; sourceTree = "<group>"; };
 		65CD0E081EF0DE1F0056A159 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../depends/facebook/Bolts.framework; sourceTree = "<group>"; };
 		65CD0E091EF0DE1F0056A159 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../depends/facebook/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -303,10 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B5E8B51EF7C622003117A2 /* libstdc++.6.0.9.tbd in Frameworks */,
-				65CD0E0C1EF0DE1F0056A159 /* Bolts.framework in Frameworks */,
-				65CD0E0D1EF0DE1F0056A159 /* FBSDKCoreKit.framework in Frameworks */,
-				65CD0E0E1EF0DE1F0056A159 /* FBSDKLoginKit.framework in Frameworks */,
-				65CD0E0F1EF0DE1F0056A159 /* FBSDKShareKit.framework in Frameworks */,
 				65CD0E051EF0DDEF0056A159 /* mylibIOS.a in Frameworks */,
 				65CD0DDA1EF0DBD80056A159 /* UIKit.framework in Frameworks */,
 				65CD0DD81EF0DBD30056A159 /* libz.tbd in Frameworks */,
@@ -358,8 +343,6 @@
 		5023810617EBBCAC00990C9B /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				65CD0DE81EF0DC9C0056A159 /* FBInvite.h */,
-				65CD0DE91EF0DC9C0056A159 /* FBInvite.mm */,
 				65CD0DE41EF0DC850056A159 /* SDK.h */,
 				65CD0DE51EF0DC850056A159 /* SDK.mm */,
 				5023810717EBBCAC00990C9B /* AppController.h */,
@@ -507,8 +490,6 @@
 		F293BC4615EB859D00256477 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				651C2DEA1EF954EB00A7974E /* res */,
-				65B5E8E31EF7CADB003117A2 /* GCloudVoice.bundle */,
 				65CD0EBE1EF0E78B0056A159 /* Images.xcassets */,
 				65CD0E101EF0DE930056A159 /* game.cfg */,
 			);
@@ -671,7 +652,8 @@
 		65CD0DFA1EF0DDA80056A159 /* mylibIOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = mylibIOS.a;
+			name = mylibIOS.a;
+			path = "quick_libs IOS.a";
 			remoteRef = 65CD0DF91EF0DDA80056A159 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -707,8 +689,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65CD0EBF1EF0E78B0056A159 /* Images.xcassets in Resources */,
-				65B5E8E41EF7CADB003117A2 /* GCloudVoice.bundle in Resources */,
-				651C2DEB1EF954EB00A7974E /* res in Resources */,
 				65CD0E111EF0DE930056A159 /* game.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,7 +731,6 @@
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
-				65CD0DEE1EF0DC9C0056A159 /* FBInvite.mm in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,7 +920,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 374TP933A7;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../depends/facebook";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -995,7 +974,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../depends/facebook";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";

@@ -30,10 +30,7 @@
 
 // 自己第三方库
 #import "SDK.h"
-#import "Jyxlibs.h"
 
-// fb
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppController
 
@@ -84,14 +81,9 @@ static AppDelegate s_sharedApplication;
     cocos2d::Director::getInstance()->setOpenGLView(glview);
    
     SDK* sdk = [[SDK alloc] init];
-    [[Jyxlibs shareInstance] init:sdk launch:launchOptions];
     
     app->run();
     
-    
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
-
     return YES;
 }
 
@@ -115,8 +107,6 @@ static AppDelegate s_sharedApplication;
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
-    //facebook 激活
-    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -126,7 +116,7 @@ static AppDelegate s_sharedApplication;
      */
     cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(EVENT_COME_TO_BACKGROUND);
     cocos2d::Application::getInstance()->applicationDidEnterBackground();
-    [[Jyxlibs shareInstance] onPause:application];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -136,7 +126,7 @@ static AppDelegate s_sharedApplication;
     cocos2d::Application::getInstance()->applicationWillEnterForeground();
     cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(EVENT_COME_TO_FOREGROUND);
     
-    [[Jyxlibs shareInstance] onResume:application];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -144,38 +134,6 @@ static AppDelegate s_sharedApplication;
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */
-}
-
-// -- JPush start
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [[Jyxlibs shareInstance] didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [[Jyxlibs shareInstance] didReceiveRemoteNotification:userInfo];
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-  // IOS 7 Support Required
-//    [APService handleRemoteNotification:userInfo];
-    completionHandler(UIBackgroundFetchResultNewData);
-}
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    
-}
-// -- JPush End
-
-// fb
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    //facebook关联
-    
-    BOOL handled = [[FBSDKApplicationDelegate sharedInstance]application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-    // 在此添加任意自定义逻辑。
-    return handled;
 }
 
 #pragma mark -

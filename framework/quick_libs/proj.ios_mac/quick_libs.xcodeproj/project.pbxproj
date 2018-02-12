@@ -7,41 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65126F621D92622E00A0E059 /* JPUSHService.h in Headers */ = {isa = PBXBuildFile; fileRef = 65126F601D92622E00A0E059 /* JPUSHService.h */; };
-		65126F651D92667F00A0E059 /* JpushInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 65126F631D92667F00A0E059 /* JpushInfo.h */; };
-		65126F661D92667F00A0E059 /* JpushInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65126F641D92667F00A0E059 /* JpushInfo.mm */; };
-		65126F671D9275F800A0E059 /* JpushInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65126F641D92667F00A0E059 /* JpushInfo.mm */; };
 		6519F2371E271CCC00CD556F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6519F2361E271CCC00CD556F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		6571FE761DBF0C6C001C235E /* IOSPay.h in Headers */ = {isa = PBXBuildFile; fileRef = 6571FE701DBF0C6C001C235E /* IOSPay.h */; };
-		6571FE771DBF0C6C001C235E /* IOSPay.h in Headers */ = {isa = PBXBuildFile; fileRef = 6571FE701DBF0C6C001C235E /* IOSPay.h */; };
-		6571FE781DBF0C6C001C235E /* IOSPay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6571FE711DBF0C6C001C235E /* IOSPay.mm */; };
-		6571FE791DBF0C6C001C235E /* IOSPay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6571FE711DBF0C6C001C235E /* IOSPay.mm */; };
-		6592E90E1D5B308700E717D2 /* Jyxlibs.h in Headers */ = {isa = PBXBuildFile; fileRef = 6592E90C1D5B308700E717D2 /* Jyxlibs.h */; };
-		6592E90F1D5B308700E717D2 /* Jyxlibs.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6592E90D1D5B308700E717D2 /* Jyxlibs.mm */; };
-		659ECEF41E53E87700565DBE /* DataEyeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 659ECEF21E53E87700565DBE /* DataEyeInfo.h */; };
-		659ECEF51E53E87700565DBE /* DataEyeInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 659ECEF31E53E87700565DBE /* DataEyeInfo.mm */; };
-		65A595F41E810BC100107FC0 /* DataEyeInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 659ECEF31E53E87700565DBE /* DataEyeInfo.mm */; };
 		65A596001E811A8C00107FC0 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A595FF1E811A8C00107FC0 /* UserNotifications.framework */; };
 		65A596021E811AA500107FC0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A596011E811AA500107FC0 /* StoreKit.framework */; };
-		65B5E8991EF123DB003117A2 /* GVoiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8971EF123DB003117A2 /* GVoiceInfo.h */; };
-		65B5E89A1EF123DB003117A2 /* GVoiceInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65B5E8981EF123DB003117A2 /* GVoiceInfo.mm */; };
 		65B5E8A71EF371AF003117A2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8A61EF371AF003117A2 /* AVFoundation.framework */; };
 		65B5E8A91EF371B5003117A2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8A81EF371B5003117A2 /* CoreTelephony.framework */; };
 		65B5E8AB1EF371BC003117A2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8AA1EF371BC003117A2 /* Security.framework */; };
 		65B5E8AD1EF371C3003117A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8AC1EF371C3003117A2 /* SystemConfiguration.framework */; };
 		65B5E8AF1EF371CA003117A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8AE1EF371CA003117A2 /* AudioToolbox.framework */; };
 		65B5E8B11EF371D3003117A2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8B01EF371D3003117A2 /* CoreAudio.framework */; };
-		65B5E8B61EF7C6CD003117A2 /* GVoiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8971EF123DB003117A2 /* GVoiceInfo.h */; };
-		65B5E8B71EF7C98C003117A2 /* GVoiceInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65B5E8981EF123DB003117A2 /* GVoiceInfo.mm */; };
-		65B5E8DE1EF7CABB003117A2 /* GCloudVoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8D81EF7CABB003117A2 /* GCloudVoice.h */; };
-		65B5E8DF1EF7CABB003117A2 /* GCloudVoiceErrno.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8D91EF7CABB003117A2 /* GCloudVoiceErrno.h */; };
-		65B5E8E01EF7CABB003117A2 /* GCloudVoiceExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8DA1EF7CABB003117A2 /* GCloudVoiceExtension.h */; };
-		65B5E8E11EF7CABB003117A2 /* GCloudVoiceVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8DB1EF7CABB003117A2 /* GCloudVoiceVersion.h */; };
-		65B5E8E21EF7CABB003117A2 /* libGCloudVoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8DD1EF7CABB003117A2 /* libGCloudVoice.a */; };
-		65B5E8EF1EF8BCEE003117A2 /* GVoiceNotify.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65B5E8ED1EF8BCEE003117A2 /* GVoiceNotify.mm */; };
-		65B5E8F01EF8BCEE003117A2 /* GVoiceNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B5E8EE1EF8BCEE003117A2 /* GVoiceNotify.h */; };
-		65B5E8F11EF8D625003117A2 /* libGCloudVoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B5E8DD1EF7CABB003117A2 /* libGCloudVoice.a */; };
-		65CA24621D5C0DA2007371FD /* Jyxlibs.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6592E90D1D5B308700E717D2 /* Jyxlibs.mm */; };
 		65CA24BE1D5C0DC1007371FD /* LuaCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CA24A31D5C0DC1007371FD /* LuaCall.h */; };
 		65CA24BF1D5C0DC1007371FD /* LuaCall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CA24A41D5C0DC1007371FD /* LuaCall.mm */; };
 		65CA24C01D5C0DC1007371FD /* LuaFunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CA24A51D5C0DC1007371FD /* LuaFunc.h */; };
@@ -73,10 +47,6 @@
 		65DB69A81E2C90B500797530 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DB69A71E2C90B500797530 /* Security.framework */; };
 		65F439061E71000000CCEF22 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F439051E71000000CCEF22 /* GameController.framework */; };
 		65F439081E71000500CCEF22 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F439071E71000500CCEF22 /* MediaPlayer.framework */; };
-		65FD94151ECD4B5000BA064C /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD94131ECD4B5000BA064C /* jcore-ios-1.1.3.a */; };
-		65FD94161ECD4B5000BA064C /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD94141ECD4B5000BA064C /* jpush-ios-3.0.5.a */; };
-		65FD94171ECD4E9800BA064C /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD94131ECD4B5000BA064C /* jcore-ios-1.1.3.a */; };
-		65FD94181ECD4E9800BA064C /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD94141ECD4B5000BA064C /* jpush-ios-3.0.5.a */; };
 		871E458B1ABA18D700A60D65 /* fpconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E45751ABA18D700A60D65 /* fpconv.c */; };
 		871E458C1ABA18D700A60D65 /* fpconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E45751ABA18D700A60D65 /* fpconv.c */; };
 		871E458D1ABA18D700A60D65 /* fpconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 871E45761ABA18D700A60D65 /* fpconv.h */; };
@@ -177,25 +147,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		65126F601D92622E00A0E059 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
-		65126F631D92667F00A0E059 /* JpushInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JpushInfo.h; sourceTree = "<group>"; };
-		65126F641D92667F00A0E059 /* JpushInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JpushInfo.mm; sourceTree = "<group>"; };
 		6519F2361E271CCC00CD556F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
 		652ED8451E30E52800A8D056 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = third_libs/UMMobClick.framework; sourceTree = "<group>"; };
 		6531DCF71DBF3A1800C7A1F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		65330F101D94FE93004B9246 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
 		65330F151D950840004B9246 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		6571FE6B1DBEFCAD001C235E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		6571FE701DBF0C6C001C235E /* IOSPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSPay.h; sourceTree = "<group>"; };
-		6571FE711DBF0C6C001C235E /* IOSPay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IOSPay.mm; sourceTree = "<group>"; };
-		6592E90C1D5B308700E717D2 /* Jyxlibs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jyxlibs.h; sourceTree = "<group>"; };
-		6592E90D1D5B308700E717D2 /* Jyxlibs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Jyxlibs.mm; sourceTree = "<group>"; };
-		659ECEF21E53E87700565DBE /* DataEyeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEyeInfo.h; sourceTree = "<group>"; };
-		659ECEF31E53E87700565DBE /* DataEyeInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DataEyeInfo.mm; sourceTree = "<group>"; };
 		65A595FF1E811A8C00107FC0 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		65A596011E811AA500107FC0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		65B5E8971EF123DB003117A2 /* GVoiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoiceInfo.h; sourceTree = "<group>"; };
-		65B5E8981EF123DB003117A2 /* GVoiceInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GVoiceInfo.mm; sourceTree = "<group>"; };
 		65B5E8A61EF371AF003117A2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		65B5E8A81EF371B5003117A2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		65B5E8AA1EF371BC003117A2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -203,13 +162,6 @@
 		65B5E8AE1EF371CA003117A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		65B5E8B01EF371D3003117A2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreAudio.framework; sourceTree = DEVELOPER_DIR; };
 		65B5E8B21EF371DF003117A2 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libstdc++.6.0.9.tbd"; sourceTree = DEVELOPER_DIR; };
-		65B5E8D81EF7CABB003117A2 /* GCloudVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCloudVoice.h; sourceTree = "<group>"; };
-		65B5E8D91EF7CABB003117A2 /* GCloudVoiceErrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCloudVoiceErrno.h; sourceTree = "<group>"; };
-		65B5E8DA1EF7CABB003117A2 /* GCloudVoiceExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCloudVoiceExtension.h; sourceTree = "<group>"; };
-		65B5E8DB1EF7CABB003117A2 /* GCloudVoiceVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCloudVoiceVersion.h; sourceTree = "<group>"; };
-		65B5E8DD1EF7CABB003117A2 /* libGCloudVoice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGCloudVoice.a; sourceTree = "<group>"; };
-		65B5E8ED1EF8BCEE003117A2 /* GVoiceNotify.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GVoiceNotify.mm; sourceTree = "<group>"; };
-		65B5E8EE1EF8BCEE003117A2 /* GVoiceNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoiceNotify.h; sourceTree = "<group>"; };
 		65CA24A31D5C0DC1007371FD /* LuaCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaCall.h; sourceTree = "<group>"; };
 		65CA24A41D5C0DC1007371FD /* LuaCall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaCall.mm; sourceTree = "<group>"; };
 		65CA24A51D5C0DC1007371FD /* LuaFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaFunc.h; sourceTree = "<group>"; };
@@ -238,8 +190,6 @@
 		65DB69AB1E2C90CC00797530 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		65F439051E71000000CCEF22 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		65F439071E71000500CCEF22 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
-		65FD94131ECD4B5000BA064C /* jcore-ios-1.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.3.a"; sourceTree = "<group>"; };
-		65FD94141ECD4B5000BA064C /* jpush-ios-3.0.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.5.a"; sourceTree = "<group>"; };
 		871E45751ABA18D700A60D65 /* fpconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fpconv.c; sourceTree = "<group>"; };
 		871E45761ABA18D700A60D65 /* fpconv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fpconv.h; sourceTree = "<group>"; };
 		871E45771ABA18D700A60D65 /* lua_cjson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lua_cjson.c; sourceTree = "<group>"; };
@@ -277,7 +227,7 @@
 		DABC971F1A81E02900BF5CC4 /* CCHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHTTPRequestDelegate.h; sourceTree = "<group>"; };
 		DABC97201A81E02900BF5CC4 /* CCNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCNetwork.cpp; sourceTree = "<group>"; };
 		DABC97211A81E02900BF5CC4 /* CCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNetwork.h; sourceTree = "<group>"; };
-		DABC98A71A81E08700BF5CC4 /* mylibIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = mylibIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DABC98A71A81E08700BF5CC4 /* mylibIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = mylibIOS.a; path = "quick_libs IOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABC98CF1A8201AF00BF5CC4 /* package_quick_register.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = package_quick_register.cpp; path = ../package_quick_register.cpp; sourceTree = "<group>"; };
 		DABC99341A820F4700BF5CC4 /* CCCryptoMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCCryptoMac.mm; sourceTree = "<group>"; };
 		DABC99351A820F4700BF5CC4 /* CCNative.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCNative.mm; sourceTree = "<group>"; };
@@ -310,9 +260,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B5E8E21EF7CABB003117A2 /* libGCloudVoice.a in Frameworks */,
-				65FD94151ECD4B5000BA064C /* jcore-ios-1.1.3.a in Frameworks */,
-				65FD94161ECD4B5000BA064C /* jpush-ios-3.0.5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,15 +267,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B5E8F11EF8D625003117A2 /* libGCloudVoice.a in Frameworks */,
 				65B5E8B11EF371D3003117A2 /* CoreAudio.framework in Frameworks */,
 				65B5E8AF1EF371CA003117A2 /* AudioToolbox.framework in Frameworks */,
 				65B5E8AD1EF371C3003117A2 /* SystemConfiguration.framework in Frameworks */,
 				65B5E8AB1EF371BC003117A2 /* Security.framework in Frameworks */,
 				65B5E8A91EF371B5003117A2 /* CoreTelephony.framework in Frameworks */,
 				65B5E8A71EF371AF003117A2 /* AVFoundation.framework in Frameworks */,
-				65FD94171ECD4E9800BA064C /* jcore-ios-1.1.3.a in Frameworks */,
-				65FD94181ECD4E9800BA064C /* jpush-ios-3.0.5.a in Frameworks */,
 				65A596021E811AA500107FC0 /* StoreKit.framework in Frameworks */,
 				65DB69A61E2C90B000797530 /* UIKit.framework in Frameworks */,
 				65A596001E811A8C00107FC0 /* UserNotifications.framework in Frameworks */,
@@ -385,79 +329,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6571FE6F1DBF0C6C001C235E /* store */ = {
-			isa = PBXGroup;
-			children = (
-				6571FE701DBF0C6C001C235E /* IOSPay.h */,
-				6571FE711DBF0C6C001C235E /* IOSPay.mm */,
-			);
-			path = store;
-			sourceTree = "<group>";
-		};
 		6592E8A41D5B2E9A00E717D2 /* third_libs */ = {
 			isa = PBXGroup;
 			children = (
-				65B5E8891EF12328003117A2 /* GVoice */,
-				659ECEF21E53E87700565DBE /* DataEyeInfo.h */,
-				659ECEF31E53E87700565DBE /* DataEyeInfo.mm */,
-				6571FE6F1DBF0C6C001C235E /* store */,
-				65126F631D92667F00A0E059 /* JpushInfo.h */,
-				65126F641D92667F00A0E059 /* JpushInfo.mm */,
 				65CA24C81D5C1728007371FD /* SDKBase.h */,
 				65CA24C91D5C1728007371FD /* SDKBase.mm */,
-				65CA24A01D5C0DC1007371FD /* jpush */,
 				65CA24A31D5C0DC1007371FD /* LuaCall.h */,
 				65CA24A41D5C0DC1007371FD /* LuaCall.mm */,
 				65CA24A51D5C0DC1007371FD /* LuaFunc.h */,
 				65CA24A61D5C0DC1007371FD /* LuaFunc.mm */,
 				65CA24A71D5C0DC1007371FD /* Notis.h */,
 				65CA24A81D5C0DC1007371FD /* Notis.mm */,
-				6592E90C1D5B308700E717D2 /* Jyxlibs.h */,
-				6592E90D1D5B308700E717D2 /* Jyxlibs.mm */,
 			);
 			path = third_libs;
-			sourceTree = "<group>";
-		};
-		65B5E8891EF12328003117A2 /* GVoice */ = {
-			isa = PBXGroup;
-			children = (
-				65B5E8D71EF7CABB003117A2 /* include */,
-				65B5E8DC1EF7CABB003117A2 /* libs */,
-				65B5E8971EF123DB003117A2 /* GVoiceInfo.h */,
-				65B5E8981EF123DB003117A2 /* GVoiceInfo.mm */,
-				65B5E8ED1EF8BCEE003117A2 /* GVoiceNotify.mm */,
-				65B5E8EE1EF8BCEE003117A2 /* GVoiceNotify.h */,
-			);
-			path = GVoice;
-			sourceTree = "<group>";
-		};
-		65B5E8D71EF7CABB003117A2 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				65B5E8D81EF7CABB003117A2 /* GCloudVoice.h */,
-				65B5E8D91EF7CABB003117A2 /* GCloudVoiceErrno.h */,
-				65B5E8DA1EF7CABB003117A2 /* GCloudVoiceExtension.h */,
-				65B5E8DB1EF7CABB003117A2 /* GCloudVoiceVersion.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		65B5E8DC1EF7CABB003117A2 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				65B5E8DD1EF7CABB003117A2 /* libGCloudVoice.a */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		65CA24A01D5C0DC1007371FD /* jpush */ = {
-			isa = PBXGroup;
-			children = (
-				65FD94131ECD4B5000BA064C /* jcore-ios-1.1.3.a */,
-				65FD94141ECD4B5000BA064C /* jpush-ios-3.0.5.a */,
-				65126F601D92622E00A0E059 /* JPUSHService.h */,
-			);
-			path = jpush;
 			sourceTree = "<group>";
 		};
 		65D43C561D5B1203005FA1F8 /* od_socket */ = {
@@ -726,36 +610,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D43C5D1D5B1203005FA1F8 /* init_socket.h in Headers */,
-				65B5E8DE1EF7CABB003117A2 /* GCloudVoice.h in Headers */,
 				871E45A11ABA18D700A60D65 /* lsqlite3.h in Headers */,
 				871E45991ABA18D700A60D65 /* lfs.h in Headers */,
-				65B5E8E11EF7CABB003117A2 /* GCloudVoiceVersion.h in Headers */,
 				DABC99471A820F8600BF5CC4 /* ReachabilityIOSMac.h in Headers */,
-				65B5E8991EF123DB003117A2 /* GVoiceInfo.h in Headers */,
-				65126F651D92667F00A0E059 /* JpushInfo.h in Headers */,
 				65D43C611D5B1203005FA1F8 /* ODSocket.h in Headers */,
 				871E45AD1ABA18D700A60D65 /* lua_zlib.h in Headers */,
 				871E459D1ABA18D700A60D65 /* lpack.h in Headers */,
-				65B5E8DF1EF7CABB003117A2 /* GCloudVoiceErrno.h in Headers */,
 				871E458D1ABA18D700A60D65 /* fpconv.h in Headers */,
 				DABC97641A81E02900BF5CC4 /* libbase64.h in Headers */,
 				DABC97C61A81E02900BF5CC4 /* CCAlertViewDelegate.h in Headers */,
 				DABC97C71A81E02900BF5CC4 /* CCNative.h in Headers */,
 				DABC97681A81E02900BF5CC4 /* md5.h in Headers */,
-				65126F621D92622E00A0E059 /* JPUSHService.h in Headers */,
 				DABC97C91A81E02900BF5CC4 /* CCHTTPRequest.h in Headers */,
 				DABC97CC1A81E02900BF5CC4 /* CCNetwork.h in Headers */,
-				659ECEF41E53E87700565DBE /* DataEyeInfo.h in Headers */,
 				DABC993F1A820F4700BF5CC4 /* OpenUDIDMac.h in Headers */,
 				DABC97621A81E02900BF5CC4 /* cocos2dx_extra.h in Headers */,
-				6571FE761DBF0C6C001C235E /* IOSPay.h in Headers */,
-				65B5E8E01EF7CABB003117A2 /* GCloudVoiceExtension.h in Headers */,
 				DABC97CA1A81E02900BF5CC4 /* CCHTTPRequestDelegate.h in Headers */,
 				DABC97661A81E02900BF5CC4 /* CCCrypto.h in Headers */,
 				871E45A51ABA18D700A60D65 /* sqlite3.h in Headers */,
 				DABC97B01A81E02900BF5CC4 /* cocos2dx_extra_ios_iap_luabinding.h in Headers */,
 				65D43C641D5B1825005FA1F8 /* package_quick_register.h in Headers */,
-				6592E90E1D5B308700E717D2 /* Jyxlibs.h in Headers */,
 				871E45911ABA18D700A60D65 /* lua_cjson.h in Headers */,
 				871E45951ABA18D700A60D65 /* strbuf.h in Headers */,
 				DABC97B21A81E02900BF5CC4 /* cocos2dx_extra_luabinding.h in Headers */,
@@ -768,7 +642,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B5E8B61EF7C6CD003117A2 /* GVoiceInfo.h in Headers */,
 				DABC99841A82184500BF5CC4 /* SBJsonBase.h in Headers */,
 				DABC998A1A82184500BF5CC4 /* OpenUDIDIOS.h in Headers */,
 				65CA24CA1D5C1728007371FD /* SDKBase.h in Headers */,
@@ -794,7 +667,6 @@
 				65CA24C21D5C0DC1007371FD /* Notis.h in Headers */,
 				DABC987C1A81E08700BF5CC4 /* CCNetwork.h in Headers */,
 				DABC99861A82184500BF5CC4 /* SBJsonParser.h in Headers */,
-				65B5E8F01EF8BCEE003117A2 /* GVoiceNotify.h in Headers */,
 				65CA24C01D5C0DC1007371FD /* LuaFunc.h in Headers */,
 				DABC98821A81E08700BF5CC4 /* cocos2dx_extra.h in Headers */,
 				DABC99751A82179700BF5CC4 /* quick_libs.pch in Headers */,
@@ -804,7 +676,6 @@
 				65D43C621D5B1203005FA1F8 /* ODSocket.h in Headers */,
 				DABC98941A81E08700BF5CC4 /* cocos2dx_extra_ios_iap_luabinding.h in Headers */,
 				DABC98991A81E08700BF5CC4 /* cocos2dx_extra_luabinding.h in Headers */,
-				6571FE771DBF0C6C001C235E /* IOSPay.h in Headers */,
 				DABC99821A82184500BF5CC4 /* SBJSON.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,19 +798,14 @@
 				871E459B1ABA18D700A60D65 /* lpack.c in Sources */,
 				DABC993B1A820F4700BF5CC4 /* CCCryptoMac.mm in Sources */,
 				65D43C5B1D5B1203005FA1F8 /* init_socket.cpp in Sources */,
-				659ECEF51E53E87700565DBE /* DataEyeInfo.mm in Sources */,
 				DABC99451A820F8600BF5CC4 /* CCNetworkIOSMac.mm in Sources */,
-				6571FE781DBF0C6C001C235E /* IOSPay.mm in Sources */,
 				871E458B1ABA18D700A60D65 /* fpconv.c in Sources */,
 				871E458F1ABA18D700A60D65 /* lua_cjson.c in Sources */,
 				DABC99401A820F4700BF5CC4 /* OpenUDIDMac.m in Sources */,
 				65D43C5F1D5B1203005FA1F8 /* ODSocket.cpp in Sources */,
-				6592E90F1D5B308700E717D2 /* Jyxlibs.mm in Sources */,
 				871E45AB1ABA18D700A60D65 /* lua_zlib.c in Sources */,
 				871E45A31ABA18D700A60D65 /* sqlite3.c in Sources */,
-				65B5E89A1EF123DB003117A2 /* GVoiceInfo.mm in Sources */,
 				DABC97631A81E02900BF5CC4 /* libbase64.c in Sources */,
-				65126F661D92667F00A0E059 /* JpushInfo.mm in Sources */,
 				DABC99491A820F8600BF5CC4 /* ReachabilityIOSMac.m in Sources */,
 				DABC97651A81E02900BF5CC4 /* CCCrypto.cpp in Sources */,
 				871E45A71ABA18D700A60D65 /* quick_extensions.c in Sources */,
@@ -950,17 +816,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B5E8B71EF7C98C003117A2 /* GVoiceInfo.mm in Sources */,
-				65A595F41E810BC100107FC0 /* DataEyeInfo.mm in Sources */,
-				65126F671D9275F800A0E059 /* JpushInfo.mm in Sources */,
-				65CA24621D5C0DA2007371FD /* Jyxlibs.mm in Sources */,
-				65B5E8EF1EF8BCEE003117A2 /* GVoiceNotify.mm in Sources */,
 				DABC994A1A820F8600BF5CC4 /* ReachabilityIOSMac.m in Sources */,
 				DABC98091A81E08700BF5CC4 /* cocos2dx_extra_luabinding.cpp in Sources */,
 				65CA24CB1D5C1728007371FD /* SDKBase.mm in Sources */,
 				DABC99631A8214CC00BF5CC4 /* CCCryptoIOS.mm in Sources */,
 				871E45901ABA18D700A60D65 /* lua_cjson.c in Sources */,
-				6571FE791DBF0C6C001C235E /* IOSPay.mm in Sources */,
 				65CA24C31D5C0DC1007371FD /* Notis.mm in Sources */,
 				DABC98121A81E08700BF5CC4 /* CCNetwork.cpp in Sources */,
 				871E458C1ABA18D700A60D65 /* fpconv.c in Sources */,
