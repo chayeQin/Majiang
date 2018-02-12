@@ -32,17 +32,17 @@ end
 require = function(name, ...)
 	local arr = string.split(name, ".")
 	arr[#arr] = arr[#arr] .. ".lua"
-	local path = "src\\"
+	local path = "src/"
 
 	for k,v in ipairs(arr) do
 		local check,file = cls.find(path, v)
 		if check then
-			path = path .. v .. "\\"
+			path = path .. v .. "/"
 		else
 			if file then
 				print("*** 文件大小写不一样:")
 				print("*** 你输入的是:", name)
-				local arr2 = string.split(path, "\\")
+				local arr2 = string.split(path, "/")
 				table.remove(arr2, 1)
 				file = table.concat(arr2, ".") .. file
 				print("*** 实际文件名为:", file)
