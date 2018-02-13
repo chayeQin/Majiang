@@ -17,8 +17,10 @@ local keys = {
 	--------------基础模块事件------------------
 	roomInfoUpdate = "roomInfoUpdate",				-- 房间信息更新
 	gameInfoUpdate = "gameInfoUpdate",				-- 局内信息更新
-	doAction 	   = "doAction"						-- 玩家执行动作
-	
+	doAction 	   = "doAction",						-- 玩家执行动作
+	playerTing	   = "playerTing",					-- 听牌 
+	tingOptUpdate  = "tingOptUpdate",				-- 听牌的卡选项
 }
-
+	
 return keys
+

@@ -24,6 +24,7 @@ cc.exports.TableCards      		= import(".TableCards")
 cc.exports.ActionTips      		= import(".ActionTips")
 cc.exports.PlayerIcon			= import(".PlayerIcon")
 cc.exports.Msg					= import(".Msg")
+cc.exports.TingOptionCards	= import(".TingOptionCards")
 
 cc.exports.ChooseOptionCards	= import(".ChooseOptionCards")
 cc.exports.ActionEffect			= import(".ActionEffect")

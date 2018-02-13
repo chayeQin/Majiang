@@ -43,11 +43,13 @@ function cls:ctor()
 	tmp:pos(1020, 200)
 	self.nxtOpenCardPos = {}
 	self.cardLst = {}
-
+	
 	self.tipsImg = Util:sprite("majiang/img_48")
 						:addTo(self, 9)
 						:pos(display.width/2, 170)
 						:hide()
+	self.tingOpts = TingOptionCards.new()
+					:addTo(self, 10)
 	self.indexTablePosMap = {}
 end
 

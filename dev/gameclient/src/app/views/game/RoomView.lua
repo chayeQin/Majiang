@@ -64,6 +64,13 @@ function cls:ctor()
 	cls.super.ctor(self)
 	self.viewType = 0
 
+	-- Util:button("com/com_btn_create",function()
+	-- 	User.info.uid = "a08r47qbzx0"
+	-- 	User:setRoomInfo(Const.testRoomInfo)
+	-- 	User:setGameInfo(Const.testGameInfo)
+	-- end)
+	-- 	:addTo(self, 999)
+	-- 	:pos(display.center)
 	-- Util:button(nil, function()
 
 	-- end"解散房间")

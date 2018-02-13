@@ -226,4 +226,12 @@ function cls:getMaxCount()
 	return self.roomInfo.maxCount
 end
 
+function cls:setCheckTing(boo)
+	self.checkTing = boo
+end
+
+function cls:isCheckTing()
+	return self.checkTing
+end
+
 return cls

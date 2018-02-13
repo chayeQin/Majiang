@@ -114,6 +114,7 @@ end
 
 
 function cls:checkTing(cardLst)
+	dump(cardLst, "check ting")
 	if #cardLst == 2 then
 		local tmpMap = {}
 		tmpMap[cardLst[1]] = {cardLst[2]}
@@ -122,7 +123,6 @@ function cls:checkTing(cardLst)
 	end
 
 	local isTing = false
-
 	local tingCardsMap = {} -- [扔牌] = {听什么牌, xxx}
 	local lastCheckCard = nil
 	for i, tmpCard in ipairs(cardLst) do
@@ -130,12 +130,17 @@ function cls:checkTing(cardLst)
 			lastCheckCard = tmpCard
 			local tmpLst = clone(cardLst)
 			table.remove(tmpLst, i)
+			local isHu = false
 			for _, v in ipairs(Const.CARD_LIBS) do
 				table.insert(tmpLst, v)
-				isTing = self:checkHu(tmpLst)
-				if isTing then
+				isHu = self:checkHu(tmpLst)
+				if isHu then
 					tingCardsMap[tmpCard] = tingCardsMap[tmpCard] or {}
 					table.insert(tingCardsMap[tmpCard], v)
+				end
+
+				if not isTing and isHu then
+					isTing = true
 				end
 				self:list_remove(tmpLst, v)
 			end

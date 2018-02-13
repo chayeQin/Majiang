@@ -51,7 +51,7 @@ function cls:initActionLst(actionLst)
 		end
 	end
 
-	if #actionLst > 0 then
+	if #actionLst > 0 and cls.ACTION_TYPE_GUO ~= actionLst[1] then
 		table.insert(actionLst, cls.ACTION_TYPE_GUO)
 	end
 	table.sort(actionLst, function(v1, v2)
@@ -95,6 +95,17 @@ end
 
 function cls:onInfoUpdate()
 	local info = User:getUserCardInfo()
+	User:setCheckTing(false)
+	self.tingCards = nil
+	if User.gameInfo.outIndex == info.index then -- 到玩家自己回合
+		local isTing, tingCards = AlgoUtil:checkTing(info.hand)
+		self.tingCards = tingCards
+		if isTing then
+			User:setCheckTing(true)
+			table.insert(info.actions, 1, cls.ACTION_TYPE_TING)
+		end
+	end
+
 	self:initActionLst(clone(info.actions))
 end
 
@@ -259,13 +270,23 @@ end
 
 function cls:ting()
 	print("*****ting")
-	GameProxy:doAction(ActionTips.ACTION_TYPE_TING, nil)
-	self:hide()
+	-- GameProxy:doAction(ActionTips.ACTION_TYPE_TING, nil)
+	if User:isCheckTing() then
+		Util:event(Event.playerTing, self.tingCards)
+		self:initActionLst({cls.ACTION_TYPE_GUO})
+	end
+end
+
+function cls:pengTing()
 end
 
 function cls:guo()
 	print("*****guo")
-	GameProxy:doAction(ActionTips.ACTION_TYPE_GUO, nil)
+	if not User:isCheckTing() then
+		GameProxy:doAction(ActionTips.ACTION_TYPE_GUO, nil)
+	else
+		Util:event(Event.playerTing)
+	end
 	self:hide()
 end
 
