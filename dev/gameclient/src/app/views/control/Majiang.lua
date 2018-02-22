@@ -45,7 +45,6 @@ function cls:ctor(mType, num)
 	local bgRes = M_TYPE_BG[mType]
 	local bg = Util:sprite("mjCardBg/" ..bgRes)
 					:addTo(self)
-					print("****", mType, num)
 	self.bg = bg
 	bg:pos(bg:width()/2, bg:height()/2)
 	
@@ -61,14 +60,15 @@ function cls:ctor(mType, num)
 		self.cardNum = Util:sprite("majiang/" .. res)
 						:addTo(bg)
 						:pos(bg:width()/2, bg:height()/2)
+		self.blueShadow = display.newLayer(cc.c4b(0, 162, 232, 0.4))
+								:addTo(self)
+								:size(self.bg:width(), self.bg:height())
+								:hide()
 	end
 
 	self:size(self.bg:width() - 2, bg:height())
-
-
 	self:initType()
 end
-
 
 function cls:initType()
 	if self.mType == 1 then 
@@ -127,7 +127,11 @@ function cls:initType()
 		self.cardNum:scaleX(0.5)
 		self.cardNum:scaleY(0.6)
 	end
+
 end
 
+function cls:showBlueShadow(boo)
+	self.blueShadow:setVisible(boo)
+end
 
 return cls

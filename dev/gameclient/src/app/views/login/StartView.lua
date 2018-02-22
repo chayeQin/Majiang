@@ -53,11 +53,12 @@ function cls:ctor()
 			self.logo = display.newSprite(path)
 		end
 	end
+self:enableNodeEvents()
 end
 
 function cls:onEnter()
 	self.updateStartHandle = Util:addEvent(Event.gameUpdateProgress, handler(self, self.onGameUpdate))
-	print("*****fuck******")
+
 	-- 检测登陆
 
 	-- Util:tick(function()

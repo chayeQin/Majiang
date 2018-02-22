@@ -51,6 +51,8 @@ function cls:ctor()
 	self.tingOpts = TingOptionCards.new()
 					:addTo(self, 10)
 	self.indexTablePosMap = {}
+
+	self.cardNodes = display.newNode():addTo(self)
 end
 
 function cls:onEnter()
@@ -78,7 +80,6 @@ function cls:onExit()
 	Util:removeEvent(self.gameInfoHandle)
 	Util:removeEvent(self.doActionHandle)
 end
-
 
 function cls:onUpdate()
 	if not User.gameInfo or not User.gameInfo.outTime then
@@ -131,6 +132,9 @@ function cls:onDoAction(event)
 			:addTo(self, 11)
 			:pos(effectPos)
 	end
+
+
+	-- todo 出牌 
 end
 
 function cls:onGameInfoUpdate()
@@ -180,6 +184,7 @@ end
 
 function cls:initCards()
 	print("******initPlayerCards")
+	self.cardNodes:removeAllChildren()
 	local indexMap = {}
 	local orig = 0
 	local sortKey = orig
@@ -215,15 +220,15 @@ function cls:initCards()
 		self.indexTablePosMap[info.index] = tablePos
 		local openCards = PlayerOpenCards.new(tablePos, info.index)
 		openCards:updateCards()
-		openCards:addTo(self, 1)
+		openCards:addTo(self.cardNodes, 1)
 
 		local playerCards = PlayerCards.new(tablePos, info.index)
-		playerCards:addTo(self, 2)
+		playerCards:addTo(self.cardNodes, 2)
 		playerCards:updateCards()
 
 		local tableCards = TableCards.new(tablePos, info.index)
 		tableCards:updateCards()
-		tableCards:addTo(self, 3)
+		tableCards:addTo(self.cardNodes, 3)
 	end
 end
 

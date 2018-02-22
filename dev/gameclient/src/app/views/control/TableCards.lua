@@ -51,11 +51,23 @@ end
 function cls:onEnter()
 	--监听手牌变化
 	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.updateCards))
-
+	self.onTipsCardsHandle = Util:addEvent(Event.tipsSendCard, handler(self, self.onTipsCards))
 end
 
 function cls:onExit()
 	Util:removeEvent(self.onUpdateHandle)
+	Util:removeEvent(self.onTipsCardsHandle)
+end
+
+function cls:onTipsCards(event)
+	local card = event.params[1]
+	for _, v in ipairs(self.cards) do
+		if card and v.num == card then
+			v:showBlueShadow(true)
+		else
+			v:showBlueShadow(false)
+		end
+	end
 end
 
 function cls:updateCards()
@@ -76,14 +88,42 @@ function cls:updateCards()
 		table.insert(self.cards, img)
 	end
 
-	local lastCard = self.cards[#self.cards]
-	if lastCard and User.gameInfo.outIndex == self.playerIndex then
-		-- self.selectedImg:show()
-		local p = cc.pAdd(lastCard:pos(), cc.p(16, 30))
-		self.selectedImg:pos(p)
-	else
-		self.selectedImg:hide()
+	local outPlayer = User:getPlayerCardInfoByIndex(User.gameInfo.outIndex) -- 当前出牌的玩家
+	local hadOut = true
+	if outPlayer then
+		for _, v in ipairs(outPlayer.actions) do
+			if v == ActionTips.ACTION_TYPE_CHUPAI then -- 玩家还没有出牌
+				hadOut = false
+				break
+			end
+		end
 	end
+
+	local lastCard = self.cards[#self.cards]
+	if hadOut then -- 已经出牌了就指示玩家最后出的那张牌
+		if lastCard and User.gameInfo.outIndex == self.playerIndex then
+			self.selectedImg:show()
+			local p = cc.pAdd(lastCard:pos(), cc.p(27, 80))
+			self.selectedImg:pos(p)
+		else
+			self.selectedImg:hide()
+		end
+	else -- 指示上一个玩家打的最后一张牌
+		-- 上一个玩家的Index
+		local index = User.gameInfo.outIndex - 1
+		if index == -1 then
+			index = #User.gameInfo.players - 1
+		end
+		if lastCard and index == self.playerIndex then
+			self.selectedImg:show()
+			local p = cc.pAdd(lastCard:pos(), cc.p(27, 80))
+			self.selectedImg:pos(p)
+		else
+			self.selectedImg:hide()
+		end
+
+	end
+
 
 	self:adjustPos()
 

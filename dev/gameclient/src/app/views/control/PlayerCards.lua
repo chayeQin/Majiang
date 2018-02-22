@@ -255,6 +255,7 @@ function cls:onTouchHandler(event)
 				self.cards[self.selectedIndex]:zorder(self.cardOrigZ)
 			end
 			self.selectedIndex = nil
+			Util:event(Event.tipsSendCard)
 			return
 		end
 
@@ -263,6 +264,7 @@ function cls:onTouchHandler(event)
 			-- 玩家可以操作
 			self:sendCard(self.selectedIndex)
 			self.selectedIndex = nil
+			Util:event(Event.tipsSendCard)
 			return
 		end
 
@@ -270,6 +272,8 @@ function cls:onTouchHandler(event)
 			self.cards[self.selectedIndex]:y(0)
 			self.cards[self.selectedIndex]:zorder(self.cardOrigZ)
 			self.selectedIndex = nil
+			Util:event(Event.tipsSendCard)
+
 			return 
 		end
 
@@ -284,6 +288,8 @@ function cls:onTouchHandler(event)
 		self.cardOrigPos = self.cards[selectedIndex]:pos()
 		self.cardOrigZ = self.cards[selectedIndex]:zorder()
 		self.cards[selectedIndex]:zorder(999)
+
+		Util:event(Event.tipsSendCard, self.cards[selectedIndex].num)
 		if User:isCheckTing() and
 			self.tingCardsMap then
 			local opts = self.tingCardsMap[self.cards[self.selectedIndex].num]
@@ -330,6 +336,7 @@ function cls:sendCard(index)
 		self.cards[index]:y(0)
 	end
 	self.selectedIndex = nil
+	Util:event(Event.tipsSendCard)
 end
 
 

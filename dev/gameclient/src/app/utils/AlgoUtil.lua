@@ -69,7 +69,6 @@ function cls:isQixiaodui(cardLst)
 	end
 
 	return false
-
 end
 
 function cls:list_remove(cardLst, card)
@@ -114,7 +113,7 @@ end
 
 
 function cls:checkTing(cardLst)
-	dump(cardLst, "check ting")
+	-- dump(cardLst, "check ting")
 	if #cardLst == 2 then
 		local tmpMap = {}
 		tmpMap[cardLst[1]] = {cardLst[2]}
@@ -146,11 +145,8 @@ function cls:checkTing(cardLst)
 			end
 		end
 	end
-	
-
 	return isTing, tingCardsMap
 end
-
 
 function cls:sortCards(cardLst)
 	table.sort(cardLst, function(v1, v2)
