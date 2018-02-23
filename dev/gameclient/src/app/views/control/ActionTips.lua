@@ -38,12 +38,30 @@ function cls:ctor()
 	self.btnLst = {}
 end
 
+function cls:onEnter()
+	--监听手牌变化
+	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.onInfoUpdate))
+end
+
+function cls:onExit()
+	Util:removeEvent(self.onUpdateHandle)
+end
+
 function cls:initActionLst(actionLst)
+	if User:isListening() then -- 只能做胡牌操作
+		for i = #actionLst, 1, -1 do
+			local act = actionLst[i]
+			if act ~= cls.ACTION_TYPE_HU then
+				table.remove(actionLst, i)
+			end
+		end
+	end
+
+
 	for _, v in ipairs(self.btnLst) do
 		v:remove()
 	end
 	self.btnLst = {}
-
 	for i, v in ipairs(actionLst) do
 		if v == cls.ACTION_TYPE_CHUPAI then
 			table.remove(actionLst, i)
@@ -84,16 +102,8 @@ function cls:initActionLst(actionLst)
 	end
 end
 
-function cls:onEnter()
-	--监听手牌变化
-	self.onUpdateHandle = Util:addEvent(Event.gameInfoUpdate, handler(self, self.onInfoUpdate))
-end
-
-function cls:onExit()
-	Util:removeEvent(self.onUpdateHandle)
-end
-
 function cls:onInfoUpdate()
+
 	local info = User:getUserCardInfo()
 	User:setCheckTing(false)
 	self.tingCards = nil
@@ -269,11 +279,11 @@ function cls:chi()
 end
 
 function cls:ting()
-	print("*****ting")
-	-- GameProxy:doAction(ActionTips.ACTION_TYPE_TING, nil)
 	if User:isCheckTing() then
 		Util:event(Event.playerTing, self.tingCards)
 		self:initActionLst({cls.ACTION_TYPE_GUO})
+	else
+		GameProxy:doAction(ActionTips.ACTION_TYPE_TING, nil)
 	end
 end
 
@@ -286,6 +296,8 @@ function cls:guo()
 		GameProxy:doAction(ActionTips.ACTION_TYPE_GUO, nil)
 	else
 		Util:event(Event.playerTing)
+		Util:event(Event.tingOptUpdate)
+		User:setCheckTing(false)
 	end
 	self:hide()
 end

@@ -25,12 +25,12 @@ function cls:onOptUpdate(event)
 	for _, card in pairs(self.optLst) do
 		card:remove()
 	end
+	self.optLst = {}
 
 	if not optionLst then
 		return
 	end
 
-	self.cardGroup = {}
  	local x = 0
  	local deltaX = 86
  	local groupDeltaX = 15
@@ -38,7 +38,7 @@ function cls:onOptUpdate(event)
 		local tmp = Majiang.new(1, num)
 	 				:addTo(self)
 	 				:pos(x, 0)
-	 	table.insert(self.cardGroup, tmp)
+	 	table.insert(self.optLst, tmp)
 		x = x + deltaX
  	end
  	self:pos((display.width - x)/2, 120)

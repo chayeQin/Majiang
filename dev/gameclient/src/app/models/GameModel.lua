@@ -48,8 +48,5 @@ function cls:isPlayerSendCard()
 	return false
 end
 
-function cls:isListening()
-	return false
-end
 
 return cls

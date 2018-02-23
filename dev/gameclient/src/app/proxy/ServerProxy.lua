@@ -42,7 +42,7 @@ function cls:start(rhand)
 	Net:call(rhand, "room", "start", User:getUid())
 end
 
-function cls:doAction(actType, cardLst)
+function cls:doAction(actType, cardLst, rhand)
 	Net:call(rhand, "room", "doAction", User:getUid(), actType, cardLst)
 end
 

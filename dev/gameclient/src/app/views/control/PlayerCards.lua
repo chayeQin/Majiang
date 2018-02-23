@@ -331,7 +331,16 @@ function cls:sendCard(index)
 
 	if isHasAction and User.gameInfo.outIndex == User:getUserIndex() then -- 玩家出牌阶段, 点击同一个牌打出去
 		local num = self.cards[index].num
-		GameProxy:doAction(ActionTips.ACTION_TYPE_CHUPAI, {num})
+		local isTing = false
+		if User:isCheckTing() then
+			isTing = true
+		end
+
+		GameProxy:doAction(ActionTips.ACTION_TYPE_CHUPAI, {num}, function()
+			if isTing then
+				GameProxy:doAction(ActionTips.ACTION_TYPE_TING)
+			end
+		end)
 	else
 		self.cards[index]:y(0)
 	end

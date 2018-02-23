@@ -234,4 +234,14 @@ function cls:isCheckTing()
 	return self.checkTing
 end
 
+function cls:isListening()
+	local info = self:getUserCardInfo()
+	if not info then
+		return false
+	end
+
+	return info.listen
+end
+
+
 return cls
