@@ -41,6 +41,12 @@ cls.FORMAT_URL           = "http://{1}:{2}/{3}/" -- 网站地址
 cls.IAPPPAY_ORDER        = "http://{1}:{2}/{3}/iapppayOrder" -- 创建爱贝订单
 cls.IAPPPAY_ENCRY        = "http://{1}:{2}/{3}/iapppayEncry" -- 创建爱贝WEB支付连接
 
+-- 微信登录地址
+cls.WECHAT_LOGIN 		 = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code"
+cls.WECHAT_APPID		 = "wx0f37654dde657d24"
+cls.WECHAT_APPSECRET	 = "9c17ebd946e0f0a024695c40ac7f54e5"
+cls.WECHAT_USER			 = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s"
+
 function cls:ctor()
 end
 

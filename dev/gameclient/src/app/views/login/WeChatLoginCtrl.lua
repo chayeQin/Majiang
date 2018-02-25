@@ -22,12 +22,12 @@ function cls:startLogin()
 end
 
 function cls:tokenHandler(v)
-	Api:call("test","login",{v})
 	local data = json.decode(v)
 	local token = data.token
-	if not token or token == "" then return end	-- 登录失败
-	Tips.new("登录成功")
-	local url = string.format(URLConfig.WECHAT_LOGIN,WECHAT_APPID,WECHAT_APPSECRET,token)
+	dump(token)
+	-- if not token or token == "" then print("登录失败") return end	-- 登录失败
+	local url = string.format(URLConfig.WECHAT_LOGIN,URLConfig.WECHAT_APPID,URLConfig.WECHAT_APPSECRET,token)
+	dump(url)
 	Http.load(url,handler(self,self.loginSuccessHandler),nil,function ()
 		print("login failed")
 	end)
@@ -45,23 +45,20 @@ end
 }
 ]]
 function cls:loginSuccessHandler(v)
-	Api:call("test","login",{v})
 	local data = json.decode(v)
 	if data and data.errcode and data.errcode ~= 0 then
 		print("获取access_token失败")
 		dump(data)
 		return
 	end
-	Tips.new("access_token成功")
 	data.expires_in_time = os.time() + data.expires_in
 	Util:save("access_token",data)
 	self:getUserInfo(data)
 end
 
 function cls:getUserInfo(data)
-	Api:call("test","login",{data})
+	dump(data)
 	local url = string.format(URLConfig.WECHAT_USER,data.access_token,data.openid)
-	Tips.new("getUserInfo成功")
 	Http.load(url,handler(self,self.startSeverLogin),nil,function ()
 		print("access_token failed")
 	end)
@@ -89,17 +86,33 @@ end
 function cls:startSeverLogin(v)
 	local data = json.decode(v)
 	if data == "" then return end
-end
-
-function cls:shareToFriend(content)
-	Api:call("WeChatSDK","shareToFriend",{content = content},function ()
-		Tips.new("分享成功")
+	dump(data)
+	local uid = data.openid
+	local nickname = data.nickname
+	local headimgurl = data.headimgurl or ""
+	GameProxy:login(uid,nickname,headimgurl,function (v)
+		dump(v)
+		Util:initTime(v.r.serverTime, v.r.serverTimeZone)
+		User:setUserInfo(v.r)
+		GameProxy:getRoomStatus(function(v2)
+			local roomId = tostring(v2.r)
+			User:setRoomId(roomId)
+			app:enterScene("scenes.MainScene")
+		end)
 	end)
 end
 
-function cls:shareToCircle(content)
-	Api:call("WeChatSDK","shareToCircle",{content = content},function ()
-		Tips.new("分享成功")
+function cls:shareToFriend(title,description)
+	Api:call("WeChatSDK","shareToFriend",{title = title, description = description},function ()
+		print("分享成功===============")
+		Msg.new("分享成功")
+	end)
+end
+
+function cls:shareToCircle(title,description)
+	Api:call("WeChatSDK","shareToCircle",{title = title, description = description},function ()
+		print("分享成功===============")
+		Msg.new("分享成功")
 	end)
 end
 

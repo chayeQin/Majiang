@@ -34,4 +34,8 @@ end
 function cls:updateUI()
 end
 
+function cls:btn_dismissHandler()
+	GameProxy:dismiss(nil, 1)
+end
+
 return cls

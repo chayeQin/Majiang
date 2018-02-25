@@ -191,7 +191,7 @@ function cls:onPlayersUpdate()
 		node:addTo(self)
 		node:x(posInfo[1])
 		node:y(posInfo[2])
-
+		node:bindUid(info.uid)
 		Util:label(info.nickname)
 			:addTo(self.iconNode)
 			:pos(node:x(), node:y() - 50)

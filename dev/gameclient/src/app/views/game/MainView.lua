@@ -9,6 +9,14 @@ local cls = class("MainView", cc.load("mvc").ViewBase)
 cls.RESOURCE_FILENAME = "csb/MainView.csb"
 
 cls.RESOURCE_BINDING = {
+	["btn_verify"] = {
+		varname = "btn_verify",
+		method = "btn_verifyHandler",
+	},
+	-- Text Label
+	["lab_notice"] = {
+		varname = "lab_notice",
+	},
 	["btn_service"] = {
 		varname = "btn_service",
 		method = "btn_serviceHandler",
@@ -110,7 +118,8 @@ function cls:btn_serviceHandler(target)
 end
 
 function cls:btn_addHandler(target)
-	self:btn_serviceHandler()
+	-- self:btn_serviceHandler()
+	require("app.views.game.common.ChargeView").new()
 end
 
 function cls:btn_activityHandler(target)
@@ -123,6 +132,10 @@ end
 
 function cls:btn_createHandler(target)
 	require("app.views.game.common.CreateRoom").new()
+end
+
+function cls:btn_verifyHandler(target)
+	require("app.views.game.common.VerificationView").new()
 end
 
 return cls

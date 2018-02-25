@@ -33,15 +33,17 @@ function cls:btn_closeHandler(target)
 end
 
 function cls:btn_wechatHandler(target)
-	-- TODO 微信分享
-	local content = ""
-	WeChatLoginCtrl:shareToCircle(content)
+	-- 微信分享
+	local description = "分享炼金棋牌测试"
+	local title = "炼金棋牌"
+	WeChatLoginCtrl:shareToFriend(title,description)
 end
 
 function cls:btn_friendHandler(target)
-	-- TODO 朋友圈分享
-	local content = ""
-	WeChatLoginCtrl:shareToFriend(content)
+	-- 朋友圈分享
+	local description = "分享炼金棋牌测试"
+	local title = "炼金棋牌"
+	WeChatLoginCtrl:shareToCircle(title,description)
 end
 
 return cls

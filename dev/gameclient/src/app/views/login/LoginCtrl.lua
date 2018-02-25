@@ -26,6 +26,7 @@ function cls:loginStart()
 	Util:tick(function()
 		Updater:checkUpdate(updateRhand)
 	end)
+	-- Util:event(Event.gameUpdateProgress, {state = Updater.STATE_UPDATE_FINISH, data = data})
 end
 
 function cls:loadServerRhand()

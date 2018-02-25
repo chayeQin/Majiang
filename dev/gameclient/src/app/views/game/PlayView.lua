@@ -134,7 +134,9 @@ function cls:onDoAction(event)
 	end
 
 
-	-- todo 出牌 
+	-- todo 出牌特效
+
+	-- todo 声音
 end
 
 function cls:onGameInfoUpdate()

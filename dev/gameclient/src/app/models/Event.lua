@@ -21,6 +21,7 @@ local keys = {
 	playerTing	   = "playerTing",					-- 听牌 
 	tingOptUpdate  = "tingOptUpdate",				-- 听牌的卡选项
 	tipsSendCard   = "tipsSendCard",				-- 出牌提示打出了的相同的牌
+	chatNotify	   = "chatNotify",					-- 聊天信息
 }
 	
 return keys

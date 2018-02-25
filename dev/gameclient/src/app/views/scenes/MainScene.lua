@@ -21,6 +21,7 @@ function cls:onEnter()
 	else
 		Util:event(Event.gameSwitch, "MainView")
 	end
+	Sound.music("sound/bgm")
 end
 
 function cls:onExit()

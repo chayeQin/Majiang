@@ -120,6 +120,7 @@ function cls:btnSendHandler(target)
 	local content = target.content
 	if not content then return end
 	GameProxy:sendChat(content,function ()
+		self:closeHandler()
 	end)
 end
 

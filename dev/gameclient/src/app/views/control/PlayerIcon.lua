@@ -12,10 +12,23 @@ function cls:ctor(url)
 	self:anchor(display.CENTER)
 	bg:addTo(self)
 		:center()
-	self.icon = Util:sprite("com/com_icon_head")
-	self.icon:addTo(self)
+	self.icon = Util:sprite("com/com_icon_head"):scale(1.1)
+	self.icon:addTo(self, -1)
 				:center()
 	self:loadIcon(url)
+	self:enableNodeEvents()
+end
+
+function cls:onEnter()
+	self.chatEventHandler = Util:addEvent(Event.chatNotify,handler(self,self.onChatHandler))
+end
+
+function cls:onExit()
+	Util:removeEvent(self.chatEventHandler)
+end
+
+function cls:bindUid(uid)
+	self.uid = uid
 end
 
 function cls:loadIcon(url,isStep)
@@ -42,6 +55,36 @@ function cls:loadIcon(url,isStep)
 			self:loadIcon(url, true)
 		end
 	end, false, nil, nil, false)
+end
+
+function cls:onChatHandler(event)
+	if not self.uid then return end
+	local params = event.params
+	local uid = params[1]
+	local content = params[2]
+	if self.uid ~= uid then return end
+	local contentNode = nil
+	if (string.find(content,"#") == 1) then
+		local id = Util:strSplit(content,"#")[1] or ""
+		if Util:exists(Util:path("biaoqing/" .. id)) then
+			contentNode = Util:sprite("biaoqing/" .. id)
+		end
+	else
+		contentNode = Util:label(content,24,Const.COLOR_GRAY)
+	end
+	if not contentNode then return end
+	local bg = Util:sprite9("com/com_img_panel2",24,24,24,24)
+	bg:size(contentNode:width() + 20,contentNode:height() + 20)
+	contentNode:addTo(bg)
+				:center()
+	bg:anchor(display.LEFT_BOTTOM)
+	bg:addTo(self)
+		:pos(self:width() / 2, self:height() / 2)
+	bg:run{
+	"seq",
+	{"delay",2},
+	{"remove"},
+}
 end
 
 return cls

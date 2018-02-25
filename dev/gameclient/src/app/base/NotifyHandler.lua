@@ -56,8 +56,9 @@ function cls:do_action(v)
 end
 
 function cls:chat(v)
-	local uid = v[1]
-	local content = v[2]
+	local uid = v.r[1]
+	local content = v.r[2]
+	Util:event(Event.chatNotify,uid,content)
 	dump(v)
 end
 

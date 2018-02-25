@@ -114,7 +114,8 @@ function cls:btn_startHandler()
 		self.nickName = usr
 		GameProxy:login(self.uid, self.nickName, headUrl, handler(self, self.onRegister))
 	else -- 从微信获取用户信息
-		GameProxy:login(uid, nickName, headUrl, handler(self, self.onLogin))
+		WeChatLoginCtrl:startLogin()
+		-- GameProxy:login(uid, nickName, headUrl, handler(self, self.onLogin))
 	end
 end
 
