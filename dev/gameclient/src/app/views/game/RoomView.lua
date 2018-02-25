@@ -60,10 +60,18 @@ cls.RESOURCE_BINDING = {
 }
 
 
+local ICON_POS_MAP = {
+	{80, 180},
+	{80, display.height/2},
+	{300, 680},
+	{1220, display.height/2}
+}
+
 function cls:ctor()
 	cls.super.ctor(self)
 	self.viewType = 0
-
+	self.playerNodes = {}
+	self.iconNode = display.newNode():addTo(self, 3)
 	-- Util:button("com/com_btn_create",function()
 	-- 	User.info.uid = "a08r47qbzx0"
 	-- 	User:setRoomInfo(Const.testRoomInfo)
@@ -90,9 +98,7 @@ function cls:onExit()
 end
 
 function cls:updateUI()
-	print("******RoomView:updateUI")
 	if not User:isInRoom() then -- 房间解散了
-		print("*******房间解散了")
 		Util:event(Event.gameSwitch, "MainView")
 		return
 	end
@@ -139,6 +145,57 @@ function cls:updateUI()
 	else
 		self:showReadyView()
 	end
+
+	self:onPlayersUpdate()
+end
+
+function cls:onPlayersUpdate()
+	for _, v in ipairs(self.playerNodes) do
+		v:remove()
+	end
+	self.playerNodes = {}
+
+	local indexMap = {}
+	local orig = 0
+	local sortKey = orig
+	-- 找出玩家自己的位置
+	for i, v in ipairs(User.roomInfo.players) do
+		if v.uid == User.info.uid then
+			sortKey = sortKey - 4
+
+			if not v.state then -- 未准备
+				GameProxy:ready()
+			end
+		else
+			sortKey = sortKey + 1
+		end
+		indexMap[i] = {i, sortKey}
+	end
+	table.sort(indexMap, function(v1, v2)
+		return v1[2] < v2[2]
+	end)
+
+	local posMap = {}
+	if User.info.maxSize == 2 then
+		posMap[1] = ICON_POS_MAP[1]
+		posMap[2] = ICON_POS_MAP[3]
+	else 
+		posMap = ICON_POS_MAP
+	end
+
+	for i, v in ipairs(indexMap) do
+		local posInfo = posMap[i]
+		local index = v[1]
+		local info = User.roomInfo.players[index]
+		local node = PlayerIcon.new(info.headimgurl)
+		node:addTo(self)
+		node:x(posInfo[1])
+		node:y(posInfo[2])
+
+		Util:label(info.nickname)
+			:addTo(self.iconNode)
+			:pos(node:x(), node:y() - 50)
+	end
 end
 
 function cls:showReadyView()
@@ -151,11 +208,10 @@ function cls:showReadyView()
 		self.view = nil
 	end
 
-
 	self.viewType = 1
 	self.view = require("app.views.game.ReadyView").new()
 	self.view:updateUI()
-	self.view:addTo(self)
+	self.view:addTo(self, 2)
 end
 
 function cls:showPlayView()
@@ -171,7 +227,7 @@ function cls:showPlayView()
 	self.viewType = 2
 	self.view = require("app.views.game.PlayView").new()
 	self.view:updateUI()
-	self.view:addTo(self)
+	self.view:addTo(self, 2)
 end
 
 function cls:btn_rulesHandler(target)

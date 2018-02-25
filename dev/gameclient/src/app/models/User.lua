@@ -14,6 +14,16 @@ local cls = class("User")
  "uid"        = "ae3vze31ach"
 
 
+"headimgurl" = ""
+"index"      = 0
+"nickname"   = "azj74l2yj9y"
+"num"        = 4
+"serverTime" = 1519568752
+"serverZone" = 28800000
+"state"      = true
+"uid"        = "azj74l2yj9y"
+
+
 房间信息 roomInfo
    roomId: 房间id
    status: 房间状态
@@ -56,7 +66,7 @@ local cls = class("User")
     type: 类型;1=自摸;2=胡牌;3=放炮
 
 ]]
-local test_table_pos = false
+local test_table_pos = true
 
 
 function cls:ctor()
