@@ -51,9 +51,9 @@ function cls:updateCards()
 	local x = 0
 	local y = 0
 	for i, group in ipairs(cardLst) do
-		table.sort(group, function(v1, v2)
-			return v1 < v2
-		end)
+		-- table.sort(group, function(v1, v2)
+		-- 	return v1 < v2
+		-- end)
 
 		for j, v in ipairs(group) do
 			local img = Majiang.new(self.tablePos + 4, math.abs(v))

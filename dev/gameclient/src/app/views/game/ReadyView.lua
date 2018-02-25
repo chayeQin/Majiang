@@ -20,7 +20,6 @@ cls.RESOURCE_BINDING = {
 }
 
 
-
 function cls:ctor()
 	cls.super.ctor(self)
 	self:enableNodeEvents()
